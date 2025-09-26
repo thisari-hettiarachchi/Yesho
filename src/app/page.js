@@ -8,14 +8,23 @@ export default function Home() {
   return (
     <div className="relative z-10">
       <Navbar />
-      <div className="absolute inset-0 -z-10 h-screen ">
-        <Image
-          src={bghero}
-          alt="hero background"
-          fill
-          className="object-cover opacity-40 rounded-b-4xl"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent rounded-2xl"></div>
+      <div className="absolute inset-0 -z-10 h-screen overflow-hidden">
+        <div
+          className="w-full h-full relative"
+          style={{
+            borderBottomLeftRadius: "10%",
+            borderBottomRightRadius: "10%",
+            overflow: "hidden",
+          }}
+        >
+          <Image
+            src={bghero}
+            alt="hero background"
+            fill
+            className="object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
+        </div>
       </div>
       <HomePage />
     </div>
