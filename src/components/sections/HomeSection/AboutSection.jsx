@@ -244,12 +244,18 @@ const AboutSection = () => {
                 ))}
               </motion.div>
 
-              <button className="flex items-center gap-3 text-white hover:text-red-500 transition-colors group">
-                <div className="w-12 h-12 rounded-full border-2 border-white group-hover:border-red-500 flex items-center justify-center transition-colors">
-                  <Play className="w-5 h-5 fill-current" />
+              <motion.button
+                className="flex items-center gap-3 text-white hover:text-red-500 transition-colors group"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: false }}
+              >
+                <div className="w-8 h-8 rounded-full border-2 border-white group-hover:border-red-500 flex items-center justify-center transition-colors">
+                  <Play className="w-4 h-4 fill-current" />
                 </div>
-                <span className="font-medium">WATCH INTRO</span>
-              </button>
+                <span className="font-sm">WATCH INTRO</span>
+              </motion.button>
             </motion.div>
           </div>
 
