@@ -1,19 +1,20 @@
 "use client";
-import React, { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Play, CheckCircle2, Sparkles } from "lucide-react";
-import { stats, teamMembers, services } from "@/utils";
-import { img2, img3, img4 } from "@/assets";
-import Image from "next/image";
+import { serviceImages, services, stats, teamMembers } from "@/utils";
 import StyledWrapper from "@/components/ui/StyledWrapper";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
+
 
 const AboutSection = () => {
   const headingRef = useRef();
   const containerRef = useRef();
+  const [selectedService, setSelectedService] = useState(0);
 
   useEffect(() => {
     if (!headingRef.current) return;
@@ -34,10 +35,12 @@ const AboutSection = () => {
     });
   }, []);
 
+  const currentImages = serviceImages[selectedService];
+
   return (
     <section
       ref={containerRef}
-      className="relative bg-black py-20 overflow-hidden top-[-100px]"
+      className="relative bg-black pt-32 pb-20 overflow-hidden top-[-120px]"
     >
       {/* Background gradient effects */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-900/20 rounded-full blur-3xl"></div>
@@ -78,7 +81,7 @@ const AboutSection = () => {
               garments.
             </motion.p>
 
-            <div className="bg-black flex items-center justify-center ">
+            <div className="bg-black flex items-center justify-center">
               <motion.div
                 className="mt-10 space-y-4 max-w-2xl w-full"
                 initial="hidden"
@@ -95,7 +98,7 @@ const AboutSection = () => {
                 {services.map((item, index) => (
                   <motion.div
                     key={index}
-                    className="group relative"
+                    className="group relative cursor-pointer"
                     variants={{
                       hidden: { opacity: 0, x: -30, filter: "blur(4px)" },
                       visible: {
@@ -104,24 +107,30 @@ const AboutSection = () => {
                         filter: "blur(0px)",
                         transition: {
                           duration: 0.7,
-                          ease: [0.22, 1, 0.36, 1], // Custom easing
+                          ease: [0.22, 1, 0.36, 1],
                         },
                       },
                     }}
+                    onClick={() => setSelectedService(index)}
                   >
                     {/* Animated background glow */}
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/10 to-purple-500/0 rounded-xl opacity-0 group-hover:opacity-100 blur-xl"
-                      initial={false}
-                      transition={{ duration: 0.4 }}
+                      className={`absolute inset-0 bg-gradient-to-r rounded-xl blur-xl transition-opacity duration-400 ${
+                        selectedService === index
+                          ? "from-slate-900 via-slate-900/20 to-transparent opacity-100"
+                          : "from-slate-900 via-slate-900/10 to-transparent opacity-0 group-hover:opacity-100"
+                      }`}
                     />
 
                     {/* Main content card */}
                     <motion.div
-                      className="relative flex items-center gap-3 p-2 rounded-xl bg-gradient-to-r from-zinc-900/50 to-zinc-800/30 border border-zinc-800/50 backdrop-blur-sm overflow-hidden"
+                      className={`relative flex items-center gap-3 p-2 rounded-xl backdrop-blur-sm overflow-hidden transition-all duration-300 ${
+                        selectedService === index
+                          ? "bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent border-2 border-slate-700/70"
+                          : "bg-gradient-to-r from-slate-900/50 to-slate-800/30 border border-slate-800/50"
+                      }`}
                       whileHover={{
                         scale: 1.02,
-                        borderColor: "rgba(239, 68, 68, 0.5)",
                         transition: { duration: 0.3 },
                       }}
                     >
@@ -136,10 +145,18 @@ const AboutSection = () => {
                       {/* Icon with animation */}
                       <motion.div
                         className="relative flex-shrink-0"
-                        whileHover={{ rotate: 360 }}
+                        animate={
+                          selectedService === index ? { rotate: 360 } : {}
+                        }
                         transition={{ duration: 0.6, ease: "easeInOut" }}
                       >
-                        <div className="absolute inset-0 bg-red-500 rounded-full blur-md opacity-50 group-hover:opacity-100 transition-opacity" />
+                        <div
+                          className={`absolute inset-0 rounded-full blur-md transition-opacity ${
+                            selectedService === index
+                              ? "opacity-100"
+                              : "opacity-50 group-hover:opacity-100"
+                          }`}
+                        />
                         <div className="relative w-8 h-8 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
                           <CheckCircle2 className="w-5 h-5 text-white" />
                         </div>
@@ -148,23 +165,15 @@ const AboutSection = () => {
                       {/* Text content */}
                       <div className="flex-1 relative z-10">
                         <motion.p
-                          className="text-sm md:text-sm lg:text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300"
-                          whileHover={{ x: 4 }}
-                          transition={{ duration: 0.2 }}
+                          className={`text-sm md:text-sm lg:text-sm font-medium transition-colors duration-300 ${
+                            selectedService === index
+                              ? "text-white"
+                              : "text-gray-300 group-hover:text-white"
+                          }`}
                         >
                           {item}
                         </motion.p>
                       </div>
-
-                      {/* Hover arrow indicator */}
-                      <motion.div
-                        className="flex-shrink-0 opacity-0 group-hover:opacity-100"
-                        initial={{ x: -10 }}
-                        whileHover={{ x: 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <Sparkles className="w-4 h-4 text-red-400" />
-                      </motion.div>
                     </motion.div>
                   </motion.div>
                 ))}
@@ -215,6 +224,7 @@ const AboutSection = () => {
                 </div>
               ))}
             </motion.div>
+
             {/* Team & Watch Intro */}
             <motion.div
               className="flex items-center gap-6 mt-8"
@@ -223,13 +233,7 @@ const AboutSection = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: false }}
             >
-              <motion.div
-                className="flex -space-x-4"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: false }}
-              >
+              <div className="flex -space-x-4">
                 {teamMembers.map((member, idx) => (
                   <div
                     key={idx}
@@ -242,80 +246,93 @@ const AboutSection = () => {
                     />
                   </div>
                 ))}
-              </motion.div>
+              </div>
 
-              <motion.button
-                className="flex items-center gap-3 text-white hover:text-red-500 transition-colors group"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: false }}
-              >
+              <button className="flex items-center gap-3 text-white hover:text-red-500 transition-colors group">
                 <div className="w-8 h-8 rounded-full border-2 border-white group-hover:border-red-500 flex items-center justify-center transition-colors">
                   <Play className="w-4 h-4 fill-current" />
                 </div>
                 <span className="font-sm">WATCH INTRO</span>
-              </motion.button>
+              </button>
             </motion.div>
           </div>
 
           {/* Right side - Images */}
           <div className="relative">
-            <motion.div
-              className="relative"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              {/* Main large image */}
-              <div className="relative rounded-2xl overflow-hidden mb-6 w-130 h-130">
-                <Image
-                  src={img4}
-                  alt="Team collaboration"
-                  className="w-full h-auto"
-                />
-              </div>
-
-              {/* Top right cards */}
-              <motion.div
-                className="absolute -top-6 -right-6 grid grid-cols-2 gap-4"
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <div className="relative rounded-xl  w-36 h-36">
+            <motion.div className="relative">
+              <AnimatePresence mode="wait">
+                {/* Main large image */}
+                <motion.div
+                  key={`main-${selectedService}`}
+                  className="relative rounded-2xl overflow-hidden mb-6 w-full h-96"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <Image
-                    src={img2}
-                    alt="Tech workspace"
-                    className="w-full h-full overflow-hidden object-cover"
-                  />
-                  <div className="absolute top-3  flex gap-2">
-                    <span className="px-3 py-1 bg-black/70 backdrop-blur-sm rounded-full text-white text-xs">
-                      Reviewing
-                    </span>
-                    <span className="px-3 py-1 bg-black/70 backdrop-blur-sm rounded-full text-white text-xs z-10">
-                      Mending
-                    </span>
-                  </div>
-                </div>
-
-                <div className="relative rounded-xl overflow-hidden w-36 h-36">
-                  <Image
-                    src={img3}
-                    alt="Team meeting"
+                    src={currentImages.main}
+                    alt="Service showcase"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-3 left-3 flex gap-2">
-                    <span className="px-3 py-1 bg-black/70 backdrop-blur-sm rounded-full text-white text-xs">
-                      Repair
-                    </span>
-                    <span className="px-3 py-1 bg-black/70 backdrop-blur-sm rounded-full text-white text-xs">
-                      Quality
-                    </span>
-                  </div>
-                </div>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Top right cards */}
+              <motion.div className="absolute -top-6 -right-6 grid grid-cols-2 gap-4">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`top1-${selectedService}`}
+                    className="relative rounded-xl w-36 h-36 overflow-hidden"
+                    initial={{ opacity: 0, x: 20, rotate: -5 }}
+                    animate={{ opacity: 1, x: 0, rotate: 0 }}
+                    exit={{ opacity: 0, x: -20, rotate: 5 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Image
+                      src={currentImages.top1}
+                      alt="Detail 1"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-3 left-3 flex gap-2 flex-wrap">
+                      {currentImages.tags1.map((tag, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1 bg-black/70 backdrop-blur-sm rounded-full text-white text-xs"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`top2-${selectedService}`}
+                    className="relative rounded-xl overflow-hidden w-36 h-36"
+                    initial={{ opacity: 0, x: 20, rotate: 5 }}
+                    animate={{ opacity: 1, x: 0, rotate: 0 }}
+                    exit={{ opacity: 0, x: -20, rotate: -5 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                  >
+                    <Image
+                      src={currentImages.top2}
+                      alt="Detail 2"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-3 left-3 flex gap-2 flex-wrap">
+                      {currentImages.tags2.map((tag, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1 bg-black/70 backdrop-blur-sm rounded-full text-white text-xs"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
               </motion.div>
 
               {/* Decorative element */}

@@ -7,7 +7,7 @@ import HomePage from "./Home/page";
 export default function Home() {
   return (
     <div className="z-10">
-      <div className="absolute inset-0 -z-10 h-screen overflow-hidden">
+      <div className="absolute inset-0 z-40 h-screen overflow-hidden">
         <div
           className="w-full h-full relative"
           style={{
@@ -20,9 +20,9 @@ export default function Home() {
             src={bghero}
             alt="hero background"
             fill
-            className="object-cover opacity-40"
+            className="object-cover opacity-40 z-50"
           />
-          <div className="absolute inset-0 max-h-screen bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
+          <div className="absolute inset-0 max-h-screen bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent z-60"></div>
         </div>
       </div>
       <HomePage />

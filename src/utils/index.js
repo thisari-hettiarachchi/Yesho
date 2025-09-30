@@ -1,4 +1,16 @@
-import { compliance, ecofriendly, skills, trust } from "@/assets";
+import {
+  compliance,
+  ecofriendly,
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  skills,
+  trust,
+} from "@/assets";
 
 const navLinks = [
   {
@@ -76,10 +88,10 @@ const linkSections = [
 ];
 
 const stats = [
-  { number: "10k+", label: "Completed Projects" },
-  { number: "15k", label: "Satisfied Customers" },
-  { number: "10K+", label: "Years Of Mastery" },
-  { number: "45+", label: "Worldwide Honors" },
+  { number: "10+", label: "Years Experience" },
+  { number: "500+", label: "Projects Done" },
+  { number: "100+", label: "Happy Clients" },
+  { number: "50+", label: "Team Members" },
 ];
 
 const teamMembers = [
@@ -95,10 +107,57 @@ const teamMembers = [
 ];
 
 const services = [
-  "High-Quality Reviewing",
-  "Expert Repair and Mending",
-  "Professional Stain Removal",
-  "Quality Assurance and Compliance Checks",
+  "Meticulous garment reviewing and quality inspection",
+  "Expert fabric and garment repair services",
+  "Professional stain removal techniques",
+  "Precision mending for all fabric types",
+  "Quality restoration of finished garments",
 ];
 
-export { navLinks, features, linkSections, stats, teamMembers, services };
+const serviceImages = [
+  {
+    main: img1,
+    top1: img5,
+    top2: img6,
+    tags1: ["Reviewing", "Quality"],
+    tags2: ["Inspection", "Detail"],
+  },
+  {
+    main: img2,
+    top1: img5,
+    top2: img7,
+    tags1: ["Repair", "Expert"],
+    tags2: ["Fix", "Restore"],
+  },
+  {
+    main: img3,
+    top1: img6,
+    top2: img7,
+    tags1: ["Stain", "Removal"],
+    tags2: ["Clean", "Pure"],
+  },
+  {
+    main: img4,
+    top1: img5,
+    top2: img7,
+    tags1: ["Mending", "Precision"],
+    tags2: ["Care", "Detail"],
+  },
+  {
+    main: img2,
+    top1: img5,
+    top2: img6,
+    tags1: ["Quality", "Garment"],
+    tags2: ["Finish", "Perfect"],
+  },
+];
+
+export {
+  navLinks,
+  features,
+  linkSections,
+  stats,
+  teamMembers,
+  services,
+  serviceImages,
+};
