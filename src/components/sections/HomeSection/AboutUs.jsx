@@ -202,7 +202,7 @@ const AboutUs = () => {
 
             {/* Stats */}
             <motion.div
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-8"
+              className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
