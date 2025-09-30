@@ -44,7 +44,7 @@ const AboutSection = () => {
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl"></div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-36 items-center">
           {/* Left side - Content */}
           <div>
             <motion.p
@@ -269,7 +269,7 @@ const AboutSection = () => {
               viewport={{ once: true }}
             >
               {/* Main large image */}
-              <div className="relative rounded-2xl overflow-hidden mb-6 w-150 h-150">
+              <div className="relative rounded-2xl overflow-hidden mb-6 w-130 h-130">
                 <Image
                   src={img4}
                   alt="Team collaboration"
@@ -285,23 +285,23 @@ const AboutSection = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                <div className="relative rounded-xl overflow-hidden w-40 h-40">
+                <div className="relative rounded-xl  w-36 h-36">
                   <Image
                     src={img2}
                     alt="Tech workspace"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full overflow-hidden object-cover"
                   />
-                  <div className="absolute top-3 left-3 flex gap-2">
+                  <div className="absolute top-3  flex gap-2">
                     <span className="px-3 py-1 bg-black/70 backdrop-blur-sm rounded-full text-white text-xs">
                       Reviewing
                     </span>
-                    <span className="px-3 py-1 bg-black/70 backdrop-blur-sm rounded-full text-white text-xs">
+                    <span className="px-3 py-1 bg-black/70 backdrop-blur-sm rounded-full text-white text-xs z-10">
                       Mending
                     </span>
                   </div>
                 </div>
 
-                <div className="relative rounded-xl overflow-hidden w-40 h-40">
+                <div className="relative rounded-xl overflow-hidden w-36 h-36">
                   <Image
                     src={img3}
                     alt="Team meeting"
