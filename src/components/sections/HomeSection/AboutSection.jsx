@@ -11,7 +11,7 @@ import StyledWrapper from "@/components/ui/StyledWrapper";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AboutUs = () => {
+const AboutSection = () => {
   const headingRef = useRef();
   const containerRef = useRef();
 
@@ -165,8 +165,6 @@ const AboutUs = () => {
                       >
                         <Sparkles className="w-4 h-4 text-red-400" />
                       </motion.div>
-
-                      
                     </motion.div>
                   </motion.div>
                 ))}
@@ -347,4 +345,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default AboutSection;
