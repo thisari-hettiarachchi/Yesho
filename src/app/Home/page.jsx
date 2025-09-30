@@ -1,4 +1,4 @@
-import AboutUs from '@/components/sections/HomeSection/AboutUs'
+import AboutUs from '@/components/sections/HomeSection/AboutSection'
 import HeroSection from '@/components/sections/HomeSection/HeroSection'
 import Section2 from '@/components/sections/HomeSection/WhyChoose'
 import React from 'react'
