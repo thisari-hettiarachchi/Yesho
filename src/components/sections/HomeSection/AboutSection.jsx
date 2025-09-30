@@ -7,6 +7,7 @@ import { Play, CheckCircle2, Sparkles } from "lucide-react";
 import { serviceImages, services, stats, teamMembers } from "@/utils";
 import StyledWrapper from "@/components/ui/StyledWrapper";
 import Image from "next/image";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,11 +58,11 @@ const AboutSection = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <span className="w-8 h-px bg-red-500"></span>
+              <span ref={headingRef} className="w-8 h-px bg-red-500 word"></span>
               <span ref={headingRef}>
                 <span className="word">Who</span>{" "}
-                <span className="word">are</span>{" "}
-                <span className="word">we</span>
+                <span className="word">we</span>{" "}
+                <span className="word">are</span>
               </span>
             </motion.p>
 
@@ -181,6 +182,7 @@ const AboutSection = () => {
             </div>
 
             <StyledWrapper>
+              <Link href="/aboutus">
               <motion.button
                 className="animated-button mt-8"
                 initial={{ opacity: 0, y: 40 }}
@@ -204,7 +206,8 @@ const AboutSection = () => {
                 >
                   <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
                 </svg>
-              </motion.button>
+                </motion.button>
+                </Link>
             </StyledWrapper>
 
             {/* Stats */}

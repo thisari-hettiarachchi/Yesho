@@ -7,7 +7,7 @@ import { navLinks } from "@/utils";
 
 const NavBar = () => {
   return (
-    <header className="w-full sticky top-0 z-20 ">
+    <header className="w-full sticky top-0 z-70 ">
       <nav className="mx-auto max-w-7xl px-6 md:px-10 pt-6 flex items-center justify-between text-slate-300 relative">
         {/* Left: Logo */}
         <div
