@@ -8,7 +8,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative z-30 min-h-screen flex items-center overflow-hidden">
+    <section className="relative z-60 min-h-screen flex items-center overflow-hidden">
       <div className="mx-auto max-w-7xl w-full">
         <div className="max-w-3xl">
           <SplitText

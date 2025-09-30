@@ -1,6 +1,7 @@
 import AboutUs from '@/components/sections/HomeSection/AboutSection'
 import HeroSection from '@/components/sections/HomeSection/HeroSection'
-import Section2 from '@/components/sections/HomeSection/WhyChoose'
+import ServicesSection from '@/components/sections/HomeSection/ServicesSection'
+import WhyChoose from '@/components/sections/HomeSection/WhyChoose'
 import React from 'react'
 
 const HomePage = () => {
@@ -8,7 +9,8 @@ const HomePage = () => {
     <div>
       <HeroSection />
       <AboutUs />
-      <Section2 />
+      <ServicesSection />
+      <WhyChoose/>
       
     </div>
   )
