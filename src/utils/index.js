@@ -112,34 +112,35 @@ const services = [
   {
     title: "Handling Color & Uneven Shading",
     description:
-      "Expert attention to color consistency and resolving uneven shading issues in garments.",
+      "We ensure that every garment achieves consistent color throughout, correcting any uneven shading, fading, or patchiness. Our experts analyze the fabric type and dye behavior to provide precise adjustments, guaranteeing that your products look uniform, professional, and visually appealing.",
     img: img1,
   },
   {
     title: "Comprehensive Garment & Textile Review",
     description:
-      "Thorough inspection and review of garments and textiles for quality and integrity.",
+      "Our team conducts a meticulous inspection of garments and textiles, assessing stitching, fabric quality, seams, and overall construction. We identify potential defects, weak points, and areas for improvement, providing detailed feedback to ensure every piece meets high-quality standards before reaching the market.",
     img: img2,
   },
   {
     title: "Expert Repair & Mending of Defects",
     description:
-      "Professional repair services to mend defects and restore garments to top condition.",
+      "From small tears and loose threads to more significant fabric damage, our skilled professionals expertly mend defects, restoring garments to their original condition. We use precise stitching techniques and high-quality materials to extend the lifespan of garments while maintaining their original look and feel.",
     img: img3,
   },
   {
     title: "Professional Stain Removal Services",
     description:
-      "Advanced techniques for removing stubborn stains while preserving fabric quality.",
+      "We specialize in removing stubborn stains such as oil, ink, wine, and more without damaging the fabric. Using advanced stain treatment methods and safe, fabric-specific solutions, we ensure that your garments are clean, fresh, and retain their original texture and color vibrancy.",
     img: img4,
   },
   {
     title: "Quality Assurance & Compliance Checks",
     description:
-      "Facilitating thorough quality assurance and compliance verification for garments.",
+      "Our QA process ensures that every garment meets industry standards and regulatory requirements. We perform thorough checks on fabric strength, stitching quality, sizing accuracy, and safety compliance. This service guarantees that your products are not only high-quality but also reliable and market-ready.",
     img: img5,
   },
 ];
+
 const serviceImages = [
   {
     main: img1,
