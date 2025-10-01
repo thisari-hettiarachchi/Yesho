@@ -106,14 +106,40 @@ const teamMembers = [
   },
 ];
 
-const services = [
-  "Meticulous garment reviewing and quality inspection",
-  "Expert fabric and garment repair services",
-  "Professional stain removal techniques",
-  "Precision mending for all fabric types",
-  "Quality restoration of finished garments",
-];
 
+
+const services = [
+  {
+    title: "Handling Color & Uneven Shading",
+    description:
+      "Expert attention to color consistency and resolving uneven shading issues in garments.",
+    img: img1,
+  },
+  {
+    title: "Comprehensive Garment & Textile Review",
+    description:
+      "Thorough inspection and review of garments and textiles for quality and integrity.",
+    img: img2,
+  },
+  {
+    title: "Expert Repair & Mending of Defects",
+    description:
+      "Professional repair services to mend defects and restore garments to top condition.",
+    img: img3,
+  },
+  {
+    title: "Professional Stain Removal Services",
+    description:
+      "Advanced techniques for removing stubborn stains while preserving fabric quality.",
+    img: img4,
+  },
+  {
+    title: "Quality Assurance & Compliance Checks",
+    description:
+      "Facilitating thorough quality assurance and compliance verification for garments.",
+    img: img5,
+  },
+];
 const serviceImages = [
   {
     main: img1,
