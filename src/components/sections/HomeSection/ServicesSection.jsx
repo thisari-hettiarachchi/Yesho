@@ -9,6 +9,7 @@ import { services } from "@/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
+
 const ServicesSection = () => {
   const sectionRef = useRef(null);
   const textSlidesRef = useRef([]);
@@ -61,13 +62,12 @@ const ServicesSection = () => {
     const imageSlides = imageSlidesRef.current;
     const section = sectionRef.current;
 
-    // Use percentages and viewport units for responsive scaling
     imageSlides.forEach((img, i) => {
       gsap.set(img, {
         opacity: 1,
         zIndex: i,
-        y: `${i * 3}%`, // Changed from fixed pixels to percentage
-        x: `${i * -2.5}%`, // Changed from fixed pixels to percentage
+        y: `${i * 3}%`,
+        x: `${i * -2.5}%`,
         rotation: i * -2.5 + 1,
       });
     });
@@ -80,7 +80,7 @@ const ServicesSection = () => {
         scrub: 1,
         pin: true,
         anticipatePin: 1,
-        invalidateOnRefresh: true, // Recalculate on resize
+        invalidateOnRefresh: true,
       },
     });
 
@@ -133,7 +133,6 @@ const ServicesSection = () => {
       }
     });
 
-    // Add resize handler to refresh ScrollTrigger
     const handleResize = () => {
       ScrollTrigger.refresh();
     };
@@ -149,8 +148,10 @@ const ServicesSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen pb-12 md:pb-20 mx-auto px-4 sm:px-8 md:px-12 lg:px-16 pt-12 md:pt-16"
+      className="relative min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-900/30 pb-12 md:pb-20 mx-auto px-4 sm:px-8 md:px-12 lg:px-16 pt-12 md:pt-16"
     >
+      <div className="absolute top-40 left-30 w-96 h-96 bg-red-900/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl"></div>
       {/* Top Center Heading */}
       <div className="text-center pt-4 md:pt-8 lg:pt-20">
         <h2
@@ -169,44 +170,66 @@ const ServicesSection = () => {
       </div>
 
       {/* Two Column Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-center container mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-28 items-center container mx-auto px-4 sm:px-6 lg:px-12 py-12 max-w-7xl">
         {/* Left Side - Text Content */}
-        <div className="relative h-[350px] sm:h-[400px] lg:h-[500px]">
+        <div className="relative h-[400px] sm:h-[450px] lg:h-[500px]">
           {services.map((service, i) => (
             <div
               key={`text-${i}`}
               ref={(el) => (textSlidesRef.current[i] = el)}
               className="absolute inset-0 flex flex-col justify-center opacity-0 px-2 sm:px-0"
             >
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-white">
-                {service.title}
-              </h3>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
-                {service.description}
-              </p>
+              <div className="bg-gradient-to-br from-gray-900 to-black p-10 rounded-2xl border border-gray-800 shadow-2xl">
+                <div className="flex items-center gap-6 mb-6">
+                  <div className="w-11 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                    <svg
+                      className="w-6 h-6 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl md:text-3xl font-bold text-white">
+                    {service.title}
+                  </h3>
+                </div>
+                <p className="text-sm sm:text-base md:text-base text-gray-300 leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
 
         {/* Right Side - Images */}
-        <div className="relative h-[350px] sm:h-[400px] lg:h-[500px]">
+        <div className="relative h-[400px] sm:h-[450px] lg:h-[500px]">
           {services.map((service, i) => (
             <div
               key={`image-${i}`}
               ref={(el) => (imageSlidesRef.current[i] = el)}
               className="absolute inset-0 flex items-center justify-center"
             >
-              <div className="relative w-[85%] h-[70%]">
-                <Image
-                  src={service.img}
-                  alt={service.title}
-                  fill
-                  sizes="(max-width: 768px) 85vw, (max-width: 1024px) 45vw, 40vw"
-                  className="rounded-xl shadow-2xl object-cover"
-                  style={{
-                    boxShadow: "0 15px 50px rgba(0, 0, 0, 0.4)",
-                  }}
-                />
+              <div className="relative w-[90%] h-[80%]">
+                <div className="absolute inset-0 bg-red-500 opacity-5 blur-3xl rounded-xl"></div>
+                <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl border border-gray-700/50">
+                  <Image
+                    src={service.img}
+                    alt={service.title}
+                    fill
+                    sizes="(max-width: 768px) 85vw, (max-width: 1024px) 45vw, 40vw"
+                    className="rounded-xl object-cover"
+                    style={{
+                      boxShadow: "0 20px 60px rgba(0, 0, 0, 0.6)",
+                    }}
+                  />
+                </div>
               </div>
             </div>
           ))}
