@@ -149,7 +149,7 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative  pb-12 md:pb-20">
+    <section ref={sectionRef} className="relative">
       {/* Pinned Content Section */}
       <div
         ref={contentRef}
