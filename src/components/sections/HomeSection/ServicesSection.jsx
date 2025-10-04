@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import SplitText from "gsap/SplitText";
 import { services } from "@/utils";
-import StyledWrapper from "@/components/ui/StyledWrapper";
+import StyledWrapper from "@/components/shared/StyledWrapper";
 import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -75,6 +75,9 @@ const ServicesSection = () => {
       });
     });
 
+    // Set first text slide to be visible initially
+    gsap.set(textSlides[0], { opacity: 1, y: 0 });
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: content,
@@ -89,11 +92,8 @@ const ServicesSection = () => {
 
     services.forEach((_, i) => {
       if (i === 0) {
-        tl.fromTo(
-          textSlides[i],
-          { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
-        );
+        // First slide is already visible, just add a small delay before transitions start
+        tl.to({}, { duration: 0.5 });
       } else {
         tl.to(
           textSlides[i - 1],

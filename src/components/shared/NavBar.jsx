@@ -19,8 +19,6 @@ const NavBar = () => {
           <Image
             src={logo}
             alt="logo"
-            width={40}
-            height={40}
             className="w-auto h-6 sm:h-8 md:h-16 object-contain transition-all duration-300"
           />
         </div>

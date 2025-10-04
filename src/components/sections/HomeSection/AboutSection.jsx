@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Play, CheckCircle2 } from "lucide-react";
 import { serviceImages, services, stats, teamMembers } from "@/utils";
-import StyledWrapper from "@/components/ui/StyledWrapper";
+import StyledWrapper from "@/components/shared/StyledWrapper";
 import Image from "next/image";
 import Link from "next/link";
 import SplitText from "gsap/SplitText";
