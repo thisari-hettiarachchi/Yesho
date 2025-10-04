@@ -24,16 +24,26 @@ const WhyChoose = () => {
       type: "chars, words",
     });
 
+    // Set initial visibility for heading and paragraph
+    gsap.set(headingSplit.chars, { opacity: 1, y: 0 });
+    gsap.set(paraSplit.chars, { opacity: 1, y: 0 });
+
+    // Set initial visibility for first card
+    if (cardsRef.current[0]) {
+      gsap.set(cardsRef.current[0], { opacity: 1, scale: 1, y: 0 });
+    }
+
     // Pin the entire section
     ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top top",
-      end: "+=3000", // Adjust this value based on how long you want the section pinned
+      end: "+=3000",
       pin: true,
       pinSpacing: true,
       scrub: 1,
     });
 
+    // Heading animation - only trigger when scrolling back up
     gsap.from(headingSplit.chars, {
       opacity: 0,
       y: 50,
@@ -43,10 +53,11 @@ const WhyChoose = () => {
       scrollTrigger: {
         trigger: headingRef.current,
         start: "top 80%",
-        toggleActions: "play none none reset",
+        toggleActions: "play none none reverse",
       },
     });
 
+    // Paragraph animation - only trigger when scrolling back up
     gsap.from(paraSplit.chars, {
       opacity: 0,
       y: 20,
@@ -56,7 +67,7 @@ const WhyChoose = () => {
       scrollTrigger: {
         trigger: paragraphRef.current,
         start: "top 85%",
-        toggleActions: "play none none reset",
+        toggleActions: "play none none reverse",
       },
     });
 
@@ -70,9 +81,9 @@ const WhyChoose = () => {
       },
     });
 
-    // Animate cards and lines sequentially
+    // Animate cards and lines sequentially (skip first card)
     cardsRef.current.forEach((card, index) => {
-      if (card) {
+      if (card && index > 0) {
         tl.fromTo(
           card,
           {
@@ -89,24 +100,24 @@ const WhyChoose = () => {
           },
           index * 0.3
         );
+      }
 
-        // Animate connecting line after each card (except the last one)
-        if (index < linesRef.current.length && linesRef.current[index]) {
-          tl.fromTo(
-            linesRef.current[index],
-            {
-              opacity: 0,
-              scaleX: 0,
-            },
-            {
-              opacity: 1,
-              scaleX: 1,
-              duration: 0.4,
-              ease: "power2.out",
-            },
-            index * 0.3 + 0.3
-          );
-        }
+      // Animate connecting line after each card (except the last one)
+      if (index < linesRef.current.length && linesRef.current[index]) {
+        tl.fromTo(
+          linesRef.current[index],
+          {
+            opacity: 0,
+            scaleX: 0,
+          },
+          {
+            opacity: 1,
+            scaleX: 1,
+            duration: 0.4,
+            ease: "power2.out",
+          },
+          index * 0.3 + 0.3
+        );
       }
     });
 
@@ -307,7 +318,7 @@ const WhyChoose = () => {
             <p className="text-gray-300 text-sm leading-relaxed">
               At YESHO Intelligence, we believe in building strong, long-term
               partnerships based on trust, transparency, and mutual growth. By
-              understanding each client’s unique needs, we deliver tailored
+              understanding each client's unique needs, we deliver tailored
               garment and textile solutions that not only solve problems but
               also add measurable value to your operations. Our philosophy
               revolves around reliability, proactive communication, and
