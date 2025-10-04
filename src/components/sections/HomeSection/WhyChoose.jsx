@@ -393,12 +393,12 @@ const WhyChoose = () => {
           ].map((item, idx) => (
             <motion.div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-900/70 border border-blue-400/30 shadow-lg flex flex-col items-center text-center"
+              className="p-6 rounded-2xl bg-red-950/20 border border-red-400/20 shadow-lg flex flex-col items-center text-center"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.2, duration: 0.6 }}
             >
-              <span className="text-3xl text-blue-400 mb-3">✔</span>
+              <span className="text-3xl text-red-500 mb-3">✔</span>
               <h4 className="text-white text-base font-semibold">{item}</h4>
             </motion.div>
           ))}
