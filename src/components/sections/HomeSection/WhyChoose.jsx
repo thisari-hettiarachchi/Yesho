@@ -7,12 +7,13 @@ import gsap from "gsap";
 import SplitText from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const WhyChoose = () => {
   const sectionRef = useRef();
   const headingRef = useRef();
   const paragraphRef = useRef();
+  const extendedParaRef = useRef();
   const cardsRef = useRef([]);
   const linesRef = useRef([]);
 
@@ -24,100 +25,126 @@ const WhyChoose = () => {
       type: "chars, words",
     });
 
-    // Set initial visibility for heading and paragraph
-    gsap.set(headingSplit.chars, { opacity: 1, y: 0 });
-    gsap.set(paraSplit.chars, { opacity: 1, y: 0 });
+    // Set initial state - everything hidden
+    gsap.set(headingSplit.chars, { opacity: 0, y: 50 });
+    gsap.set(paraSplit.chars, { opacity: 0, y: 20 });
+    gsap.set(cardsRef.current, { opacity: 0, scale: 0.9, y: 30 });
+    gsap.set(linesRef.current, { opacity: 0, scaleX: 0 });
+    gsap.set(extendedParaRef.current, { opacity: 0, y: 30 });
 
-    // Set initial visibility for first card
-    if (cardsRef.current[0]) {
-      gsap.set(cardsRef.current[0], { opacity: 1, scale: 1, y: 0 });
-    }
-
-    // Pin the entire section
-    ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: "top top",
-      end: "+=3000",
-      pin: true,
-      pinSpacing: true,
-      scrub: 1,
-    });
-
-    // Heading animation - only trigger when scrolling back up
-    gsap.from(headingSplit.chars, {
-      opacity: 0,
-      y: 50,
+    // Heading animation
+    gsap.to(headingSplit.chars, {
+      opacity: 1,
+      y: 0,
       stagger: 0.05,
       duration: 1,
       ease: "back.out(1.7)",
       scrollTrigger: {
         trigger: headingRef.current,
         start: "top 80%",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none reset",
       },
     });
 
-    // Paragraph animation - only trigger when scrolling back up
-    gsap.from(paraSplit.chars, {
-      opacity: 0,
-      y: 20,
+    // Paragraph animation
+    gsap.to(paraSplit.chars, {
+      opacity: 1,
+      y: 0,
       stagger: 0.02,
       duration: 0.8,
       ease: "power2.out",
       scrollTrigger: {
         trigger: paragraphRef.current,
         start: "top 85%",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none reset",
       },
     });
 
-    // Create a timeline for sequential card animations
-    const tl = gsap.timeline({
+    // Pin the entire section
+    ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top top",
+      end: "+=1500",
+      pin: true,
+      pinSpacing: true,
+      scrub: 1,
+    });
+
+    // Animate first card and extended paragraph automatically (no scroll trigger)
+    gsap.to(cardsRef.current[0], {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      delay: 0.5,
+    });
+
+    gsap.to(extendedParaRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      delay: 0.5,
+    });
+
+    // Create master timeline for remaining cards and lines
+    const masterTL = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: "+=2500",
+        end: "+=1500",
         scrub: 1,
       },
     });
 
-    // Animate cards and lines sequentially (skip first card)
+    // Animate first connecting line on scroll
+    if (linesRef.current[0]) {
+      masterTL.to(
+        linesRef.current[0],
+        {
+          opacity: 1,
+          scaleX: 1,
+          duration: 0.3,
+          ease: "power2.out",
+        },
+        0.3
+      );
+    }
+
+    // Animate remaining cards and lines sequentially
     cardsRef.current.forEach((card, index) => {
       if (card && index > 0) {
-        tl.fromTo(
+        const startTime = 0.6 + (index - 1) * 0.3;
+
+        // Card animation
+        masterTL.to(
           card,
-          {
-            opacity: 0,
-            scale: 0.9,
-            y: 30,
-          },
           {
             opacity: 1,
             scale: 1,
             y: 0,
-            duration: 0.5,
+            duration: 0.08,
             ease: "power2.out",
           },
-          index * 0.3
+          startTime
         );
-      }
 
-      // Animate connecting line after each card (except the last one)
-      if (index < linesRef.current.length && linesRef.current[index]) {
-        tl.fromTo(
-          linesRef.current[index],
-          {
-            opacity: 0,
-            scaleX: 0,
-          },
-          {
-            opacity: 1,
-            scaleX: 1,
-            duration: 0.4,
-            ease: "power2.out",
-          },
-          index * 0.3 + 0.3
-        );
+        // Animate connecting line after each card (except the last one)
+        if (index < linesRef.current.length && linesRef.current[index]) {
+          const lineStartTime = startTime + 0.04;
+
+          masterTL.to(
+            linesRef.current[index],
+            {
+              opacity: 1,
+              scaleX: 1,
+              duration: 0.1,
+              ease: "power2.out",
+            },
+            lineStartTime
+          );
+        }
       }
     });
 
@@ -226,6 +253,7 @@ const WhyChoose = () => {
                       height: "200px",
                       zIndex: 5,
                       alignSelf: "center",
+                      transformOrigin: "left center",
                     }}
                   >
                     {/* Curved Dashed SVG Line */}
@@ -265,9 +293,13 @@ const WhyChoose = () => {
                         stroke={`url(#gradient-${index})`}
                         strokeWidth="2"
                         strokeDasharray="6 4"
+                        strokeDashoffset="0"
                         fill="none"
                         strokeLinecap="round"
                         className="connection-path"
+                        style={{
+                          animation: "dashFlow 1.5s linear infinite",
+                        }}
                       />
                     </svg>
                   </div>
@@ -277,13 +309,22 @@ const WhyChoose = () => {
           </div>
         </div>
 
+        {/* Add keyframe animation for dashes */}
+        <style jsx>{`
+          @keyframes dashFlow {
+            from {
+              stroke-dashoffset: 0;
+            }
+            to {
+              stroke-dashoffset: 10;
+            }
+          }
+        `}</style>
+
         {/* Extended Paragraph */}
-        <motion.div
+        <div
+          ref={extendedParaRef}
           className="mt-12 max-w-4xl mx-auto text-center space-y-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: false }}
         >
           <p className="text-gray-300 text-lg leading-relaxed">
             At{" "}
@@ -299,9 +340,7 @@ const WhyChoose = () => {
             <span className="text-red-400 font-semibold">quality</span>, and{" "}
             <span className="text-red-400 font-semibold">perfection</span>.
           </p>
-        </motion.div>
-
-        {/* Vision & Mission */}
+        </div>
 
         {/* Philosophy & Compliance */}
         <motion.div
