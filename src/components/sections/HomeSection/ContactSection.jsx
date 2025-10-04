@@ -53,10 +53,10 @@ const ContactSection = () => {
                 Our team can respond in real time.
               </p>
               <a
-                href="mailto:hello@slothui.com"
+                href="mailto:info@yeshoint.com"
                 className="text-red-500 hover:text-red-400 transition-colors text-sm font-medium"
               >
-                hello@slothui.com
+                info@yeshoint.com
               </a>
             </div>
           </div>
@@ -74,8 +74,8 @@ const ContactSection = () => {
               <p className="text-gray-400 mb-4 text-sm">
                 Visit our location in real life.
               </p>
-              <p className="text-gray-300 text-sm font-medium">
-                221b Elementary Avenue, NY
+              <p className="text-red-500 hover:text-red-400 text-sm font-medium">
+                207/7 Dahampasal MW, Pahala Bomiriya. Kaduwela. Sri Lanka
               </p>
             </div>
           </div>
@@ -93,12 +93,20 @@ const ContactSection = () => {
               <p className="text-gray-400 mb-4 text-sm">
                 Available during working hours.
               </p>
-              <a
-                href="tel:+12344567789"
-                className="text-red-500 hover:text-red-400 transition-colors text-sm font-medium"
-              >
-                (+1) 234 - 4567 - 789
-              </a>
+              <div className="flex gap-4">
+                <a
+                  href="tel:+94777722485"
+                  className="text-red-500 hover:text-red-400 transition-colors text-sm font-medium"
+                >
+                  (+94) 777 - 722 - 485
+                </a>
+                <a
+                  href="tel:+94711155055"
+                  className="text-red-500 hover:text-red-400 transition-colors text-sm font-medium"
+                >
+                  (+94) 711 - 155 - 055
+                </a>
+              </div>
             </div>
           </div>
         </div>
