@@ -16,7 +16,7 @@ const ContactSection = () => {
           <h1 className="text-5xl md:text-6xl font-bold text-(color:var(--foreground)) mb-6">
             Contact <span className="text-red-600">Us</span>
           </h1>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-(color:var(--muted-foreground)) text-lg max-w-2xl mx-auto">
             Get in touch with us for expert garment restoration services. We're
             here to help you achieve excellence.
           </p>
