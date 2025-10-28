@@ -31,7 +31,7 @@ const ContactSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100" />
                 <div className="relative w-full max-w-[480px] h-[260px] flex flex-col justify-between border border-zinc-800 rounded-2xl p-8 hover:border-red-600/50 transition-all duration-500">
                   <div>
-                    <div className="w-14 h-14 bg-red-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                    <div className="w-14 h-14 bg-red-600/85 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                       <Icon className="w-7 h-7 text-(color:var(--foreground))" />
                     </div>
                     <h3 className="text-2xl font-semibold text-(color:var(--foreground)) mb-3">
