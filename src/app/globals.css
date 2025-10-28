@@ -3,6 +3,20 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --muted-foreground: #475569; /* slate-600 */
+  --overlay: rgba(255, 255, 255, 0.92);
+  --navbar-glass: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.06),
+    rgba(0, 0, 0, 0.09),
+    rgba(0, 0, 0, 0.06)
+  );
+  --navbar-transparent: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0)
+  );
 }
 
 @theme inline {
@@ -16,6 +30,14 @@
   :root {
     --background: #000000;
     --foreground: #ededed;
+    --muted-foreground: #94a3b8;
+    --overlay: rgba(15, 23, 42, 0.85);
+    --navbar-glass: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.18),
+      rgba(255, 255, 255, 0.12)
+    );
   }
 }
 
@@ -23,5 +45,31 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.light {
+  --background: #ffffff;
+  --foreground: #171717;
+  --muted-foreground: #475569;
+  --overlay: rgba(255, 255, 255, 0.92);
+  --navbar-glass: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.06),
+    rgba(0, 0, 0, 0.09),
+    rgba(0, 0, 0, 0.06)
+  );
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #ededed;
+  --muted-foreground: #94a3b8;
+  --overlay: rgba(15, 23, 42, 0.85);
+  --navbar-glass: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.12)
+  );
 }
 
