@@ -64,7 +64,7 @@ const WhyChoose = () => {
     ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top top",
-      end: "+=1500",
+      end: "+=1000",
       pin: true,
       pinSpacing: true,
       scrub: 1,
@@ -93,7 +93,7 @@ const WhyChoose = () => {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: "+=1500",
+        end: "+=1000",
         scrub: 1,
       },
     });
@@ -171,19 +171,19 @@ const WhyChoose = () => {
         <div className="text-center mt-16">
           <h2
             ref={headingRef}
-            className="text-4xl md:text-5xl font-bold text-white mb-3"
+            className="text-4xl md:text-5xl font-bold text-(color:var(--foreground)) mb-3"
           >
             Why Choose <span className="text-red-500">YESHO</span>
           </h2>
 
           <p
             ref={paragraphRef}
-            className="text-gray-300 text-base max-w-xl mx-auto mt-6"
+            className="text-text-(color:var(--foreground)) text-base max-w-xl mx-auto mt-6"
           >
             Excellence in{" "}
-            <span className="text-white font-semibold">quality</span>,{" "}
-            <span className="text-white font-semibold">trust</span>, and{" "}
-            <span className="text-white font-semibold">perfection</span>.
+            <span className="text-(color:var(--foreground)) font-semibold">quality</span>,{" "}
+            <span className="text-(color:var(--foreground)) font-semibold">trust</span>, and{" "}
+            <span className="text-(color:var(--foreground)) font-semibold">perfection</span>.
           </p>
         </div>
 
@@ -196,7 +196,7 @@ const WhyChoose = () => {
                 {/* Card */}
                 <div
                   ref={(el) => (cardsRef.current[index] = el)}
-                  className="group relative flex flex-col items-center text-center backdrop-blur-xl rounded-2xl px-6 py-8 shadow-2xl border border-blue-500/40 hover:border-blue-400/70 hover:shadow-blue-500/40 transform hover:scale-105 transition-all duration-300 w-72 bg-slate-900/70"
+                  className="group relative flex flex-col items-center text-center backdrop-blur-xl rounded-2xl px-6 py-8 shadow-2xl border-2 border-blue-500/80 hover:border-blue-400/80 hover:shadow-blue-500/40 transform hover:scale-105 transition-all duration-300 w-72 bg-(color:var(--background))/70 hover:bg-(color:var(--background))/80"
                   style={{
                     boxShadow:
                       "0 10px 40px 0 rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
@@ -223,18 +223,18 @@ const WhyChoose = () => {
                   </div>
 
                   {/* Content */}
-                  <h3 className="font-semibold text-white text-[14px] mb-2 tracking-tight">
+                  <h3 className="font-semibold text-(color:var(--foreground)) text-[14px] mb-2 tracking-tight">
                     {feature.title}
                   </h3>
 
                   {feature.subtitle && (
-                    <p className="text-red-300 text-[12px] font-semibold uppercase mb-1 tracking-wider">
+                    <p className="text-red-500 text-[12px] font-semibold uppercase mb-1 tracking-wider">
                       {feature.subtitle}
                     </p>
                   )}
 
                   {feature.description && (
-                    <p className="text-gray-300/80 text-[11px] leading-relaxed">
+                    <p className="text-text-(color:var(--foreground))/80 text-[11px] leading-relaxed">
                       {feature.description}
                     </p>
                   )}
@@ -326,82 +326,20 @@ const WhyChoose = () => {
           ref={extendedParaRef}
           className="mt-12 max-w-4xl mx-auto text-center space-y-4"
         >
-          <p className="text-gray-300 text-lg leading-relaxed">
+          <p className="text-text-(color:var(--foreground)) text-lg leading-relaxed">
             At{" "}
-            <span className="text-white font-semibold">YESHO Intelligence</span>
+            <span className="text-(color:var(--foreground)) font-semibold">YESHO Intelligence</span>
             , we are partners in your journey toward excellence, helping you
             achieve long-term success through quality, compliance, and
             innovation.
           </p>
-          <p className="text-gray-300 text-lg leading-relaxed">
+          <p className="text-text-(color:var(--foreground)) text-lg leading-relaxed">
             We ensure every garment exceeds industry standards, building your
             reputation for{" "}
-            <span className="text-red-400 font-semibold">trust</span>,{" "}
-            <span className="text-red-400 font-semibold">quality</span>, and{" "}
-            <span className="text-red-400 font-semibold">perfection</span>.
+            <span className="text-red-500 font-semibold">trust</span>,{" "}
+            <span className="text-red-500 font-semibold">quality</span>, and{" "}
+            <span className="text-red-500 font-semibold">perfection</span>.
           </p>
-        </div>
-
-        {/* Philosophy & Compliance */}
-        <motion.div
-          className="mt-12 max-w-4xl mx-auto text-center space-y-8"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          {/* Client Partnership Philosophy */}
-          <div>
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Client Partnership Philosophy
-            </h3>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              At YESHO Intelligence, we believe in building strong, long-term
-              partnerships based on trust, transparency, and mutual growth. By
-              understanding each client's unique needs, we deliver tailored
-              garment and textile solutions that not only solve problems but
-              also add measurable value to your operations. Our philosophy
-              revolves around reliability, proactive communication, and
-              consistently exceeding expectations, ensuring that your success is
-              always our priority.
-            </p>
-          </div>
-
-          {/* Compliance and Certificates */}
-          <div className="mt-10">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Compliance and Certificates
-            </h3>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              We adhere strictly to all industry compliance standards, holding
-              all necessary certifications to guarantee quality, safety, and
-              ethical operations. Our processes are aligned with global
-              benchmarks, ensuring that every garment and textile we handle
-              meets the highest quality requirements. By maintaining rigorous
-              compliance and certification practices, we give our clients peace
-              of mind and confidence in every aspect of our service.
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Core Competencies */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16 max-w-6xl mx-auto">
-          {[
-            "High-Quality Reviewing",
-            "Expert Repair & Mending",
-            "Professional Stain Removal",
-            "Quality Assurance & Compliance Checks",
-          ].map((item, idx) => (
-            <motion.div
-              key={idx}
-              className="p-6 rounded-2xl bg-red-950/20 border border-red-400/20 shadow-lg flex flex-col items-center text-center"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.2, duration: 0.6 }}
-            >
-              <span className="text-3xl text-red-500 mb-3">✔</span>
-              <h4 className="text-white text-base font-semibold">{item}</h4>
-            </motion.div>
-          ))}
         </div>
       </div>
     </section>
