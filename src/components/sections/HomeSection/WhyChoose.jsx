@@ -158,7 +158,7 @@ const WhyChoose = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden pb-20 bg-gradient-to-b from-slate-950 via-blue-950/20 to-slate-950 py-20"
+      className="relative overflow-hidden pb-20 py-20"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
