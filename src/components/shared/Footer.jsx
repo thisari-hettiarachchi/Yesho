@@ -7,7 +7,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <div className="px-6 md:px-16 lg:px-24 xl:px-32">
-      <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-gray-500/30 text-gray-500">
+      <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-gray-500/30 text-gray-700">
         <div>
           <Image
             src={logo}
@@ -23,7 +23,7 @@ const Footer = () => {
         <div className="flex flex-wrap justify-between w-full md:w-[45%] gap-5">
           {linkSections.map((section, index) => (
             <div key={index}>
-              <h3 className="font-semibold text-base text-gray-200 md:mb-5 mb-2">
+              <h3 className="font-semibold text-base text-gray-700 md:mb-5 mb-2">
                 {section.title}
               </h3>
               <ul className="text-sm space-y-1">
@@ -39,9 +39,9 @@ const Footer = () => {
           ))}
         </div>
       </div>
-      <p className="py-4 text-center text-sm md:text-sm text-gray-500/80">
+      <p className="py-4 text-center text-sm md:text-sm text-gray-700">
         Copyright {new Date().getFullYear()} ©{" "}
-        <span className="hover:text-gray-400 transition-colors">
+        <span className="hover:text-gray-800 transition-colors">
           Yesho Intelligence
         </span>{" "}
         All Rights Reserved.

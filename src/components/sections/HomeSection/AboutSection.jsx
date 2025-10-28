@@ -53,13 +53,13 @@ const AboutSection = () => {
           <div>
             <h2
               ref={headingRef}
-              className="text-4xl md:text-5xl font-bold text-white mb-3"
+              className="text-4xl md:text-5xl font-bold text-(color:var(--foreground))"
             >
               WHO <span className="text-red-500">WE ARE</span>
             </h2>
 
             <motion.p
-              className="text-white text-sm leading-relaxed mt-8"
+              className="text-(color:var(--foreground)) text-sm leading-relaxed mt-8"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -74,7 +74,7 @@ const AboutSection = () => {
               garments.
             </motion.p>
 
-            <div className="bg-black flex items-center justify-center">
+            <div className="bg-(color:var(--background)) flex items-center justify-center">
               <motion.div
                 className="mt-10 space-y-4 max-w-2xl w-full"
                 initial="hidden"
@@ -106,21 +106,12 @@ const AboutSection = () => {
                     }}
                     onClick={() => setSelectedService(index)}
                   >
-                    {/* Animated background glow */}
-                    <motion.div
-                      className={`absolute inset-0 bg-gradient-to-r rounded-xl blur-xl transition-opacity duration-400 ${
-                        selectedService === index
-                          ? "from-slate-900 via-slate-900/20 to-transparent opacity-100"
-                          : "from-slate-900 via-slate-900/10 to-transparent opacity-0 group-hover:opacity-100"
-                      }`}
-                    />
-
                     {/* Main content card */}
                     <motion.div
                       className={`relative flex items-center gap-3 p-2 rounded-xl backdrop-blur-sm overflow-hidden transition-all duration-300 ${
                         selectedService === index
-                          ? "bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent border-2 border-slate-700/70"
-                          : "bg-gradient-to-r from-slate-900/50 to-slate-800/30 border border-slate-800/50"
+                          ? "bg-slate-400/30 border border-red-500 hover:bg-slate-400/30 hover:border-red-400"
+                          : "bg-slate-300/10 border border-slate-700/50 hover:bg-slate-400/30 hover:border-(color:var(--foreground)"
                       }`}
                       whileHover={{
                         scale: 1.02,
@@ -151,7 +142,7 @@ const AboutSection = () => {
                           }`}
                         />
                         <div className="relative w-8 h-8 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
-                          <CheckCircle2 className="w-5 h-5 text-white" />
+                          <CheckCircle2 className="w-5 h-5 text-(color:var(--foreground))" />
                         </div>
                       </motion.div>
 
@@ -160,8 +151,8 @@ const AboutSection = () => {
                         <motion.p
                           className={`text-sm md:text-sm lg:text-sm font-medium transition-colors duration-300 ${
                             selectedService === index
-                              ? "text-white"
-                              : "text-gray-300 group-hover:text-white"
+                              ? "text-(color:var(--foreground))"
+                              : "text-(color:var(--foreground)) group-hover:text-(color:var(--muted-foreground))"
                           }`}
                         >
                           {item.title}
@@ -212,10 +203,10 @@ const AboutSection = () => {
             >
               {stats.map((stat, idx) => (
                 <div key={idx}>
-                  <h3 className="text-3xl md:text-3xl font-bold text-white mb-2">
+                  <h3 className="text-3xl md:text-3xl font-bold text-(color:var(--foreground)) mb-2">
                     {stat.number}
                   </h3>
-                  <p className="text-gray-400 text-sm">{stat.label}</p>
+                  <p className="text-gray-600 text-sm">{stat.label}</p>
                 </div>
               ))}
             </motion.div>
@@ -243,7 +234,7 @@ const AboutSection = () => {
                 ))}
               </div>
 
-              <button className="flex items-center gap-3 text-white hover:text-red-500 transition-colors group cursor-pointer">
+              <button className="flex items-center gap-3 text-(color:var(--foreground)) hover:text-red-500 transition-colors group cursor-pointer">
                 <div className="w-8 h-8 rounded-full border-2 border-white group-hover:border-red-500 flex items-center justify-center transition-colors">
                   <Play className="w-4 h-4 fill-current" />
                 </div>
