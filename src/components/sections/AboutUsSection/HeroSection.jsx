@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import StyledWrapper from "@/components/shared/StyledWrapper";
 import { about } from "@/assets";
+import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -44,8 +45,9 @@ const HeroSection = () => {
             className="pt-2"
           >
             <StyledWrapper>
-              <button className="bg-transparent border-2 border-red-600 text-white px-10 py-3 rounded-full text-base font-medium hover:bg-red-600 transition-all duration-300">
+              <button className="inline-flex items-center gap-2 px-8 py-3 border-2 border-red-500 text-red-500 rounded-full font-semibold hover:bg-red-500 hover:text-white transition-all duration-300">
                 Explore
+                <ArrowRight size={20} />
               </button>
             </StyledWrapper>
           </motion.div>
