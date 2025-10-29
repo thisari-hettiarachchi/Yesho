@@ -4,11 +4,36 @@ import Image from "next/image";
 import { quality, integrity, commintment, sustainability, innovation } from "@/assets";
 
 const values = [
-  { id: 1, number: "01", icon: quality, title: "Quality", description: "We adhere to the standards, methods precision and care." },
-  { id: 2, number: "02", icon: integrity, title: "Integrity", description: "We uphold honesty and transparency in every interaction." },
-  { id: 3, number: "03", icon: commintment, title: "Commitment", description: "Dedicated to exceeding client expectations." },
-  { id: 4, number: "04", icon: sustainability, title: "Sustainability", description: "Environmentally friendly garment restoration for a greener industry." },
-  { id: 5, number: "05", icon: innovation, title: "Innovation", description: "Leveraging cutting-edge techniques to deliver the best results." },
+  { id: 1, 
+    number: "01", 
+    icon: quality, 
+    title: "Quality", 
+    description: "We adhere to the standards, methods precision and care." 
+  },
+  { id: 2, 
+    number: "02", 
+    icon: integrity, 
+    title: "Integrity", 
+    description: "We uphold honesty and transparency in every interaction." 
+  },
+  { id: 3, 
+    number: "03", 
+    icon: commintment, 
+    title: "Commitment", 
+    description: "Dedicated to exceeding client expectations." 
+  },
+  { id: 4, 
+    number: "04", 
+    icon: sustainability, 
+    title: "Sustainability", 
+    description: "Environmentally friendly garment restoration for a greener industry." 
+  },
+  { id: 5, 
+    number: "05", 
+    icon: innovation, 
+    title: "Innovation", 
+    description: "Leveraging cutting-edge techniques to deliver the best results." 
+  },
 ];
 
 const ValuesSection = () => {
@@ -16,7 +41,7 @@ const ValuesSection = () => {
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* First row: Title + first 2 cards */}
+        {/* First row*/}
         <div className="grid grid-cols-3 gap-6 items-start">
           {/* Title */}
           <div className="col-span-1">
@@ -57,7 +82,7 @@ const ValuesSection = () => {
                 </div>
 
                 {/* Icon inside card */}
-                <div className="absolute top-6 right-6 w-16 h-16">
+                <div className="absolute top-2 right-6 w-20 h-20">
                   <Image src={value.icon} alt={value.title} fill className="object-contain" />
                 </div>
               </div>
@@ -65,7 +90,7 @@ const ValuesSection = () => {
           ))}
         </div>
 
-        {/* Second row: remaining 3 cards aligned with title */}
+        {/* Second row */}
         <div className="flex flex-wrap gap-6 mt-8" >
           {values.slice(2).map((value) => (
             <motion.div
@@ -88,7 +113,7 @@ const ValuesSection = () => {
               </div>
 
               {/* Icon inside card */}
-              <div className="absolute top-6 right-6 w-16 h-16">
+              <div className="absolute top-2 right-6 w-20 h-20">
                 <Image src={value.icon} alt={value.title} fill className="object-contain" />
               </div>
             </motion.div>
