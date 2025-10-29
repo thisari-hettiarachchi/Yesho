@@ -66,7 +66,7 @@ const ValuesSection = () => {
         </div>
 
         {/* Second row: remaining 3 cards aligned with title */}
-        <div className="flex flex-wrap gap-6 mt-8" style={{ marginLeft: "calc(1/3 * 100%)" }}>
+        <div className="flex flex-wrap gap-6 mt-8" >
           {values.slice(2).map((value) => (
             <motion.div
               key={value.id}
@@ -74,7 +74,7 @@ const ValuesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: false }}
-              className="flex-1 min-w-[250px] max-w-[300px] relative bg-white border-2 border-red-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300"
+              className="flex-1 min-w-[250px] max-w-[390px] relative bg-white border-2 border-red-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300"
             >
               {/* Number badge */}
               <div className="absolute -top-3 -left-3 w-14 h-14 bg-red-600 text-white flex items-center justify-center rounded-lg font-bold text-xl shadow-md">
