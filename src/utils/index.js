@@ -12,6 +12,8 @@ import {
   trust,
 } from "@/assets";
 
+import { Mail, Building2, Phone } from "lucide-react";
+
 const navLinks = [
   {
     id: "home",
@@ -110,30 +112,35 @@ const teamMembers = [
 
 const services = [
   {
+    id: 1,
     title: "Handling Color & Uneven Shading",
     description:
       "We ensure that every garment achieves consistent color throughout, correcting any uneven shading, fading, or patchiness. Our experts analyze the fabric type and dye behavior to provide precise adjustments, guaranteeing that your products look uniform, professional, and visually appealing.",
     img: img1,
   },
   {
+    id: 2,
     title: "Comprehensive Garment & Textile Review",
     description:
       "Our team conducts a meticulous inspection of garments and textiles, assessing stitching, fabric quality, seams, and overall construction. We identify potential defects, weak points, and areas for improvement, providing detailed feedback to ensure every piece meets high-quality standards before reaching the market.",
     img: img2,
   },
   {
+    id: 3,
     title: "Expert Repair & Mending of Defects",
     description:
       "From small tears and loose threads to more significant fabric damage, our skilled professionals expertly mend defects, restoring garments to their original condition. We use precise stitching techniques and high-quality materials to extend the lifespan of garments while maintaining their original look and feel.",
     img: img3,
   },
   {
+    id: 4,
     title: "Professional Stain Removal Services",
     description:
       "We specialize in removing stubborn stains such as oil, ink, wine, and more without damaging the fabric. Using advanced stain treatment methods and safe, fabric-specific solutions, we ensure that your garments are clean, fresh, and retain their original texture and color vibrancy.",
     img: img4,
   },
   {
+    id: 5,
     title: "Quality Assurance & Compliance Checks",
     description:
       "Our QA process ensures that every garment meets industry standards and regulatory requirements. We perform thorough checks on fabric strength, stitching quality, sizing accuracy, and safety compliance. This service guarantees that your products are not only high-quality but also reliable and market-ready.",
@@ -178,6 +185,52 @@ const serviceImages = [
     tags2: ["Finish", "Perfect"],
   },
 ];
+const contactDetails = [
+  {
+    icon: Mail,
+    title: "Email Support",
+    description: "Our team can respond in real time.",
+    info: (
+      <a
+        href="mailto:info@yeshoint.com"
+        className="text-red-500 hover:text-red-400 transition-colors text-sm font-medium"
+      >
+        info@yeshoint.com
+      </a>
+    ),
+  },
+  {
+    icon: Building2,
+    title: "Visit Our Office",
+    description: "Visit our location in real life.",
+    info: (
+      <p className="text-red-500 hover:text-red-400 text-sm font-medium">
+        207/7 Dahampasal MW, Pahala Bomiriya, Kaduwela, Sri Lanka
+      </p>
+    ),
+  },
+  {
+    icon: Phone,
+    title: "Call Us Directly",
+    description: "Available during working hours.",
+    info: (
+      <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+        <a
+          href="tel:+94777722485"
+          className="text-red-500 hover:text-red-400 transition-colors text-sm font-medium"
+        >
+          (+94) 777 - 722 - 485
+        </a>
+        <a
+          href="tel:+94711155055"
+          className="text-red-500 hover:text-red-400 transition-colors text-sm font-medium"
+        >
+          (+94) 711 - 155 - 055
+        </a>
+      </div>
+    ),
+  },
+];
 
 export {
   navLinks,
@@ -187,4 +240,5 @@ export {
   teamMembers,
   services,
   serviceImages,
+  contactDetails,
 };
