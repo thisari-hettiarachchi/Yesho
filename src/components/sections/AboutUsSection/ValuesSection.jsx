@@ -4,11 +4,36 @@ import Image from "next/image";
 import { quality, integrity, commintment, sustainability, innovation } from "@/assets";
 
 const values = [
-  { id: 1, number: "01", icon: quality, title: "Quality", description: "We adhere to the standards, methods precision and care." },
-  { id: 2, number: "02", icon: integrity, title: "Integrity", description: "We uphold honesty and transparency in every interaction." },
-  { id: 3, number: "03", icon: commintment, title: "Commitment", description: "Dedicated to exceeding client expectations." },
-  { id: 4, number: "04", icon: sustainability, title: "Sustainability", description: "Environmentally friendly garment restoration for a greener industry." },
-  { id: 5, number: "05", icon: innovation, title: "Innovation", description: "Leveraging cutting-edge techniques to deliver the best results." },
+  { id: 1, 
+    number: "01", 
+    icon: quality, 
+    title: "Quality", 
+    description: "We adhere to the standards, methods precision and care." 
+  },
+  { id: 2, 
+    number: "02", 
+    icon: integrity, 
+    title: "Integrity", 
+    description: "We uphold honesty and transparency in every interaction." 
+  },
+  { id: 3, 
+    number: "03", 
+    icon: commintment, 
+    title: "Commitment", 
+    description: "Dedicated to exceeding client expectations." 
+  },
+  { id: 4, 
+    number: "04", 
+    icon: sustainability, 
+    title: "Sustainability", 
+    description: "Environmentally friendly garment restoration for a greener industry." 
+  },
+  { id: 5, 
+    number: "05", 
+    icon: innovation, 
+    title: "Innovation", 
+    description: "Leveraging cutting-edge techniques to deliver the best results." 
+  },
 ];
 
 const ValuesSection = () => {
