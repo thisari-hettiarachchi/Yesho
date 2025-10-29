@@ -2,9 +2,9 @@
 import React from "react";
 
 const team = [
-    "/assets/img1.jpg",
-    "/assets/img2.jpg",
-    "/assets/img3.jpg",
+    "/assets/team.png",
+    "/assets/team1.png",
+    "/assets/team2.png",
 ];
 
 const TeamInActionSection = () => {

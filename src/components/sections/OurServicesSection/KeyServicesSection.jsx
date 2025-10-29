@@ -3,13 +3,13 @@ import React from "react";
 
 const services = [
     {
-        image: "/assets/img1.jpg",
+        image: "/assets/img5.jpg",
         title: "Handling Color & Uneven Shading",
         description:
             "We specialize in identifying and correcting color mismatches, hue shifts, and uneven shading. Our expert color technicians ensure garment consistency while maintaining fabric quality and finish.",
     },
     {
-        image: "/assets/img2.jpg",
+        image: "/assets/img2.png",
         title: "Comprehensive Garment & Textile Review",
         description:
             "Our review process covers every detail of garment construction — from stitching accuracy to fabric integrity — ensuring garments meet production standards.",
@@ -27,7 +27,7 @@ const services = [
             "We remove stains caused by oils, dyes, and chemicals using safe methods that preserve texture and color while restoring garments to a spotless finish.",
     },
     {
-        image: "/assets/img5.jpg",
+        image: "/assets/img3.jpg",
         title: "Quality Assurance & Compliance Checks",
         description:
             "Before garments leave the facility, they undergo rigorous inspections to meet brand quality and compliance standards for flawless results.",
