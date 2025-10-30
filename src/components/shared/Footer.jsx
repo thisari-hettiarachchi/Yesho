@@ -16,8 +16,9 @@ const Footer = () => {
             height={80}
           />
           <p className="max-w-[410px] mt-6">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum unde
-            quaerat eveniet cumque accusamus atque qui error quo enim fugiat?
+            YESHO Intelligence is a leading expert in the field of garment and textile
+            mending. We have built a reputation as a trusted partner for businesses
+            seeking high-quality garment restoration services.
           </p>
         </div>
         <div className="flex flex-wrap justify-between w-full md:w-[45%] gap-5">
