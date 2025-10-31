@@ -10,6 +10,9 @@ import {
   img7,
   skills,
   trust,
+  team,
+  team1,
+  team2,
 } from "@/assets";
 
 import { Mail, Building2, Phone } from "lucide-react";
