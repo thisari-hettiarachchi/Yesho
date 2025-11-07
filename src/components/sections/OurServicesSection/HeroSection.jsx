@@ -1,5 +1,5 @@
 "use client";
-import { bghero } from "@/assets";
+import { servicehero } from "@/assets";
 import Image from "next/image";
 import React from "react";
 
@@ -8,7 +8,7 @@ const HeroSection = () => {
         <section className="relative flex items-center justify-center min-h-screen text-center overflow-hidden">
             {/* Background image */}
             <Image
-                src={bghero}
+                src={servicehero}
                 alt="Our Services"
                 className="absolute inset-0 w-full h-full object-cover -z-10"
             />
