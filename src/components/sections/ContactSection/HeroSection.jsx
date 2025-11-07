@@ -1,11 +1,12 @@
-import heroImage from "@/assets/hero-bg.jpg";
+import { bghero } from "@/assets";
+
 
 const Hero = () => {
   return (
     <div className="relative h-[400px] flex items-center justify-center overflow-hidden">
       <div 
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        style={{ backgroundImage: `url(${bghero})` }}
       >
         <div className="absolute inset-0 bg-foreground/60" />
       </div>
