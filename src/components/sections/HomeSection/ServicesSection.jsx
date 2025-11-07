@@ -12,7 +12,7 @@ const ServiceCard = ({
 }) => {
   return (
     <div
-      className={`bg-white rounded-[2.5rem] overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col ${containerClass} max-w-sm mx-auto w-full`}
+      className={`bg-surface rounded-[2.5rem] overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-muted flex flex-col ${containerClass} max-w-sm mx-auto w-full`}
     >
       <div className={`relative w-full ${imageClass} overflow-hidden`}>
         <Image
@@ -25,9 +25,9 @@ const ServiceCard = ({
         />
       </div>
       <div
-        className={`${titlePaddingClass} text-center bg-white flex-1 flex items-center justify-center`}
+        className={`${titlePaddingClass} text-center bg-surface flex-1 flex items-center justify-center`}
       >
-        <h3 className="text-base font-bold text-gray-900 leading-tight">
+        <h3 className="text-base font-bold text-foreground leading-tight">
           {title}
         </h3>
       </div>
@@ -37,14 +37,14 @@ const ServiceCard = ({
 
 const ServicesSection = () => {
   return (
-    <div className="bg-[color:var(--background)] py-16 px-4">
+    <div className="bg-background py-16 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-(var(--foreground)) mb-3">
+          <h2 className="text-4xl font-bold text-foreground mb-3">
             KEY SERVICES <span className="text-red-500">WE OFFER</span>
           </h2>
-          <p className="text-(var(--foreground)) text-lg">
+          <p className="text-muted text-lg">
             Discover our comprehensive range of solutions designed to elevate
             your experience
           </p>
@@ -56,14 +56,14 @@ const ServicesSection = () => {
           <ServiceCard
             img={services[0].img}
             title={services[0].title}
-            
+
           />
 
           {/* Card 2 */}
           <ServiceCard
             img={services[1].img}
             title={services[1].title}
-            
+
           />
         </div>
 
@@ -73,14 +73,14 @@ const ServicesSection = () => {
           <ServiceCard
             img={services[2].img}
             title={services[2].title}
-            
+
           />
 
           {/* Card 4 */}
           <ServiceCard
             img={services[3].img}
             title={services[3].title}
-            
+
           />
         </div>
 

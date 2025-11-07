@@ -1,25 +1,23 @@
 "use client";
+;
+import { teams } from "@/utils";
+import Image from "next/image";
 import React from "react";
 
-const team = [
-    "/assets/team.png",
-    "/assets/team1.png",
-    "/assets/team2.png",
-];
 
 const TeamInActionSection = () => {
     return (
-        <section className="py-16 bg-white text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3">
+        <section className="py-16 bg-background text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
                 OUR TEAM <span className="text-red-600">IN ACTION</span>
             </h2>
-            <p className="text-gray-600 mb-10">
+            <p className="text-muted mb-10">
                 Watch Our Skilled Team Transform Defects Into Perfection
             </p>
 
             <div className="flex justify-center flex-wrap gap-6 max-w-6xl mx-auto px-6">
-                {team.map((img, i) => (
-                    <img
+                {teams.map((img, i) => (
+                    <Image
                         key={i}
                         src={img}
                         alt="Team working"

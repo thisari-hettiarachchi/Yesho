@@ -4,25 +4,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { faqs } from "@/utils";
 
 const FAQ = () => {
-  const faqs = [
-    {
-      question: "How soon will I get a response?",
-      answer:
-        "You'll usually receive a response within 24 hours during our regular business hours. Messages sent on weekends or holidays will be replied to on the next working day.",
-    },
-    {
-      question: "Do you provide support outside business hours?",
-      answer:
-        "While our standard support hours are Monday to Friday, 9 AM to 6 PM, we do monitor urgent requests outside these hours. For critical issues, please call our emergency hotline.",
-    },
-    {
-      question: "Can I schedule a meeting with your team?",
-      answer:
-        "Absolutely! You can request a meeting through our contact form, and our team will reach out to schedule a convenient time. We offer both in-person and virtual meetings.",
-    },
-  ];
+
 
   return (
     <div className="py-16">

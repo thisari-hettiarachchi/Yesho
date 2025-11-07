@@ -7,7 +7,7 @@ const VideoSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div
@@ -17,11 +17,11 @@ const VideoSection = () => {
           viewport={{ once: false }}
           className="text-center mb-8"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             A GLIMPSE <span className="text-red-600">INTO YESHO</span>
           </h2>
-          <p className="text-gray-600 text-base mt-3 max-w-3xl mx-auto">
-            Discover how our skilled professionals bring garments back to life through<br/>
+          <p className="text-muted text-base mt-3 max-w-3xl mx-auto">
+            Discover how our skilled professionals bring garments back to life through<br />
             careful mending, repairing, and stain removal techniques.
           </p>
         </motion.div>
@@ -50,20 +50,20 @@ const VideoSection = () => {
           </div>
 
           {/* Video Controls Bar (Below Video) */}
-          <div className="bg-white border-t border-b border-gray-200 py-3 px-4">
+          <div className="bg-surface border-t border-b border-muted py-3 px-4">
             <div className="flex items-center gap-3">
               {/* Play/Pause */}
-              <button className="text-gray-700 hover:text-red-600 transition-colors">
+              <button className="text-muted hover:text-red-600 transition-colors">
                 <Play className="w-4 h-4" />
               </button>
 
               {/* Previous */}
-              <button className="text-gray-700 hover:text-red-600 transition-colors">
+              <button className="text-muted hover:text-red-600 transition-colors">
                 <SkipBack className="w-4 h-4" />
               </button>
 
               {/* Next */}
-              <button className="text-gray-700 hover:text-red-600 transition-colors">
+              <button className="text-muted hover:text-red-600 transition-colors">
                 <SkipForward className="w-4 h-4" />
               </button>
 
@@ -73,12 +73,12 @@ const VideoSection = () => {
               </div>
 
               {/* Volume */}
-              <button className="text-gray-700 hover:text-red-600 transition-colors">
+              <button className="text-muted hover:text-red-600 transition-colors">
                 <Volume2 className="w-4 h-4" />
               </button>
 
               {/* Settings */}
-              <button className="text-gray-700 hover:text-red-600 transition-colors">
+              <button className="text-muted hover:text-red-600 transition-colors">
                 <Settings className="w-4 h-4" />
               </button>
             </div>

@@ -10,9 +10,9 @@ import {
   img7,
   skills,
   trust,
-  team,
   team1,
   team2,
+  team3,
 } from "@/assets";
 
 import { Mail, Building2, Phone } from "lucide-react";
@@ -110,8 +110,6 @@ const teamMembers = [
     img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop",
   },
 ];
-
-
 
 const services = [
   {
@@ -235,6 +233,28 @@ const contactDetails = [
   },
 ];
 
+const faqs = [
+  {
+    question: "How soon will I get a response?",
+    answer:
+      "You'll usually receive a response within 24 hours during our regular business hours. Messages sent on weekends or holidays will be replied to on the next working day.",
+  },
+  {
+    question: "Do you provide support outside business hours?",
+    answer:
+      "While our standard support hours are Monday to Friday, 9 AM to 6 PM, we do monitor urgent requests outside these hours. For critical issues, please call our emergency hotline.",
+  },
+  {
+    question: "Can I schedule a meeting with your team?",
+    answer:
+      "Absolutely! You can request a meeting through our contact form, and our team will reach out to schedule a convenient time. We offer both in-person and virtual meetings.",
+  },
+];
+
+const works = [img1, img2, img3];
+
+const teams = [team1, team2, team3];
+
 export {
   navLinks,
   features,
@@ -244,4 +264,7 @@ export {
   services,
   serviceImages,
   contactDetails,
+  works,
+  teams,
+  faqs,
 };

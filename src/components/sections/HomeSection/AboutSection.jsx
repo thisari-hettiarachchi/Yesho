@@ -42,7 +42,7 @@ const AboutSection = () => {
   const currentImages = serviceImages[selectedService];
 
   return (
-    <section ref={containerRef} className="relative pb-20 overflow-hidden ">
+    <section ref={containerRef} className="relative pb-20 overflow-hidden bg-background">
       {/* Background gradient effects */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-900/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl"></div>
@@ -53,13 +53,13 @@ const AboutSection = () => {
           <div>
             <h2
               ref={headingRef}
-              className="text-4xl md:text-5xl font-bold text-(color:var(--foreground))"
+              className="text-4xl md:text-5xl font-bold text-foreground"
             >
               WHO <span className="text-red-500">WE ARE</span>
             </h2>
 
             <motion.p
-              className="text-(color:var(--foreground)) text-sm leading-relaxed mt-8"
+              className="text-muted text-sm leading-relaxed mt-8"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -74,7 +74,7 @@ const AboutSection = () => {
               garments.
             </motion.p>
 
-            <div className="bg-(color:var(--background)) flex items-center justify-center">
+            <div className="bg-background flex items-center justify-center">
               <motion.div
                 className="mt-10 space-y-4 max-w-2xl w-full"
                 initial="hidden"
@@ -108,11 +108,10 @@ const AboutSection = () => {
                   >
                     {/* Main content card */}
                     <motion.div
-                      className={`relative flex items-center gap-3 p-2 rounded-xl backdrop-blur-sm overflow-hidden transition-all duration-300 ${
-                        selectedService === index
+                      className={`relative flex items-center gap-3 p-2 rounded-xl backdrop-blur-sm overflow-hidden transition-all duration-300 ${selectedService === index
                           ? "bg-slate-400/30 border border-red-500 hover:bg-slate-400/30 hover:border-red-400"
-                          : "bg-slate-300/10 border border-slate-700/50 hover:bg-slate-400/30 hover:border-(color:var(--foreground)"
-                      }`}
+                          : "bg-slate-300/10 border border-slate-700/50 hover:bg-slate-400/30 hover:border-muted"
+                        }`}
                       whileHover={{
                         scale: 1.02,
                         transition: { duration: 0.3 },
@@ -135,25 +134,23 @@ const AboutSection = () => {
                         transition={{ duration: 0.6, ease: "easeInOut" }}
                       >
                         <div
-                          className={`absolute inset-0 rounded-full blur-md transition-opacity ${
-                            selectedService === index
+                          className={`absolute inset-0 rounded-full blur-md transition-opacity ${selectedService === index
                               ? "opacity-100"
                               : "opacity-50 group-hover:opacity-100"
-                          }`}
+                            }`}
                         />
                         <div className="relative w-8 h-8 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
-                          <CheckCircle2 className="w-5 h-5 text-(color:var(--foreground))" />
+                          <CheckCircle2 className="w-5 h-5 text-foreground" />
                         </div>
                       </motion.div>
 
                       {/* Text content */}
                       <div className="flex-1 relative z-10">
                         <motion.p
-                          className={`text-sm md:text-sm lg:text-sm font-medium transition-colors duration-300 ${
-                            selectedService === index
-                              ? "text-(color:var(--foreground))"
-                              : "text-(color:var(--foreground)) group-hover:text-(color:var(--muted-foreground))"
-                          }`}
+                          className={`text-sm md:text-sm lg:text-sm font-medium transition-colors duration-300 ${selectedService === index
+                              ? "text-foreground"
+                              : "text-foreground group-hover:text-muted"
+                            }`}
                         >
                           {item.title}
                         </motion.p>
@@ -203,10 +200,10 @@ const AboutSection = () => {
             >
               {stats.map((stat, idx) => (
                 <div key={idx}>
-                  <h3 className="text-3xl md:text-3xl font-bold text-(color:var(--foreground)) mb-2">
+                  <h3 className="text-3xl md:text-3xl font-bold text-foreground mb-2">
                     {stat.number}
                   </h3>
-                  <p className="text-gray-600 text-sm">{stat.label}</p>
+                  <p className="text-muted text-sm">{stat.label}</p>
                 </div>
               ))}
             </motion.div>
@@ -234,7 +231,7 @@ const AboutSection = () => {
                 ))}
               </div>
 
-              <button className="flex items-center gap-3 text-(color:var(--foreground)) hover:text-red-500 transition-colors group cursor-pointer">
+              <button className="flex items-center gap-3 text-foreground hover:text-red-500 transition-colors group cursor-pointer">
                 <div className="w-8 h-8 rounded-full border-2 border-white group-hover:border-red-500 flex items-center justify-center transition-colors">
                   <Play className="w-4 h-4 fill-current" />
                 </div>
