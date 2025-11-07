@@ -1,5 +1,4 @@
-"use client"; // ✅ Add this line to make it work in Next.js (client component)
-
+"use client"; 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

@@ -56,8 +56,8 @@ const NavBar = () => {
         }}
         transition={{ duration: 0.75, ease: "easeInOut" }}
         className={`w-full flex items-center justify-between px-6 md:px-10 transition-colors duration-500 ${nav || isNotHomePage
-            ? "text-[color:var(--foreground)] font-semibold shadow-[0_2px_20px_rgba(0,0,0,0.05)]"
-            : "mx-auto max-w-7xl text-[color:var(--muted-foreground)] relative"
+          ? "text-[color:var(--foreground)] font-semibold shadow-[0_2px_20px_rgba(0,0,0,0.05)]"
+          : "mx-auto max-w-7xl text-[color:var(--muted-foreground)] relative"
           }`}
       >
         {/* Left: Logo */}

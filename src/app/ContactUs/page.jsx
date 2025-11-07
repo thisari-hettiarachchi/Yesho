@@ -19,7 +19,6 @@ const ContactUsPage = () => {
         <MapSection />
       </div>
       <FAQ />
-      <Footer />
     </div>
   );
 };
