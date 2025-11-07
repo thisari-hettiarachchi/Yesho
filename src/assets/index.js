@@ -29,6 +29,7 @@ import beforeafter1 from "./beforeafter1.png";
 import beforeafter2 from "./beforeafter2.png";
 import beforeafter3 from "./beforeafter3.png";
 import beforeafter4 from "./beforeafter4.png";
+import servicehero from "./service.jpg"
 
 
-export { bghero, about, logo, menu, close, compliance, ecofriendly, trust, skills ,img1 , img2 ,img3 ,img4,img5,img6,img7, quality, integrity, commintment, sustainability, innovation, vision, mission, team1, team2, team3, contact, beforeafter1, beforeafter2, beforeafter3, beforeafter4};
+export { bghero, about, logo, menu, close, compliance, ecofriendly, trust, skills ,img1 , img2 ,img3 ,img4,img5,img6,img7, quality, integrity, commintment, sustainability, innovation, vision, mission, team1, team2, team3, contact, beforeafter1, beforeafter2, beforeafter3, beforeafter4, servicehero};

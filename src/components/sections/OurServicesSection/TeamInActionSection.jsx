@@ -21,7 +21,7 @@ const TeamInActionSection = () => {
                         key={i}
                         src={img}
                         alt="Team working"
-                        className="rounded-lg shadow-md w-80 h-56 object-cover"
+                        className="rounded-lg shadow-md w-80 h-100 object-cover"
                     />
                 ))}
             </div>
