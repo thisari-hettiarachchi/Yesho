@@ -25,6 +25,10 @@ import team1 from "./team1.png"
 import team2 from "./team2.png"
 import team3 from "./team3.png";
 import contact from "./contact.jpg"
+import beforeafter1 from "./beforeafter1.png";
+import beforeafter2 from "./beforeafter2.png";
+import beforeafter3 from "./beforeafter3.png";
+import beforeafter4 from "./beforeafter4.png";
 
 
-export { bghero, about, logo, menu, close, compliance, ecofriendly, trust, skills ,img1 , img2 ,img3 ,img4,img5,img6,img7, quality, integrity, commintment, sustainability, innovation, vision, mission, team1, team2, team3, contact};
+export { bghero, about, logo, menu, close, compliance, ecofriendly, trust, skills ,img1 , img2 ,img3 ,img4,img5,img6,img7, quality, integrity, commintment, sustainability, innovation, vision, mission, team1, team2, team3, contact, beforeafter1, beforeafter2, beforeafter3, beforeafter4};
