@@ -10,9 +10,9 @@ import {
   img7,
   skills,
   trust,
-  team,
   team1,
   team2,
+  team3,
 } from "@/assets";
 
 import { Mail, Building2, Phone } from "lucide-react";
@@ -110,8 +110,6 @@ const teamMembers = [
     img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop",
   },
 ];
-
-
 
 const services = [
   {
@@ -235,6 +233,10 @@ const contactDetails = [
   },
 ];
 
+const works = [img1, img2, img3];
+
+const team = [team1, team2, team3];
+
 export {
   navLinks,
   features,
@@ -244,4 +246,6 @@ export {
   services,
   serviceImages,
   contactDetails,
+  works,
+  team,
 };

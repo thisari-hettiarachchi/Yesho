@@ -1,11 +1,9 @@
 "use client";
+;
+import { team } from "@/utils";
+import Image from "next/image";
 import React from "react";
 
-const team = [
-    "/assets/team.png",
-    "/assets/team1.png",
-    "/assets/team2.png",
-];
 
 const TeamInActionSection = () => {
     return (
@@ -19,7 +17,7 @@ const TeamInActionSection = () => {
 
             <div className="flex justify-center flex-wrap gap-6 max-w-6xl mx-auto px-6">
                 {team.map((img, i) => (
-                    <img
+                    <Image
                         key={i}
                         src={img}
                         alt="Team working"
