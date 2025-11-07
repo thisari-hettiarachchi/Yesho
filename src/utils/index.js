@@ -13,6 +13,10 @@ import {
   team1,
   team2,
   team3,
+  beforeafter1,
+  beforeafter2,
+  beforeafter3,
+  beforeafter4,
 } from "@/assets";
 
 import { Mail, Building2, Phone } from "lucide-react";
@@ -251,7 +255,7 @@ const faqs = [
   },
 ];
 
-const works = [img1, img2, img3];
+const works = [beforeafter1, beforeafter2, beforeafter3, beforeafter4];
 
 const teams = [team1, team2, team3];
 
