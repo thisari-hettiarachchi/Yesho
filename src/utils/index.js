@@ -235,7 +235,7 @@ const contactDetails = [
 
 const works = [img1, img2, img3];
 
-const team = [team1, team2, team3];
+const teams = [team1, team2, team3];
 
 export {
   navLinks,
@@ -247,5 +247,5 @@ export {
   serviceImages,
   contactDetails,
   works,
-  team,
+  teams,
 };
