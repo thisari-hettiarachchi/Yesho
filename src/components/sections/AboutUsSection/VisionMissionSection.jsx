@@ -5,7 +5,7 @@ import { img4, img1, img2 } from "@/assets";
 
 const VisionMissionSection = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div
@@ -15,11 +15,11 @@ const VisionMissionSection = () => {
           viewport={{ once: false }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             OUR <span className="text-red-600">VISION</span> &{" "}
             <span className="text-red-600">MISSION</span>
           </h2>
-          <p className="text-gray-600 text-base mt-3">
+          <p className="text-muted text-base mt-3">
             Guiding our journey through dedication, quality and innovation.
           </p>
         </motion.div>
@@ -33,10 +33,10 @@ const VisionMissionSection = () => {
           className="grid md:grid-cols-2 gap-12 items-center mb-16"
         >
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-gray-900">
+            <h3 className="text-2xl font-bold text-foreground">
               Our Vision
             </h3>
-            <p className="text-gray-700 text-base leading-relaxed">
+            <p className="text-muted text-base leading-relaxed">
               To provide exceptional garment and textile mending services that meet the highest quality standards, fostering long-term partnerships with our clients and contributing to their success.
             </p>
           </div>
@@ -89,10 +89,10 @@ const VisionMissionSection = () => {
             />
           </motion.div>
           <div className="space-y-4 order-1 md:order-2">
-            <h3 className="text-2xl font-bold text-gray-900">
+            <h3 className="text-2xl font-bold text-foreground">
               Our Mission
             </h3>
-            <p className="text-gray-700 text-base leading-relaxed">
+            <p className="text-muted text-base leading-relaxed">
               To be the leading provider of innovative and high-quality garment and textile mending solutions in Sri Lanka and beyond, setting industry standards through expertise, technology, and trust.
             </p>
           </div>

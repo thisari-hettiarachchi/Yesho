@@ -158,7 +158,7 @@ const WhyChoose = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden pb-20 py-20"
+      className="relative overflow-hidden pb-20 py-20 bg-background"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -171,19 +171,19 @@ const WhyChoose = () => {
         <div className="text-center mt-16">
           <h2
             ref={headingRef}
-            className="text-4xl md:text-5xl font-bold text-(color:var(--foreground)) mb-3"
+            className="text-4xl md:text-5xl font-bold text-foreground mb-3"
           >
             Why Choose <span className="text-red-500">YESHO</span>
           </h2>
 
           <p
             ref={paragraphRef}
-            className="text-text-(color:var(--foreground)) text-base max-w-xl mx-auto mt-6"
+            className="text-muted text-base max-w-xl mx-auto mt-6"
           >
             Excellence in{" "}
-            <span className="text-(color:var(--foreground)) font-semibold">quality</span>,{" "}
-            <span className="text-(color:var(--foreground)) font-semibold">trust</span>, and{" "}
-            <span className="text-(color:var(--foreground)) font-semibold">perfection</span>.
+            <span className="text-foreground font-semibold">quality</span>,{" "}
+            <span className="text-foreground font-semibold">trust</span>, and{" "}
+            <span className="text-foreground font-semibold">perfection</span>.
           </p>
         </div>
 
@@ -196,7 +196,7 @@ const WhyChoose = () => {
                 {/* Card */}
                 <div
                   ref={(el) => (cardsRef.current[index] = el)}
-                  className="group relative flex flex-col items-center text-center backdrop-blur-xl rounded-2xl px-6 py-8 shadow-2xl border-2 border-blue-500/80 hover:border-blue-400/80 hover:shadow-blue-500/40 transform hover:scale-105 transition-all duration-300 w-72 bg-(color:var(--background))/70 hover:bg-(color:var(--background))/80"
+                  className="group relative flex flex-col items-center text-center backdrop-blur-xl rounded-2xl px-6 py-8 shadow-2xl border-2 border-blue-500/80 hover:border-blue-400/80 hover:shadow-blue-500/40 transform hover:scale-105 transition-all duration-300 w-72 bg-surface"
                   style={{
                     boxShadow:
                       "0 10px 40px 0 rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
@@ -223,7 +223,7 @@ const WhyChoose = () => {
                   </div>
 
                   {/* Content */}
-                  <h3 className="font-semibold text-(color:var(--foreground)) text-[14px] mb-2 tracking-tight">
+                  <h3 className="font-semibold text-foreground text-[14px] mb-2 tracking-tight">
                     {feature.title}
                   </h3>
 
@@ -234,7 +234,7 @@ const WhyChoose = () => {
                   )}
 
                   {feature.description && (
-                    <p className="text-text-(color:var(--foreground))/80 text-[11px] leading-relaxed">
+                    <p className="text-muted text-[11px] leading-relaxed">
                       {feature.description}
                     </p>
                   )}
@@ -326,14 +326,14 @@ const WhyChoose = () => {
           ref={extendedParaRef}
           className="mt-12 max-w-4xl mx-auto text-center space-y-4"
         >
-          <p className="text-text-(color:var(--foreground)) text-lg leading-relaxed">
+          <p className="text-muted text-lg leading-relaxed">
             At{" "}
-            <span className="text-(color:var(--foreground)) font-semibold">YESHO Intelligence</span>
+            <span className="text-foreground font-semibold">YESHO Intelligence</span>
             , we are partners in your journey toward excellence, helping you
             achieve long-term success through quality, compliance, and
             innovation.
           </p>
-          <p className="text-text-(color:var(--foreground)) text-lg leading-relaxed">
+          <p className="text-muted text-lg leading-relaxed">
             We ensure every garment exceeds industry standards, building your
             reputation for{" "}
             <span className="text-red-500 font-semibold">trust</span>,{" "}

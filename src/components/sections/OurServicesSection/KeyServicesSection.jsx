@@ -5,12 +5,12 @@ import React from "react";
 
 const KeyServicesSection = () => {
     return (
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-background">
             <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground">
                     KEY SERVICES <span className="text-red-600">WE OFFER</span>
                 </h2>
-                <p className="text-gray-600 mt-2">
+                <p className="text-muted mt-2">
                     Discover our comprehensive range of solutions designed to elevate your experience.
                 </p>
             </div>
@@ -24,8 +24,8 @@ const KeyServicesSection = () => {
                             className="w-40 h-40 object-cover rounded-lg shadow-md"
                         />
                         <div>
-                            <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                            <p className="text-gray-600 text-sm">{service.description}</p>
+                            <h3 className="text-xl font-semibold text-foreground mb-2">{service.title}</h3>
+                            <p className="text-muted text-sm">{service.description}</p>
                         </div>
                     </div>
                 ))}
