@@ -1,6 +1,6 @@
 "use client";
 ;
-import { team } from "@/utils";
+import { teams } from "@/utils";
 import Image from "next/image";
 import React from "react";
 
@@ -16,7 +16,7 @@ const TeamInActionSection = () => {
             </p>
 
             <div className="flex justify-center flex-wrap gap-6 max-w-6xl mx-auto px-6">
-                {team.map((img, i) => (
+                {teams.map((img, i) => (
                     <Image
                         key={i}
                         src={img}
