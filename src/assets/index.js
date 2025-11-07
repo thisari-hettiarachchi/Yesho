@@ -24,6 +24,7 @@ import mission from "./mission.png"
 import team1 from "./team1.png"
 import team2 from "./team2.png"
 import team3 from "./team3.png";
+import contact from "./contact.jpg"
 
 
-export { bghero, about, logo, menu, close, compliance, ecofriendly, trust, skills ,img1 , img2 ,img3 ,img4,img5,img6,img7, quality, integrity, commintment, sustainability, innovation, vision, mission, team1, team2, team3};
+export { bghero, about, logo, menu, close, compliance, ecofriendly, trust, skills ,img1 , img2 ,img3 ,img4,img5,img6,img7, quality, integrity, commintment, sustainability, innovation, vision, mission, team1, team2, team3, contact};

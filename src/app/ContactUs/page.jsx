@@ -3,6 +3,7 @@ import ContactInfo from "@/components/sections/ContactSection/contactInfo";
 import ContactForm from "@/components/sections/ContactSection/contactform";
 import FAQ from "@/components/sections/ContactSection/FAQ";
 import Hero from "@/components/sections/ContactSection/HeroSection";
+import MapSection from "@/components/sections/ContactSection/mapsection";
 
 const ContactUsPage = () => {
   return (
@@ -13,6 +14,7 @@ const ContactUsPage = () => {
         <ContactInfo />
       </div>
       <div className="container mx-auto px-4 mb-16">
+        <MapSection />
       </div>
       <FAQ />
     </div>

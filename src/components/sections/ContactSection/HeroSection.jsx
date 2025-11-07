@@ -1,4 +1,4 @@
-import { bghero } from "@/assets";
+import { contact } from "@/assets";
 
 
 const Hero = () => {
@@ -6,7 +6,7 @@ const Hero = () => {
     <div className="relative h-[400px] flex items-center justify-center overflow-hidden">
       <div 
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${bghero})` }}
+        style={{ backgroundImage: `url(${contact})` }}
       >
         <div className="absolute inset-0 bg-foreground/60" />
       </div>
