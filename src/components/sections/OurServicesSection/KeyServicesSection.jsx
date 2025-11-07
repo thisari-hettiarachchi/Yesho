@@ -15,16 +15,23 @@ const KeyServicesSection = () => {
                 </p>
             </div>
 
-            <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 px-6">
+            <div className="max-w-6xl mx-auto flex flex-col gap-12 px-6">
                 {services.map((service, i) => (
-                    <div key={i} className="flex gap-6">
+                    <div
+                        key={i}
+                        className={`flex flex-col md:flex-row items-center gap-6 ${
+                            i % 2 !== 0 ? "md:flex-row-reverse" : ""
+                        }`}
+                    >
                         <Image
                             src={service.img}
                             alt={service.title}
-                            className="w-40 h-40 object-cover rounded-lg shadow-md"
+                            className="w-48 h-48 object-cover rounded-lg shadow-md"
                         />
-                        <div>
-                            <h3 className="text-xl font-semibold text-foreground mb-2">{service.title}</h3>
+                        <div className="max-w-md">
+                            <h3 className="text-xl font-semibold text-foreground mb-2">
+                                {service.title}
+                            </h3>
                             <p className="text-muted text-sm">{service.description}</p>
                         </div>
                     </div>
