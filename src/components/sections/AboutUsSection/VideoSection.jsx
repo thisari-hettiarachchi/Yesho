@@ -1,10 +1,22 @@
 "use client";
 import { motion } from "framer-motion";
-import { Play, SkipBack, SkipForward, Volume2, Settings } from "lucide-react";
-import { useState } from "react";
+import { Play, SkipBack, SkipForward, Volume2, Settings, Pause } from "lucide-react";
+import { useState, useRef } from "react";
 
 const VideoSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef(null);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
 
   return (
     <section className="py-16 bg-white">
@@ -35,26 +47,40 @@ const VideoSection = () => {
           className="relative max-w-4xl mx-auto"
         >
           <div className="relative aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-none overflow-hidden">
-            {/* Video Player Placeholder */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              {/* Play Button */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setIsPlaying(!isPlaying)}
-                className="w-20 h-20 bg-gray-700/80 rounded-full flex items-center justify-center hover:bg-gray-600/80 transition-all duration-300"
-              >
-                <Play className="w-8 h-8 text-white fill-white ml-1" />
-              </motion.button>
-            </div>
+            {/* Video Player */}
+            <video
+              ref={videoRef}
+              className="w-full h-full object-cover"
+              onClick={togglePlay}
+            >
+              <source src="/assets/team video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            {/* Play/Pause Button Overlay */}
+            {!isPlaying && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={togglePlay}
+                  className="w-20 h-20 bg-gray-700/80 rounded-full flex items-center justify-center hover:bg-gray-600/80 transition-all duration-300"
+                >
+                  <Play className="w-8 h-8 text-white fill-white ml-1" />
+                </motion.button>
+              </div>
+            )}
           </div>
 
           {/* Video Controls Bar (Below Video) */}
           <div className="bg-white border-t border-b border-gray-200 py-3 px-4">
             <div className="flex items-center gap-3">
               {/* Play/Pause */}
-              <button className="text-gray-700 hover:text-red-600 transition-colors">
-                <Play className="w-4 h-4" />
+              <button
+                onClick={togglePlay}
+                className="text-gray-700 hover:text-red-600 transition-colors"
+              >
+                {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
               </button>
 
               {/* Previous */}

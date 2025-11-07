@@ -4,6 +4,13 @@ import StyledWrapper from "@/components/shared/StyledWrapper";
 import { about } from "@/assets";
 
 const HeroSection = () => {
+  const handleExploreClick = () => {
+    window.scrollTo({
+      top: window.innerHeight * 0.7,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -44,7 +51,10 @@ const HeroSection = () => {
             className="pt-2"
           >
             <StyledWrapper>
-              <button className="bg-transparent border-2 border-red-600 text-white px-10 py-3 rounded-full text-base font-medium hover:bg-red-600 transition-all duration-300">
+              <button
+                onClick={handleExploreClick}
+                className="bg-transparent border-2 border-red-600 text-white px-10 py-3 rounded-full text-base font-medium hover:bg-red-600 transition-all duration-300"
+              >
                 Explore
               </button>
             </StyledWrapper>
