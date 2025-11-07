@@ -7,7 +7,7 @@ import {
 import { faqs } from "@/utils";
 
 const FAQ = () => {
-  
+
 
   return (
     <div className="py-16">
