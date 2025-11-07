@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(dir /s \"c:\\Users\\Kavisha\\Documents\\GitHub\\Yesho\\src\")"
-    ],
-    "deny": [],
-    "ask": []
-  }
-}
