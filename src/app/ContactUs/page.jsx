@@ -7,15 +7,21 @@ import MapSection from "@/components/sections/ContactSection/mapsection";
 
 const ContactUsPage = () => {
   return (
-    <div>
+    <div className="bg-background text-foreground">
       <Hero />
-      <div className="container mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-12">
-        <ContactForm />
-        <ContactInfo />
-      </div>
-      <div className="container mx-auto px-4 mb-16">
+
+      <section className="container mb-10 relative z-[1] -mt-20 w-[90%] md:w-[85%] lg:w-[80%] h-auto md:h-[600px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-card rounded-2xl shadow-lg p-6 md:p-8">
+          <ContactInfo />
+          <ContactForm />
+        </div>
+      </section>
+
+
+      <section className="container mx-auto px-4 mb-20">
         <MapSection />
-      </div>
+      </section>
+
       <FAQ />
     </div>
   );
