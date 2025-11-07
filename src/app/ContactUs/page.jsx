@@ -4,12 +4,10 @@ import ContactForm from "@/components/sections/ContactSection/contactform";
 import FAQ from "@/components/sections/ContactSection/FAQ";
 import MapSection from "@/components/sections/ContactSection/mapsection";
 import Hero from "@/components/sections/ContactSection/HeroSection";
-import Navigation from "@/components/sections/ContactSection/navigation";
 
 const ContactUsPage = () => {
   return (
     <div>
-      <Navigation />
       <Hero />
       <div className="container mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-12">
         <ContactForm />
