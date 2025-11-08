@@ -42,7 +42,7 @@ const AboutSection = () => {
   const currentImages = serviceImages[selectedService];
 
   return (
-    <section ref={containerRef} className="relative pb-20 overflow-hidden bg-background">
+    <section ref={containerRef} className="relative py-20 overflow-hidden bg-background">
       {/* Background gradient effects */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-900/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl"></div>
