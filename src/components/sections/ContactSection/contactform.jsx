@@ -79,17 +79,56 @@ const ContactForm = () => {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Input name="fullName" placeholder="Enter your name" value={formData.fullName} onChange={handleChange} />
-          <Input name="company" placeholder="Enter your company name" value={formData.company} onChange={handleChange} />
+          <Input
+            name="fullName"
+            placeholder="Enter your name"
+            value={formData.fullName}
+            onChange={handleChange}
+            className="bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 border border-gray-300 dark:border-slate-700 focus:ring-2 focus:ring-red-600"
+          />
+          <Input
+            name="company"
+            placeholder="Enter your company name"
+            value={formData.company}
+            onChange={handleChange}
+            className="bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 border border-gray-300 dark:border-slate-700 focus:ring-2 focus:ring-red-600"
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Input name="email" type="email" placeholder="Enter your email" value={formData.email} onChange={handleChange} />
-          <Input name="phone" placeholder="Enter your phone number" value={formData.phone} onChange={handleChange} />
+          <Input
+            name="email"
+            type="email"
+            placeholder="Enter your email"
+            value={formData.email}
+            onChange={handleChange}
+            className="bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 border border-gray-300 dark:border-slate-700 focus:ring-2 focus:ring-red-600"
+          />
+          <Input
+            name="phone"
+            placeholder="Enter your phone number"
+            value={formData.phone}
+            onChange={handleChange}
+            className="bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 border border-gray-300 dark:border-slate-700 focus:ring-2 focus:ring-red-600"
+          />
         </div>
 
-        <Input name="subject" placeholder="Enter subject" value={formData.subject} onChange={handleChange} />
-        <Textarea name="message" placeholder="Enter message" rows={6} value={formData.message} onChange={handleChange} />
+        <Input
+          name="subject"
+          placeholder="Enter subject"
+          value={formData.subject}
+          onChange={handleChange}
+          className="bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 border border-gray-300 dark:border-slate-700 focus:ring-2 focus:ring-red-600"
+        />
+
+        <Textarea
+          name="message"
+          placeholder="Enter message"
+          rows={6}
+          value={formData.message}
+          onChange={handleChange}
+          className="bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 border border-gray-300 dark:border-slate-700 focus:ring-2 focus:ring-red-600"
+        />
 
         <motion.div
           className="text-center pt-8"
