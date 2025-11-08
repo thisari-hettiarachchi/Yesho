@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #fafafa;
   --foreground: #171717;
   --muted-foreground: #475569; /* slate-600 */
   --surface: #f8fafc; /* card/muted surface */
   --border: rgba(15, 23, 42, 0.12);
   --overlay: rgba(255, 255, 255, 0.92);
   /* Brand + semantic tokens (light) */
-  --primary: #e11d48; /* rose-600 */
-  --primary-foreground: #ffffff;
+  --primary: #dc2626; /* red-600 */
+  --primary-foreground: #fafafa;
   --secondary: #0ea5e9; /* sky-500 */
   --secondary-foreground: #0b1220; /* near-slate-950 */
   --accent: #22c55e; /* green-500 */
   --accent-foreground: #0b1220;
   --muted: #f1f5f9; /* slate-100 */
-  --card: #ffffff;
+  --card: #fafafa;
   --card-foreground: #171717;
   --success: #16a34a; /* green-600 */
   --warning: #f59e0b; /* amber-500 */
@@ -24,9 +24,9 @@
   --ring: rgba(37, 99, 235, 0.35);
   --navbar-glass: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.06),
-    rgba(0, 0, 0, 0.09),
-    rgba(0, 0, 0, 0.06)
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.6)
   );
   --navbar-transparent: linear-gradient(
     to right,
@@ -68,14 +68,14 @@
     --border: rgba(148, 163, 184, 0.24);
     --overlay: rgba(15, 23, 42, 0.85);
     /* Brand + semantic tokens (dark) */
-    --primary: #fb7185; /* rose-400 */
+    --primary: #dc2626; /* red-600 */
     --primary-foreground: #0b0b0b;
     --secondary: #38bdf8; /* sky-400 */
     --secondary-foreground: #0b0b0b;
     --accent: #4ade80; /* green-400 */
     --accent-foreground: #0b0b0b;
     --muted: rgba(255, 255, 255, 0.06);
-    --card: rgba(255, 255, 255, 0.04);
+    --card: rgba(255, 255, 255, 0.5);
     --card-foreground: #ededed;
     --success: #22c55e; /* green-500 */
     --warning: #fbbf24; /* amber-400 */
@@ -84,9 +84,9 @@
     --ring: rgba(96, 165, 250, 0.45);
     --navbar-glass: linear-gradient(
       to right,
-      rgba(255, 255, 255, 0.12),
-      rgba(255, 255, 255, 0.18),
-      rgba(255, 255, 255, 0.12)
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.4)
     );
   }
 }
@@ -118,14 +118,14 @@ body {
 }
 
 .light {
-  --background: #ffffff;
+  --background: #fafafa;
   --foreground: #171717;
   --muted-foreground: #475569;
   --surface: #f8fafc;
   --border: rgba(15, 23, 42, 0.12);
   --overlay: rgba(255, 255, 255, 0.92);
-  --primary: #e11d48;
-  --primary-foreground: #ffffff;
+  --primary: #dc2626;
+  --primary-foreground: #fafafa;
   --secondary: #0ea5e9;
   --secondary-foreground: #0b1220;
   --accent: #22c55e;
@@ -153,7 +153,7 @@ body {
   --surface: rgba(255, 255, 255, 0.06);
   --border: rgba(148, 163, 184, 0.24);
   --overlay: rgba(15, 23, 42, 0.85);
-  --primary: #fb7185;
+  --primary: #dc2626;
   --primary-foreground: #0b0b0b;
   --secondary: #38bdf8;
   --secondary-foreground: #0b0b0b;
