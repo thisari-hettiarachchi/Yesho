@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { img4, img1, img2 } from "@/assets";
+import { vision, mission } from "@/assets";
 
 const VisionMissionSection = () => {
   return (
@@ -40,6 +40,9 @@ const VisionMissionSection = () => {
               Our Vision
             </h3>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-left">
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-foreground">Our Vision</h3>
+            <p className="text-muted text-base leading-relaxed">
               To provide exceptional garment and textile mending services that
               meet the highest quality standards, fostering long-term
               partnerships with our clients and contributing to their success.
@@ -69,11 +72,20 @@ const VisionMissionSection = () => {
               viewport={{ once: false }}
               className="relative w-[200px] md:w-[240px] h-[250px] md:h-[300px] overflow-hidden mt-8 md:mt-12"
             >
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: false }}
+            className="flex justify-end"
+          >
+            <div className="relative w-full max-w-[400px] aspect-[4/3] overflow-hidden mx-auto">
               <Image
-                src={img1}
-                alt="Vision 2"
+                src={vision}
+                alt="Our Vision"
                 fill
                 className="object-cover rounded-2xl"
+                className="object-cover transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
           </div>
@@ -124,6 +136,31 @@ const VisionMissionSection = () => {
               To be the leading provider of innovative and high-quality garment
               and textile mending solutions in Sri Lanka and beyond, setting the
               standard for excellence through expertise, technology, and trust.
+          className="grid md:grid-cols-2 gap-12 items-center"
+        >
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: false }}
+            className="flex justify-start order-2 md:order-1"
+          >
+            <div className="relative w-full max-w-[400px] aspect-[4/3] overflow-hidden mx-auto">
+              <Image
+                src={mission}
+                alt="Our Mission"
+                fill
+                className="object-cover transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+          </motion.div>
+
+          <div className="space-y-4 order-1 md:order-2">
+            <h3 className="text-2xl font-bold text-foreground">Our Mission</h3>
+            <p className="text-muted text-base leading-relaxed">
+              To be the leading provider of innovative and high-quality garment
+              and textile mending solutions in Sri Lanka and beyond, setting
+              industry standards through expertise, technology, and trust.
             </p>
           </div>
         </motion.div>
