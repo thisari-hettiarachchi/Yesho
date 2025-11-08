@@ -13,8 +13,7 @@ const ContactHeroSection = () => {
         priority
       />
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent" />
+      
 
       {/* Text Content */}
       <div className="relative z-10 text-center text-white/70 px-4">

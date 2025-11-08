@@ -75,7 +75,7 @@
     --accent: #4ade80; /* green-400 */
     --accent-foreground: #0b0b0b;
     --muted: rgba(255, 255, 255, 0.06);
-    --card: rgba(255, 255, 255, 0.4);
+    --card: rgba(255, 255, 255, 0.5);
     --card-foreground: #ededed;
     --success: #22c55e; /* green-500 */
     --warning: #fbbf24; /* amber-400 */
@@ -131,7 +131,7 @@ body {
   --accent: #22c55e;
   --accent-foreground: #0b1220;
   --muted: #f1f5f9;
-  --card: #fafafa;
+  --card: #ffffff;
   --card-foreground: #171717;
   --success: #16a34a;
   --warning: #f59e0b;
