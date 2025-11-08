@@ -51,7 +51,7 @@ const KeyServicesSection = () => {
                           fill
                           className="object-cover"
                         />
-                      </div>
+                      </div>  
                     </div>
                   )}
 

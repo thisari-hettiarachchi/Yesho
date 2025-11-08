@@ -13,6 +13,10 @@ import {
   team1,
   team2,
   team3,
+  beforeafter1,
+  beforeafter2,
+  beforeafter3,
+  beforeafter4,
 } from "@/assets";
 
 import { Mail, Building2, Phone } from "lucide-react";
@@ -116,28 +120,28 @@ const services = [
     id: 1,
     title: "Handling Color & Uneven Shading",
     description:
-      "We ensure that every garment achieves consistent color throughout, correcting any uneven shading, fading, or patchiness. Our experts analyze the fabric type and dye behavior to provide precise adjustments, guaranteeing that your products look uniform, professional, and visually appealing.",
+      "We specialize in identifying and correcting color mismatches, dye stains, and shading inconsistencies that occur during production or washing. Our experts use precision color-handling methods to restore uniformity and maintain the original fabric tone, ensuring every garment meets your brand’s color standards.",
     img: img1,
   },
   {
     id: 2,
     title: "Comprehensive Garment & Textile Review",
     description:
-      "Our team conducts a meticulous inspection of garments and textiles, assessing stitching, fabric quality, seams, and overall construction. We identify potential defects, weak points, and areas for improvement, providing detailed feedback to ensure every piece meets high-quality standards before reaching the market.",
+      "Our review process covers every detail of garment construction — from stitching accuracy to fabric integrity. Using strict inspection criteria, we assess defects, measurements, trims, and finishing quality to guarantee that only top-grade garments move forward in the production cycle.",
     img: img2,
   },
   {
     id: 3,
     title: "Expert Repair & Mending of Defects",
     description:
-      "From small tears and loose threads to more significant fabric damage, our skilled professionals expertly mend defects, restoring garments to their original condition. We use precise stitching techniques and high-quality materials to extend the lifespan of garments while maintaining their original look and feel.",
+      "Our skilled technicians perform precise repairs to correct holes, tears, and loose threads without altering the garment’s appearance. With years of industry experience, we restore fabrics to their original condition, reducing wastage and ensuring shippable quality for every item.",
     img: img3,
   },
   {
     id: 4,
     title: "Professional Stain Removal Services",
     description:
-      "We specialize in removing stubborn stains such as oil, ink, wine, and more without damaging the fabric. Using advanced stain treatment methods and safe, fabric-specific solutions, we ensure that your garments are clean, fresh, and retain their original texture and color vibrancy.",
+      "We remove stains caused by oils, dyes, rust, and chemicals using fabric-safe solutions and advanced cleaning techniques. Each garment is treated carefully to preserve texture and color while achieving spotless, ready-for-sale results.",
     img: img4,
   },
   {
@@ -251,7 +255,7 @@ const faqs = [
   },
 ];
 
-const works = [img1, img2, img3];
+const works = [beforeafter1, beforeafter2, beforeafter3, beforeafter4];
 
 const teams = [team1, team2, team3];
 

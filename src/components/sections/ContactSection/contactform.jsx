@@ -1,19 +1,19 @@
-"use client"; 
+"use client";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Send } from "lucide-react";
 import { z } from "zod";
+import { Send } from "lucide-react";
+import { motion } from "framer-motion";
 
 const contactSchema = z.object({
-  fullName: z.string().trim().min(1, "Name is required").max(100),
-  company: z.string().trim().max(100).optional(),
-  email: z.string().trim().email("Invalid email address").max(255),
-  phone: z.string().trim().max(20).optional(),
-  subject: z.string().trim().min(1, "Subject is required").max(200),
-  message: z.string().trim().min(1, "Message is required").max(1000),
+  fullName: z.string().min(1, "Name is required"),
+  company: z.string().optional(),
+  email: z.string().email("Invalid email address"),
+  phone: z.string().optional(),
+  subject: z.string().min(1, "Subject is required"),
+  message: z.string().min(1, "Message is required"),
 });
 
 const ContactForm = () => {
@@ -26,7 +26,6 @@ const ContactForm = () => {
     subject: "",
     message: "",
   });
-
   const [errors, setErrors] = useState({});
 
   const handleSubmit = (e) => {
@@ -34,12 +33,10 @@ const ContactForm = () => {
     try {
       contactSchema.parse(formData);
       setErrors({});
-
       toast({
         title: "Message sent!",
         description: "We'll get back to you within 24 hours.",
       });
-
       setFormData({
         fullName: "",
         company: "",
@@ -66,7 +63,13 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <motion.div
+      className="space-y-8 mr-20"
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: false, amount: 0.3 }}
+    >
       <div>
         <h2 className="text-3xl font-bold mb-2">Send Us a Message</h2>
         <p className="text-muted-foreground">
@@ -76,85 +79,34 @@ const ContactForm = () => {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <Input
-              name="fullName"
-              placeholder="Enter your name"
-              value={formData.fullName}
-              onChange={handleChange}
-              className={errors.fullName ? "border-destructive" : ""}
-            />
-            {errors.fullName && (
-              <p className="text-destructive text-sm mt-1">{errors.fullName}</p>
-            )}
-          </div>
-          <div>
-            <Input
-              name="company"
-              placeholder="Enter your company name"
-              value={formData.company}
-              onChange={handleChange}
-            />
-          </div>
+          <Input name="fullName" placeholder="Enter your name" value={formData.fullName} onChange={handleChange} />
+          <Input name="company" placeholder="Enter your company name" value={formData.company} onChange={handleChange} />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <Input
-              name="email"
-              type="email"
-              placeholder="Enter your email"
-              value={formData.email}
-              onChange={handleChange}
-              className={errors.email ? "border-destructive" : ""}
-            />
-            {errors.email && (
-              <p className="text-destructive text-sm mt-1">{errors.email}</p>
-            )}
-          </div>
-          <div>
-            <Input
-              name="phone"
-              placeholder="Enter your phone number"
-              value={formData.phone}
-              onChange={handleChange}
-            />
-          </div>
+          <Input name="email" type="email" placeholder="Enter your email" value={formData.email} onChange={handleChange} />
+          <Input name="phone" placeholder="Enter your phone number" value={formData.phone} onChange={handleChange} />
         </div>
 
-        <div>
-          <Input
-            name="subject"
-            placeholder="Enter subject"
-            value={formData.subject}
-            onChange={handleChange}
-            className={errors.subject ? "border-destructive" : ""}
-          />
-          {errors.subject && (
-            <p className="text-destructive text-sm mt-1">{errors.subject}</p>
-          )}
-        </div>
+        <Input name="subject" placeholder="Enter subject" value={formData.subject} onChange={handleChange} />
+        <Textarea name="message" placeholder="Enter message" rows={6} value={formData.message} onChange={handleChange} />
 
-        <div>
-          <Textarea
-            name="message"
-            placeholder="Enter message"
-            value={formData.message}
-            onChange={handleChange}
-            rows={6}
-            className={errors.message ? "border-destructive" : ""}
-          />
-          {errors.message && (
-            <p className="text-destructive text-sm mt-1">{errors.message}</p>
-          )}
-        </div>
-
-        <Button type="submit" className="w-full md:w-auto" size="lg">
-          Send Message
-          <Send className="ml-2 w-4 h-4" />
-        </Button>
+        <motion.div
+          className="text-center pt-8"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          viewport={{ once: false }}
+        >
+          <button className="group relative inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-red-600 rounded-full font-medium transition-all duration-300 overflow-hidden cursor-pointer">
+            <span className="relative z-10 text-red-600 transition-colors duration-300 group-hover:text-white">
+              Send Message
+            </span>
+            <Send className="w-5 h-5 relative z-10 text-red-600 transition-all duration-300 group-hover:text-white group-hover:translate-x-1" />
+            <div className="absolute inset-0 bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+          </button>
+        </motion.div>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

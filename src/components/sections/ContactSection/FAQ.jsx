@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
@@ -7,12 +9,16 @@ import {
 import { faqs } from "@/utils";
 
 const FAQ = () => {
-
-
   return (
-    <div className="py-16">
+    <motion.section
+      className="py-20 bg-background"
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: false, amount: 0.3 }}
+    >
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold mb-4">
+        <h2 className="text-4xl font-bold mb-3">
           FREQUENTLY ASKED <span className="text-primary">QUESTIONS</span>
         </h2>
         <p className="text-muted-foreground text-lg">
@@ -28,15 +34,15 @@ const FAQ = () => {
             className="bg-card border border-border rounded-lg px-6"
           >
             <AccordionTrigger className="text-left hover:no-underline">
-              <span className="font-semibold">{faq.question}</span>
+              <span className="font-semibold text-lg">{faq.question}</span>
             </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground">
+            <AccordionContent className="text-muted-foreground text-base">
               {faq.answer}
             </AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>
-    </div>
+    </motion.section>
   );
 };
 
