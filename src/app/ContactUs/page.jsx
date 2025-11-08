@@ -3,7 +3,7 @@ import ContactInfo from "@/components/sections/ContactSection/contactInfo";
 import ContactForm from "@/components/sections/ContactSection/contactform";
 import FAQ from "@/components/sections/ContactSection/FAQ";
 import MapSection from "@/components/sections/ContactSection/mapsection";
-import Hero from "@/components/sections/ContactSection/HeroSection";
+import Hero from "@/components/sections/ContactSection/ContactHeroSection";
 
 const ContactUsPage = () => {
   return (

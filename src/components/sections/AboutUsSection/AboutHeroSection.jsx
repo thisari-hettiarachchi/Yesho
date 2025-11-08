@@ -3,16 +3,29 @@ import { motion } from "framer-motion";
 import StyledWrapper from "@/components/shared/StyledWrapper";
 import { about } from "@/assets";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
-const HeroSection = () => {
+const AboutHeroSection = () => {
   return (
     <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${about.src})` }}
-      >
-        <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 z-40 h-screen overflow-hidden">
+        <div
+          className="w-full h-full relative"
+          style={{
+            borderBottomLeftRadius: "5%",
+            borderBottomRightRadius: "5%",
+            overflow: "hidden",
+          }}
+        >
+          <Image
+            src={about}
+            alt="hero background"
+            fill
+            className="object-cover opacity-90 dark:opacity-40 z-50"
+          />
+          
+        </div>
       </div>
 
       {/* Content */}
@@ -33,8 +46,10 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-white text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-6"
           >
-            At Yesho Intelligence, we redefine excellence in garment<br/>
-            and textile mending services that meet the highest quality<br/>
+            At Yesho Intelligence, we redefine excellence in garment
+            <br />
+            and textile mending services that meet the highest quality
+            <br />
             standards through precision, passion and value.
           </motion.p>
 
@@ -57,4 +72,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default AboutHeroSection;

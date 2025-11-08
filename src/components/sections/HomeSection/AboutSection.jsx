@@ -47,7 +47,7 @@ const AboutSection = () => {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-900/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl"></div>
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl ">
         <div className="grid lg:grid-cols-2 gap-36 items-center">
           {/* Left side - Content */}
           <div>
