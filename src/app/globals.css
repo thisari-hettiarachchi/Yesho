@@ -174,3 +174,18 @@ body {
     rgba(255, 255, 255, 0.12)
   );
 }
+
+
+@keyframes rotateBorder {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Custom utility class */
+.animate-rotate-border::before {
+  animation: rotateBorder 3s linear infinite;
+}
