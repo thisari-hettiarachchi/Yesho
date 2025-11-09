@@ -90,10 +90,6 @@ const linkSections = [
       "Contact Us",
     ],
   },
-  {
-    title: "Follow Us",
-    links: ["Instagram", "Twitter", "Facebook", "YouTube"],
-  },
 ];
 
 const stats = [
