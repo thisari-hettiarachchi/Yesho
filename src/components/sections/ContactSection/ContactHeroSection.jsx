@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const ContactHeroSection = () => {
   return (
-    <section className="relative flex items-center justify-center h-[70vh] overflow-hidden rounded-b-[5%]">
+    <section className="relative flex items-center justify-center h-[100vh] overflow-hidden rounded-b-[5%]">
       {/* Background Image */}
       <Image
         src={contactbg}

@@ -7,7 +7,7 @@ import StyledWrapper from "@/components/shared/StyledWrapper";
 import { ArrowRight } from "lucide-react";
 const ServiceHeroSection = () => {
   return (
-    <section className="relative flex items-center justify-center h-[70vh] overflow-hidden rounded-b-[5%]">
+    <section className="relative flex items-center justify-center h-[100vh] overflow-hidden rounded-b-[5%]">
       {/* Background Image */}
       <Image
         src={servicebg}
