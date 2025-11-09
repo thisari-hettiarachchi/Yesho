@@ -216,8 +216,8 @@ const WhyChoose = () => {
                     <Image
                       src={feature.icon}
                       alt={feature.alt}
-                      width={80}
-                      height={80}
+                      width={100}
+                      height={100}
                       className="drop-shadow-md relative z-10"
                     />
                   </div>
