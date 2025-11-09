@@ -23,13 +23,18 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-background text-muted">
+    <footer className="relative bg-background text-muted overflow-hidden">
+      {/* Blurred Background Accents */}
+      <div className="absolute -top-10 -left-10 w-60 h-60 bg-gradient-to-tr from-red-800/30 via-red-500/20 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute -bottom-20 -right-10 w-72 h-72 bg-gradient-to-br from-blue-900/30 via-blue-500/20 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-tr from-red-900/20 via-red-600/10 to-transparent rounded-full blur-3xl pointer-events-none -translate-x-1/2 -translate-y-1/2"></div>
+
       {/* Decorative top gradient line */}
-      <div className="h-1 bg-gradient-to-r from-transparent via-primary to-transparent relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-secondary animate-pulse opacity-50"></div>
+      <div className="h-1 bg-gradient-to-r from-transparent via-red-700 to-transparent relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-red-800 via-red-500 to-blue-900 animate-pulse opacity-50"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 xl:px-20">
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-16 xl:px-20">
         {/* Main Footer Section */}
         <div className="py-12 lg:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
           {/* Company Info */}
@@ -120,10 +125,10 @@ const Footer = () => {
             href="mailto:info@yeshointelligence.com"
             className="flex items-center text-muted hover:text-primary transition-all duration-300 group"
           >
-            <div className="w-7 h-7 rounded-lg bg-surface flex items-center justify-center mr-2 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-md">
+            <div className="w-7 h-7 rounded-lg bg-surface flex items-center justify-center mr-2 group-hover:bg-primary group-hover:text-blue transition-all duration-300 shadow-sm group-hover:shadow-md">
               <Mail size={14} />
             </div>
-            <span className="group-hover:underline decoration-2 underline-offset-2">
+            <span className="">
               info@yeshoint.com
             </span>
           </a>
@@ -132,16 +137,16 @@ const Footer = () => {
             href="tel:+1234567890"
             className="flex items-center text-muted hover:text-primary transition-all duration-300 group"
           >
-            <div className="w-7 h-7 rounded-lg bg-surface flex items-center justify-center mr-2 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-md">
+            <div className="w-7 h-7 rounded-lg bg-surface flex items-center justify-center mr-2 group-hover:bg-primary group-hover:text-blue transition-all duration-300 shadow-sm group-hover:shadow-md">
               <Phone size={14} />
             </div>
-            <span className="group-hover:underline decoration-2 underline-offset-2">
+            <span className="">
               (+94) 777 - 722 - 485
             </span>
           </a>
 
           <div className="flex items-center text-muted group hover:text-primary transition-colors duration-300 cursor-default">
-            <div className="w-7 h-7 rounded-lg bg-surface flex items-center justify-center mr-2 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
+            <div className="w-7 h-7 rounded-lg bg-surface flex items-center justify-center mr-2 group-hover:bg-primary group-hover:text-blue transition-all duration-300 shadow-sm">
               <MapPin size={14} />
             </div>
             <span>207/7 Dahampasal MW, Pahala Bomiriya, Kaduwela, Sri Lanka</span>
