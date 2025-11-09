@@ -233,12 +233,6 @@ const WhyChoose = () => {
                     </p>
                   )}
 
-                  {feature.description && (
-                    <p className="text-muted text-[11px] leading-relaxed">
-                      {feature.description}
-                    </p>
-                  )}
-
                   {/* Bottom glow effect */}
                   <div className="absolute -bottom-px left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-purple-400/50 to-transparent"></div>
                 </div>
@@ -347,3 +341,34 @@ const WhyChoose = () => {
 };
 
 export default WhyChoose;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
