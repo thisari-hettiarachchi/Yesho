@@ -12,7 +12,7 @@ const ContactUsPage = () => {
       <Hero />
 
       <section className="container mb-10 relative z-70 -mt-20 w-[90%] md:w-[85%] lg:w-[80%] h-auto md:h-[600px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-card rounded-2xl shadow-lg p-6 md:p-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-contact rounded-2xl shadow-lg p-6 md:p-8">
           <ContactInfo />
           <ContactForm />
         </div>
