@@ -49,8 +49,8 @@ const KeyServicesSection = () => {
                   {/* Background decoration */}
                   <div className="absolute -inset-4 bg-gradient-to-r from-red-600/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-700" />
                   
-                  <div className="relative flex flex-col md:flex-row gap-8 md:gap-16 items-center bg-transparent rounded-3xl p-8 md:p-10 border-2 border-border/20 hover:border-red-600/40 transition-all duration-700 overflow-hidden">
-                    
+                  <div className="relative flex flex-col md:flex-row gap-8 md:gap-16 items-center bg-transparent rounded-3xl p-8 md:p-10 border-2 border-red-600/20 hover:border-red-600 hover:shadow-red-600/30 transition-all duration-700 overflow-hidden shadow-md">
+
                     {/* Animated corner accent */}
                     <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-red-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl" />
                     
