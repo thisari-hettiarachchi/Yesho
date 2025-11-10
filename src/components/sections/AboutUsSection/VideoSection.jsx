@@ -126,17 +126,21 @@ export default function VideoSection() {
   };
 
   return (
-    <section id="video-section" ref={sectionRef} className="py-16 bg-gray-50">
+    <section
+      id="video-section"
+      ref={sectionRef}
+      className="py-16 bg-background"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className={`text-center mb-8 transition-all duration-600 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground ">
             A GLIMPSE <span className="text-red-600">INTO YESHO</span>
           </h2>
-          <p className="text-gray-600 text-base mt-3 max-w-3xl mx-auto">
+          <p className="text-muted-foreground text-base mt-3 max-w-3xl mx-auto">
             Discover how our skilled professionals bring garments back to life
             through
             <br />
@@ -145,11 +149,11 @@ export default function VideoSection() {
         </div>
 
         <div
-          className={`relative max-w-4xl mx-auto transition-all duration-600 delay-300 ${
+          className={`relative max-w-4xl mx-auto transition-all duration-600 delay-300  ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="relative aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden shadow-2xl">
+          <div className="relative aspect-videorounded-lg overflow-hidden shadow-2xl rounded-2xl">
             <video
               ref={videoRef}
               className="w-full h-full object-cover"
@@ -161,21 +165,21 @@ export default function VideoSection() {
 
             {!isPlaying && (
               <div
-                className="absolute inset-0 flex items-center justify-center bg-black/30 cursor-pointer"
+                className="absolute inset-0 flex items-center justify-center bg-black/10 cursor-pointer"
                 onClick={togglePlay}
               >
-                <button className="w-20 h-20 bg-gray-700/80 rounded-full flex items-center justify-center hover:bg-gray-600/80 transition-all duration-300 hover:scale-105 active:scale-95">
-                  <Play className="w-8 h-8 text-white fill-white ml-1" />
+                <button className="w-20 h-20 bg-muted-foreground/80 rounded-full flex items-center justify-center hover:bg-muted-foreground/80 transition-all duration-300 hover:scale-105 active:scale-95">
+                  <Play className="w-8 h-8 text-muted-foreground fill-background ml-1" />
                 </button>
               </div>
             )}
           </div>
 
-          <div className="bg-white border-t border-b border-gray-200 py-3 px-4 shadow-md">
+          <div className="bg-background border-t border-b border-background py-3 px-4 shadow-md">
             <div className="flex items-center gap-3">
               <button
                 onClick={togglePlay}
-                className="text-gray-700 hover:text-red-600 transition-colors"
+                className="text-muted-foreground hover:text-red-600 transition-colors"
                 aria-label={isPlaying ? "Pause" : "Play"}
               >
                 {isPlaying ? (
@@ -187,7 +191,7 @@ export default function VideoSection() {
 
               <button
                 onClick={handleSkipBack}
-                className="text-gray-500 hover:text-red-600 transition-colors"
+                className="text-muted-foreground hover:text-red-600 transition-colors"
                 aria-label="Skip back 10 seconds"
               >
                 <SkipBack className="w-4 h-4" />
@@ -195,13 +199,13 @@ export default function VideoSection() {
 
               <button
                 onClick={handleSkipForward}
-                className="text-gray-500 hover:text-red-600 transition-colors"
+                className="text-muted-foreground hover:text-red-600 transition-colors"
                 aria-label="Skip forward 10 seconds"
               >
                 <SkipForward className="w-4 h-4" />
               </button>
 
-              <span className="text-xs text-gray-600 whitespace-nowrap">
+              <span className="text-xs text-muted-foreground whitespace-nowrap">
                 {formatTime(currentTime)} / {formatTime(duration)}
               </span>
 
@@ -212,7 +216,7 @@ export default function VideoSection() {
                   max="100"
                   value={progress}
                   onChange={handleProgressChange}
-                  className="w-full h-1 bg-gray-200 rounded-full appearance-none cursor-pointer"
+                  className="w-full h-1 bg-muted-foreground rounded-full appearance-none cursor-pointer"
                   style={{
                     background: `linear-gradient(to right, #dc2626 0%, #dc2626 ${progress}%, #e5e7eb ${progress}%, #e5e7eb 100%)`,
                   }}
@@ -221,7 +225,7 @@ export default function VideoSection() {
 
               <button
                 onClick={toggleMute}
-                className="text-gray-500 hover:text-red-600 transition-colors"
+                className="text-muted-foreground hover:text-red-600 transition-colors"
                 aria-label={volume === 0 ? "Unmute" : "Mute"}
               >
                 {volume === 0 ? (
@@ -232,7 +236,7 @@ export default function VideoSection() {
               </button>
 
               <button
-                className="text-gray-500 hover:text-red-600 transition-colors"
+                className="text-muted-foreground hover:text-red-600 transition-colors"
                 aria-label="Settings"
               >
                 <Settings className="w-4 h-4" />
