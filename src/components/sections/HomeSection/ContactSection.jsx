@@ -106,11 +106,11 @@ const ContactSection = () => {
         >
           <Link href="/contactus">
             <button className="group relative inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-red-600 rounded-full font-medium transition-all duration-300 overflow-hidden cursor-pointer">
-              <span className="relative z-10 text-red-600 dark:text-red-400 transition-colors duration-300 group-hover:text-white">
+              <span className="relative z-10 text-red-600 dark:text-red-500 transition-colors duration-300 group-hover:text-white">
                 Get In Touch
               </span>
-              <ArrowRight className="w-5 h-5 relative z-10 text-red-600 dark:text-red-400 transition-colors duration-300 group-hover:text-white group-hover:translate-x-1" />
-              <div className="absolute inset-0 bg-red-600 dark:bg-red-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              <ArrowRight className="w-5 h-5 relative z-10 text-red-600 dark:text-red-500 transition-colors duration-300 group-hover:text-white group-hover:translate-x-1" />
+              <div className="absolute inset-0 bg-red-600  scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
             </button>
           </Link>
         </motion.div>
@@ -127,7 +127,7 @@ const ContactSection = () => {
             Or reach out manually to{" "}
             <a
               href="mailto:hello@slothui.com"
-              className="text-red-500 dark:text-red-400 hover:text-red-700 dark:hover:text-red-600 transition-colors"
+              className="text-red-500 dark:text-red-500 hover:text-red-700 dark:hover:text-red-600 transition-colors"
             >
               hello@slothui.com
             </a>
