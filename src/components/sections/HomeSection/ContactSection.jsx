@@ -4,75 +4,135 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { contactDetails } from "@/utils";
+import { motion } from "framer-motion";
 
+const fadeUpVariant = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
+const floatVariant = (yRange = 10, duration = 6, delay = 0) => ({
+  animate: {
+    y: [`0%`, `${yRange}%`, `0%`],
+    x: [`0%`, `${yRange / 2}%`, `0%`],
+    transition: { duration, repeat: Infinity, ease: "easeInOut", delay },
+  },
+});
 
 const ContactSection = () => {
   return (
-    <div className="min-h-screen py-20 px-6 bg-background">
-      <div className="max-w-7xl mx-auto w-full">
+    <div className="relative min-h-screen py-20 px-6 overflow-hidden bg-background dark:bg-background-dark">
+      {/* Animated Floating Background Shapes */}
+      <motion.div
+        className="absolute w-72 h-72 bg-red-400/30 dark:bg-red-700/20 rounded-full top-0 left-10 blur-3xl pointer-events-none"
+        variants={floatVariant(15, 8, 0)}
+        animate="animate"
+      />
+      <motion.div
+        className="absolute w-96 h-96 bg-blue-400/30 dark:bg-blue-700/20 rounded-full bottom-10 right-0 blur-3xl pointer-events-none"
+        variants={floatVariant(20, 10, 2)}
+        animate="animate"
+      />
+      <motion.div
+        className="absolute w-80 h-80 bg-purple-300/20 dark:bg-purple-700/10 rounded-full top-1/3 left-1/2 -translate-x-1/2 blur-3xl pointer-events-none"
+        variants={floatVariant(12, 12, 1)}
+        animate="animate"
+      />
+      <motion.div
+        className="absolute w-40 h-40 bg-pink-300/30 dark:bg-pink-700/20 rounded-full top-2/3 left-1/4 blur-3xl pointer-events-none"
+        variants={floatVariant(18, 9, 0.5)}
+        animate="animate"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/10 dark:to-black/20 pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto w-full">
         {/* Header */}
-        <div className="mb-20 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-            Contact <span className="text-red-600">Us</span>
+        <motion.div
+          className="mb-20 text-center"
+          variants={fadeUpVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+        >
+          <h1 className="text-5xl md:text-6xl font-bold text-foreground dark:text-white mb-6">
+            Contact <span className="text-red-600 dark:text-red-400">Us</span>
           </h1>
-          <p className="text-muted text-lg max-w-2xl mx-auto">
+          <p className="text-muted dark:text-gray-300 text-lg max-w-2xl mx-auto">
             Get in touch with us for expert garment restoration services. We're
             here to help you achieve excellence.
           </p>
-        </div>
+        </motion.div>
 
         {/* Contact Cards */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {contactDetails.map((item, index) => {
             const Icon = item.icon;
             return (
-              <div key={index} className="relative group flex justify-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100" />
-                <div className="relative w-full max-w-[480px] h-[260px] flex flex-col justify-between bg-surface border border-muted rounded-2xl p-8 hover:border-red-600/50 transition-all duration-500">
+              <motion.div
+                key={index}
+                className="relative group flex justify-center"
+                variants={fadeUpVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ delay: index * 0.15 }}
+              >
+                {/* Glowing hover effect */}
+                <div className="absolute inset-0 rounded-2xl blur-2xl opacity-0 group-hover:opacity-60 transition-all duration-500 bg-gradient-to-br from-red-400/40 via-purple-400/20 to-blue-400/20 pointer-events-none" />
+                <div className="relative w-full max-w-[480px] h-[260px] flex flex-col justify-between bg-surface dark:bg-surface-dark border border-muted dark:border-muted-dark rounded-2xl p-8 hover:border-red-600/50 transition-all duration-500 shadow-md dark:shadow-lg">
                   <div>
                     <div className="w-14 h-14 bg-red-600/85 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                      <Icon className="w-7 h-7 text-foreground" />
+                      <Icon className="w-7 h-7 text-foreground dark:text-white" />
                     </div>
-                    <h3 className="text-2xl font-semibold text-foreground mb-3">
+                    <h3 className="text-2xl font-semibold text-foreground dark:text-white mb-3">
                       {item.title}
                     </h3>
-                    <p className="text-muted mb-4 text-sm">
-                      {item.description}
-                    </p>
+                    <p className="text-muted dark:text-gray-300 mb-4 text-sm">{item.description}</p>
                   </div>
                   {item.info}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
 
         {/* CTA Button */}
-        <div className="text-center pt-8">
+        <motion.div
+          className="text-center pt-8"
+          variants={fadeUpVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+        >
           <Link href="/contactus">
             <button className="group relative inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-red-600 rounded-full font-medium transition-all duration-300 overflow-hidden cursor-pointer">
-              <span className="relative z-10 text-red-600 transition-colors duration-300 group-hover:text-white">
+              <span className="relative z-10 text-red-600 dark:text-red-400 transition-colors duration-300 group-hover:text-white">
                 Get In Touch
               </span>
-              <ArrowRight className="w-5 h-5 relative z-10 text-red-600 transition-colors duration-300 group-hover:text-white group-hover:translate-x-1" />
-              <div className="absolute inset-0 bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              <ArrowRight className="w-5 h-5 relative z-10 text-red-600 dark:text-red-400 transition-colors duration-300 group-hover:text-white group-hover:translate-x-1" />
+              <div className="absolute inset-0 bg-red-600 dark:bg-red-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
             </button>
           </Link>
-        </div>
+        </motion.div>
 
         {/* Additional Info */}
-        <div className="mt-10 text-center">
-          <p className="text-muted text-sm">
+        <motion.div
+          className="mt-10 text-center"
+          variants={fadeUpVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+        >
+          <p className="text-muted dark:text-gray-300 text-sm">
             Or reach out manually to{" "}
             <a
               href="mailto:hello@slothui.com"
-              className="text-red-500 hover:text-red-700 transition-colors"
+              className="text-red-500 dark:text-red-400 hover:text-red-700 dark:hover:text-red-600 transition-colors"
             >
               hello@slothui.com
             </a>
           </p>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
