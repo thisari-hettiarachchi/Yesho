@@ -2,11 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { teams } from "@/utils"; // ✅ your actual data
+import { teams } from "@/utils"; 
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-// ✅ Team Card Component
 const TeamCard = ({
   src,
   alt,
@@ -42,7 +41,6 @@ const TeamCard = ({
   </div>
 );
 
-// ✅ Main Section Component
 const TeamInActionSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
