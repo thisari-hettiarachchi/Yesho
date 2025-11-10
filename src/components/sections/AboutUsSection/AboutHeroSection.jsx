@@ -28,14 +28,14 @@ const HeroSection = () => {
       />
       <div className="absolute inset-0 bg-black/40 dark:bg-transparent transition-all duration-500" />
       {/* Text Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center dark:opacity-60">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white/70 ">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="space-y-6"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
+          <h1 className="text-5xl md:text-6xl font-bold  mb-4">
             About Us
           </h1>
 
@@ -43,7 +43,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-white text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-6"
+            className=" text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-6"
           >
             At Yesho Intelligence, we redefine excellence in garment
             <br />
@@ -61,7 +61,7 @@ const HeroSection = () => {
             <StyledWrapper>
               <button
                 onClick={handleExploreClick}
-                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-red-600 rounded-full font-medium transition-all duration-300 overflow-hidden cursor-pointer dark:!opacity-100"
+                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-red-600 rounded-full font-medium transition-all duration-300 overflow-hidden cursor-pointer"
               >
                 <span className="relative z-10 text-red-600 transition-colors duration-300 group-hover:text-white">
                   Explore
