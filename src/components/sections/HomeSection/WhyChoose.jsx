@@ -322,7 +322,9 @@ const WhyChoose = () => {
         >
           <p className="text-muted text-lg leading-relaxed">
             At{" "}
-            <span className="text-foreground font-semibold">YESHO Intelligence</span>
+            <span className="text-foreground font-semibold">
+              YESHO Intelligence
+            </span>
             , we are partners in your journey toward excellence, helping you
             achieve long-term success through quality, compliance, and
             innovation.
