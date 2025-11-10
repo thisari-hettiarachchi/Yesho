@@ -2,48 +2,61 @@
 
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { teams } from "@/utils"; 
+import { teams } from "@/utils"; // ✅ your actual data
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion"; 
-const TeamCard = ({ src, alt, isActive = false, onHoverStart, onHoverEnd }) => (
+import { motion, AnimatePresence } from "framer-motion";
+
+// ✅ Team Card Component
+const TeamCard = ({
+  src,
+  alt,
+  name,
+  role,
+  isActive = false,
+  onHoverStart,
+  onHoverEnd,
+}) => (
   <div
     className={`bg-card rounded-2xl shadow-2xl overflow-hidden h-full ${
-      isActive ? "transform hover:scale-105" : ""
+      isActive ? "transform hover:scale-105 group" : ""
     } transition-all duration-300`}
     onMouseEnter={onHoverStart}
     onMouseLeave={onHoverEnd}
   >
     <div className="aspect-[4/3] relative">
       <Image src={src} alt={alt} fill className="object-cover" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
       {isActive && (
         <motion.div
-          className="absolute bottom-0 left-0 p-5"
+          className="absolute bottom-0 left-0 p-5 text-left"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.4 }}
         >
+          <h3 className="text-xl font-bold text-white">{name}</h3>
+          <p className="text-sm font-medium text-primary">{role}</p>
         </motion.div>
       )}
     </div>
   </div>
 );
 
+// ✅ Main Section Component
 const TeamInActionSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [direction, setDirection] = useState("next");
+
+  // Autoplay
   useEffect(() => {
     if (!isAutoPlaying) return;
-
     const interval = setInterval(() => {
       setDirection("next");
       setCurrentIndex((prev) => (prev + 1) % teams.length);
     }, 5000);
-
     return () => clearInterval(interval);
-  }, [isAutoPlaying, teams.length]);
+  }, [isAutoPlaying]);
 
   const goToPrevious = () => {
     setIsAutoPlaying(false);
@@ -62,18 +75,21 @@ const TeamInActionSection = () => {
     setDirection(index > currentIndex ? "next" : "prev");
     setCurrentIndex(index);
   };
+
+  // Resume autoplay after delay
   useEffect(() => {
     let timer = null;
     if (!isAutoPlaying) {
       timer = setTimeout(() => {
         setIsAutoPlaying(true);
-      }, 3000); 
+      }, 5000);
     }
     return () => {
       if (timer) clearTimeout(timer);
     };
   }, [currentIndex, isAutoPlaying]);
 
+  // Text animation
   const textVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -83,29 +99,45 @@ const TeamInActionSection = () => {
     },
   };
 
+  // Slide animation
   const slideVariants = {
     hidden: (direction) => ({
       opacity: 0,
       x: direction === "next" ? "100%" : "-100%",
-      scale: 0.9,
+      scale: 0.95,
     }),
     visible: {
       opacity: 1,
       x: "0%",
       scale: 1,
-      transition: { duration: 0.4, ease: "easeOut" },
+      transition: {
+        type: "spring",
+        damping: 20,
+        stiffness: 100,
+      },
     },
     exit: (direction) => ({
       opacity: 0,
       x: direction === "next" ? "-100%" : "100%",
-      scale: 0.9,
-      transition: { duration: 0.4, ease: "easeOut" },
+      scale: 0.95,
+      transition: {
+        type: "spring",
+        damping: 20,
+        stiffness: 100,
+      },
     }),
   };
 
+  // Calculate previous and next indices
+  const prevIndex = (currentIndex - 1 + teams.length) % teams.length;
+  const nextIndex = (currentIndex + 1) % teams.length;
+  const prevTeam = teams[prevIndex];
+  const currentTeam = teams[currentIndex];
+  const nextTeam = teams[nextIndex];
+
   return (
     <section className="py-16 bg-background text-center overflow-x-clip">
-      {/* Heading (unchanged) */}
+      {/* Section Title */}
       <motion.h2
         className="text-3xl md:text-4xl font-bold mb-3 text-foreground"
         initial="hidden"
@@ -126,39 +158,39 @@ const TeamInActionSection = () => {
         Watch Our Skilled Team Transform Defects Into Perfection
       </motion.p>
 
-      <div className="relative">
-        {/* Navigation Buttons (unchanged) */}
+      {/* Content Wrapper */}
+      <div className="relative max-w-7xl mx-auto">
+        {/* Navigation Buttons */}
         <button
           onClick={goToPrevious}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-card rounded-full p-3 shadow-lg hover:bg-surface transition-all duration-200 hover:scale-110 -translate-x-4 md:-translate-x-12"
+          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-card/70 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-surface transition-all duration-300 hover:scale-110"
           aria-label="Previous slide"
         >
           <ChevronLeft className="w-6 h-6 text-foreground" />
         </button>
+
         <button
           onClick={goToNext}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-card rounded-full p-3 shadow-lg hover:bg-surface transition-all duration-200 hover:scale-110 translate-x-4 md:translate-x-12"
+          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-card/70 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-surface transition-all duration-300 hover:scale-110"
           aria-label="Next slide"
         >
           <ChevronRight className="w-6 h-6 text-foreground" />
         </button>
 
-        {/* Cards container */}
+        {/* Cards */}
         <div className="relative px-4 md:px-16">
-          {/* Mobile */}
+          {/* Mobile View */}
           <div className="md:hidden">
             <div className="relative flex items-center justify-center h-[380px]">
-              {/* Previous peek */}
-              <div className="absolute left-0 w-20 h-72 -translate-x-8 opacity-40 z-0">
+              <div className="absolute left-0 w-20 h-72 -translate-x-8 opacity-40 z-0 filter blur-[2px]">
                 <Image
-                  src={teams[(currentIndex - 1 + teams.length) % teams.length]}
-                  alt="Previous"
+                  src={prevTeam.src}
+                  alt={prevTeam.alt}
                   fill
                   className="object-cover rounded-lg"
                 />
               </div>
 
-              {/* Active card*/}
               <AnimatePresence initial={false} custom={direction}>
                 <motion.div
                   key={currentIndex}
@@ -170,8 +202,10 @@ const TeamInActionSection = () => {
                   className="absolute z-10 w-[280px] mx-auto"
                 >
                   <TeamCard
-                    src={teams[currentIndex]}
-                    alt={`Team ${currentIndex + 1}`}
+                    src={currentTeam.src}
+                    alt={currentTeam.alt}
+                    name={currentTeam.name}
+                    role={currentTeam.role}
                     isActive={true}
                     onHoverStart={() => setIsAutoPlaying(false)}
                     onHoverEnd={() => setIsAutoPlaying(true)}
@@ -179,11 +213,10 @@ const TeamInActionSection = () => {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Next peek */}
-              <div className="absolute right-0 w-20 h-72 translate-x-8 opacity-40 z-0">
+              <div className="absolute right-0 w-20 h-72 translate-x-8 opacity-40 z-0 filter blur-[2px]">
                 <Image
-                  src={teams[(currentIndex + 1) % teams.length]}
-                  alt="Next"
+                  src={nextTeam.src}
+                  alt={nextTeam.alt}
                   fill
                   className="object-cover rounded-lg"
                 />
@@ -191,23 +224,19 @@ const TeamInActionSection = () => {
             </div>
           </div>
 
-          {/* Desktop */}
+          {/* Desktop View */}
           <div
             className="hidden md:flex items-center justify-center gap-6"
             style={{ perspective: "1200px" }}
           >
-            {/* Previous */}
             <div
-              className="w-72 transition-all duration-500 cursor-pointer transform-gpu opacity-50 scale-80 -rotate-y-10 hover:opacity-80 hover:scale-85"
+              className="w-72 transition-all duration-500 cursor-pointer transform-gpu opacity-50 scale-80 -rotate-y-10 hover:opacity-100 hover:scale-90 hover:!rotate-y-0 z-0"
               onClick={goToPrevious}
+              style={{ transformStyle: "preserve-3d" }}
             >
-              <TeamCard
-                src={teams[(currentIndex - 1 + teams.length) % teams.length]}
-                alt="Previous"
-              />
+              <TeamCard src={prevTeam.src} alt={prevTeam.alt} />
             </div>
 
-            {/* Active*/}
             <div className="w-[450px] h-[338px] relative">
               <AnimatePresence initial={false} custom={direction}>
                 <motion.div
@@ -220,8 +249,10 @@ const TeamInActionSection = () => {
                   className="absolute w-[450px] z-10"
                 >
                   <TeamCard
-                    src={teams[currentIndex]}
-                    alt={`Team ${currentIndex + 1}`}
+                    src={currentTeam.src}
+                    alt={currentTeam.alt}
+                    name={currentTeam.name}
+                    role={currentTeam.role}
                     isActive={true}
                     onHoverStart={() => setIsAutoPlaying(false)}
                     onHoverEnd={() => setIsAutoPlaying(true)}
@@ -230,20 +261,17 @@ const TeamInActionSection = () => {
               </AnimatePresence>
             </div>
 
-            {/* Next */}
             <div
-              className="w-72 transition-all duration-500 cursor-pointer transform-gpu opacity-50 scale-80 rotate-y-10 hover:opacity-80 hover:scale-85"
+              className="w-72 transition-all duration-500 cursor-pointer transform-gpu opacity-50 scale-80 rotate-y-10 hover:opacity-100 hover:scale-90 hover:!rotate-y-0 z-0"
               onClick={goToNext}
+              style={{ transformStyle: "preserve-3d" }}
             >
-              <TeamCard
-                src={teams[(currentIndex + 1) % teams.length]}
-                alt="Next"
-              />
+              <TeamCard src={nextTeam.src} alt={nextTeam.alt} />
             </div>
           </div>
         </div>
 
-        {/* Dots*/}
+        {/* Dots */}
         <div className="flex justify-center gap-2 mt-8">
           {teams.map((_, index) => (
             <button
@@ -252,7 +280,7 @@ const TeamInActionSection = () => {
               className={`transition-all duration-300 rounded-full ${
                 index === currentIndex
                   ? "bg-primary w-8 h-3"
-                  : "bg-muted w-3 h-3 hover:bg-muted-foreground"
+                  : "bg-muted w-3 h-3 hover:bg-primary/50"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
