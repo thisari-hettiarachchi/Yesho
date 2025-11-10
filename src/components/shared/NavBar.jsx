@@ -22,18 +22,14 @@ const NavBar = () => {
 
   // Dynamic navbar style based on scroll and theme
   const navbarStyle = {
-    background: isTop
-      ? "transparent"
-      : "var(--navbar-glass)",
+    background: isTop ? "transparent" : "var(--navbar-glass)",
     backdropFilter: isTop ? "none" : "blur(50px)",
     boxShadow: isTop ? "none" : "0 4px 30px rgba(0,0,0,0.1)",
     transition: "all 0.3s ease",
   };
 
   const linkStyle = {
-    color: isTop
-      ? "white"
-      : "var(--background)",
+    color: "white",
     transition: "color 0.3s ease, opacity 0.3s ease",
   };
 
