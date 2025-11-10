@@ -119,7 +119,7 @@ const services = [
       "We specialize in identifying and correcting color mismatches, dye stains, and shading inconsistencies that occur during production or washing. Our experts use precision color-handling methods to restore uniformity and maintain the original fabric tone, ensuring every garment meets your brand’s color standards.",
     img: img1,
     cardStyle: "top-0 left-0 w-80 md:w-[320px]",
-    textStyle: "top-10 left-[380px] md:left-[400px]",
+    textStyle: "top-10 left-[380px] md:left-[380px]",
     enterX: 150,
     exitX: -150,
   },
@@ -130,7 +130,7 @@ const services = [
       "Our review process covers every detail of garment construction — from stitching accuracy to fabric integrity. Using strict inspection criteria, we assess defects, measurements, trims, and finishing quality to guarantee that only top-grade garments move forward in the production cycle.",
     img: img2,
     cardStyle: "top-0 right-0 w-72 md:w-72",
-    textStyle: "top-10 right-[380px] md:right-[400px]",
+    textStyle: "top-25 right-[380px] md:right-[340px]",
     enterX: -150,
     exitX: 150,
   },
@@ -141,7 +141,7 @@ const services = [
       "Our skilled technicians perform precise repairs to correct holes, tears, and loose threads without altering the garment’s appearance. With years of industry experience, we restore fabrics to their original condition, reducing wastage and ensuring shippable quality for every item.",
     img: img3,
     cardStyle: "bottom-10 left-0 w-64 md:w-[300px]",
-    textStyle: "top-[180px] right-[380px] md:right-[480px]",
+    textStyle: "top-[190px] right-[380px] md:right-[540px]",
     enterX: 150,
     exitX: -150,
   },
@@ -152,7 +152,7 @@ const services = [
       "We remove stains caused by oils, dyes, rust, and chemicals using fabric-safe solutions and advanced cleaning techniques. Each garment is treated carefully to preserve texture and color while achieving spotless, ready-for-sale results.",
     img: img4,
     cardStyle: "bottom-10 right-0 w-64 md:w-[300px]",
-    textStyle: "top-[180px] right-[380px] md:right-[320px]",
+    textStyle: "top-[190px] right-[380px] md:right-[340px]",
     enterX: -150,
     exitX: 150,
   },
@@ -163,7 +163,7 @@ const services = [
       "Our QA process ensures that every garment meets industry standards and regulatory requirements. We perform thorough checks on fabric strength, stitching quality, sizing accuracy, and safety compliance. This service guarantees that your products are not only high-quality but also reliable and market-ready.",
     img: img5,
     cardStyle: "bottom-10 left-0 w-64 md:w-[300px]",
-    textStyle: "top-[180px] right-[380px] md:right-[480px]",
+    textStyle: "top-[180px] right-[380px] md:right-[540px]",
     enterX: 150,
     exitX: -150,
   },
@@ -273,7 +273,12 @@ const faqs = [
 
 const works = [beforeafter1, beforeafter2, beforeafter3, beforeafter4];
 
-const teams = [team1, team2, team3];
+const teams = [
+  { src: team1, alt: "Team working on project" },
+  { src: team2, alt: "Team collaborating in meeting" },
+  { src: team3, alt: "Team presenting final product" },
+];
+
 
 export {
   navLinks,

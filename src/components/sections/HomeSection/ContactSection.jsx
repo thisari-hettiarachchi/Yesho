@@ -55,7 +55,7 @@ const ContactSection = () => {
           viewport={{ once: false, amount: 0.2 }}
         >
           <h1 className="text-5xl md:text-6xl font-bold text-foreground dark:text-white mb-6">
-            Contact <span className="text-red-600 dark:text-red-400">Us</span>
+            Contact <span className="text-red-500">Us</span>
           </h1>
           <p className="text-muted dark:text-gray-300 text-lg max-w-2xl mx-auto">
             Get in touch with us for expert garment restoration services. We're
