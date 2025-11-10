@@ -1,9 +1,11 @@
+"use client";
 import { contactbg } from "@/assets";
 import Image from "next/image";
 
 const ContactHeroSection = () => {
+
   return (
-    <section className="relative flex items-center justify-center h-[100vh] overflow-hidden rounded-b-[5%]">
+    <section className="relative flex items-center justify-center h-[90vh] overflow-hidden rounded-b-[5%]">
       {/* Background Image */}
       <Image
         src={contactbg}
@@ -12,9 +14,10 @@ const ContactHeroSection = () => {
         className="object-cover opacity-90 dark:opacity-40"
         priority
       />
-
-      
-
+      <div
+        className="absolute inset-0 bg-black/40 dark:bg-transparent
+      transition-all duration-500"
+      />
       {/* Text Content */}
       <div className="relative z-10 text-center text-white/70 px-4">
         <h1 className="text-5xl md:text-6xl font-bold mb-4">Contact Us</h1>
@@ -29,23 +32,3 @@ const ContactHeroSection = () => {
 };
 
 export default ContactHeroSection;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

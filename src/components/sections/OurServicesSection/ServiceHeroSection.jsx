@@ -2,12 +2,10 @@
 import { servicebg } from "@/assets";
 import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
-import StyledWrapper from "@/components/shared/StyledWrapper";
-import { ArrowRight } from "lucide-react";
+
 const ServiceHeroSection = () => {
   return (
-    <section className="relative flex items-center justify-center h-[100vh] overflow-hidden rounded-b-[5%]">
+    <section className="relative flex items-center justify-center h-[90vh] overflow-hidden rounded-b-[5%]">
       {/* Background Image */}
       <Image
         src={servicebg}
@@ -17,8 +15,8 @@ const ServiceHeroSection = () => {
         priority
       />
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent" />
+      {/* Gradient Overlay - hidden in dark mode using Tailwind */}
+      <div className="absolute inset-0 bg-black/40 dark:bg-transparent transition-all duration-500" />
 
       {/* Text Content */}
       <div className="relative z-10 text-center text-white/70 px-4">
