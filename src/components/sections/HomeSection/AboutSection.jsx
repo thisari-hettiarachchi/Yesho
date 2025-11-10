@@ -42,7 +42,10 @@ const AboutSection = () => {
   const currentImages = serviceImages[selectedService];
 
   return (
-    <section ref={containerRef} className="relative py-20 overflow-hidden bg-background">
+    <section
+      ref={containerRef}
+      className="relative py-20 overflow-hidden bg-background"
+    >
       {/* Background gradient effects */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-900/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl"></div>
@@ -108,10 +111,11 @@ const AboutSection = () => {
                   >
                     {/* Main content card */}
                     <motion.div
-                      className={`relative flex items-center gap-3 p-2 rounded-xl backdrop-blur-sm overflow-hidden transition-all duration-300 ${selectedService === index
+                      className={`relative flex items-center gap-3 p-2 rounded-xl backdrop-blur-sm overflow-hidden transition-all duration-300 ${
+                        selectedService === index
                           ? "bg-slate-400/30 border border-red-500 hover:bg-slate-400/30 hover:border-red-400"
                           : "bg-slate-300/10 border border-slate-700/50 hover:bg-slate-400/30 hover:border-muted"
-                        }`}
+                      }`}
                       whileHover={{
                         scale: 1.02,
                         transition: { duration: 0.3 },
@@ -134,10 +138,11 @@ const AboutSection = () => {
                         transition={{ duration: 0.6, ease: "easeInOut" }}
                       >
                         <div
-                          className={`absolute inset-0 rounded-full blur-md transition-opacity ${selectedService === index
+                          className={`absolute inset-0 rounded-full blur-md transition-opacity ${
+                            selectedService === index
                               ? "opacity-100"
                               : "opacity-50 group-hover:opacity-100"
-                            }`}
+                          }`}
                         />
                         <div className="relative w-8 h-8 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
                           <CheckCircle2 className="w-5 h-5 text-foreground" />
@@ -147,10 +152,11 @@ const AboutSection = () => {
                       {/* Text content */}
                       <div className="flex-1 relative z-10">
                         <motion.p
-                          className={`text-sm md:text-sm lg:text-sm font-medium transition-colors duration-300 ${selectedService === index
+                          className={`text-sm md:text-sm lg:text-sm font-medium transition-colors duration-300 ${
+                            selectedService === index
                               ? "text-foreground"
                               : "text-foreground group-hover:text-muted"
-                            }`}
+                          }`}
                         >
                           {item.title}
                         </motion.p>
@@ -231,12 +237,17 @@ const AboutSection = () => {
                 ))}
               </div>
 
-              <button className="flex items-center gap-3 text-foreground hover:text-red-500 transition-colors group cursor-pointer">
-                <div className="w-8 h-8 rounded-full border-2 border-white group-hover:border-red-500 flex items-center justify-center transition-colors">
-                  <Play className="w-4 h-4 fill-current" />
+              <Link
+                href="/aboutus#video-section"
+                className="group flex items-center gap-3 text-foreground transition-colors cursor-pointer"
+              >
+                <div className="w-8 h-8 rounded-full border-2 border-foreground flex items-center justify-center transition-colors group-hover:border-red-500">
+                  <Play className="w-4 h-4 text-foregroud transition-colors group-hover:text-red-500" />
                 </div>
-                <span className="font-sm">WATCH INTRO</span>
-              </button>
+                <span className="text-sm text-foregroud transition-colors group-hover:text-red-500">
+                  WATCH INTRO
+                </span>
+              </Link>
             </motion.div>
           </div>
 
