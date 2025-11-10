@@ -49,7 +49,7 @@ const HeroSection = () => {
           />
 
           <SplitText
-            text="Redefining Quality, Restoring Trust"
+            text="Redefining Quality,Restoring Trust"
             className="mt-6 text-4xl md:text-6xl lg:text-7xl font-semibold tracking-[0.08em] text-white"
             delay={0.2}
             duration={0.7}

@@ -1,13 +1,9 @@
 "use client";
 import { servicebg } from "@/assets";
-import { useTheme } from "next-themes";
 import Image from "next/image";
 import React from "react";
+
 const ServiceHeroSection = () => {
-
-  const { theme, systemTheme } = useTheme();
-  const currentTheme = theme === "system" ? systemTheme : theme;
-
   return (
     <section className="relative flex items-center justify-center h-[90vh] overflow-hidden rounded-b-[5%]">
       {/* Background Image */}
@@ -19,12 +15,8 @@ const ServiceHeroSection = () => {
         priority
       />
 
-      {/* Gradient Overlay */}
-      {currentTheme === "dark" ? (
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent z-[10] transition-all duration-500" />
-      ) : (
-        <div className="absolute inset-0 bg-black/50 z-[10] transition-all duration-500" />
-      )}
+      {/* Gradient Overlay - hidden in dark mode using Tailwind */}
+      <div className="absolute inset-0 bg-black/40 dark:bg-transparent transition-all duration-500" />
 
       {/* Text Content */}
       <div className="relative z-10 text-center text-white/70 px-4">

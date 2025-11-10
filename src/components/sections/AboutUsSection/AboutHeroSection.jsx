@@ -4,12 +4,10 @@ import StyledWrapper from "@/components/shared/StyledWrapper";
 import { about } from "@/assets";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { useTheme } from "next-themes";
 import React from "react";
 
 const HeroSection = () => {
-  const { theme, systemTheme } = useTheme();
-  const currentTheme = theme === "system" ? systemTheme : theme;
+  
 
   const handleExploreClick = () => {
     window.scrollTo({
@@ -28,15 +26,9 @@ const HeroSection = () => {
         className="object-cover opacity-90 dark:opacity-60"
         priority
       />
-
-      {currentTheme === "dark" ? (
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent z-[10] transition-all duration-500" />
-      ) : (
-        <div className="absolute inset-0 bg-black/50 z-[10] transition-all duration-500" />
-      )}
-
+      <div className="absolute inset-0 bg-black/40 dark:bg-transparent transition-all duration-500" />
       {/* Text Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center dark:opacity-60">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -69,7 +61,7 @@ const HeroSection = () => {
             <StyledWrapper>
               <button
                 onClick={handleExploreClick}
-                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-red-600 rounded-full font-medium transition-all duration-300 overflow-hidden cursor-pointer"
+                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-red-600 rounded-full font-medium transition-all duration-300 overflow-hidden cursor-pointer dark:!opacity-100"
               >
                 <span className="relative z-10 text-red-600 transition-colors duration-300 group-hover:text-white">
                   Explore
