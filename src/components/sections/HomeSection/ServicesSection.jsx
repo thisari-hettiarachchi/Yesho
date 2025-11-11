@@ -18,6 +18,7 @@ export default function ServicesSection() {
   const textsRef = useRef([]);
   const containerRef = useRef(null);
 
+  // Heading + paragraph animations
   useEffect(() => {
     const headingSplit = new SplitText(headingRef.current, {
       type: "chars, words",
@@ -61,8 +62,9 @@ export default function ServicesSection() {
     };
   }, []);
 
+  // Card animation timeline
   useEffect(() => {
-    const totalScroll = services.length * 800;
+    const totalScroll = services.length * 1000;
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -74,109 +76,124 @@ export default function ServicesSection() {
       },
     });
 
+    const totalCards = cardsRef.current.length;
+
+    // Initial card setup
     cardsRef.current.forEach((card, i) => {
       const text = textsRef.current[i];
 
-      // Initial state - cards in 3D space with old positions
+      const offsetX = i % 2 === 0 ? -200 : 200;
+      const offsetZ = -i * 300;
+      const scale = 1 - i * 0.15;
+
       gsap.set(card, {
-        opacity: 0,
-        scale: 0.7,
-        x: services[i].enterX,
-        y: 80 + i * 40, // increased for less overlap
-        z: -1000 - i * 200,
-        rotationY: services[i].enterX > 0 ? -30 : 30,
-        rotationX: 10,
-        zIndex: 50 + i,
+        opacity: i === 0 ? 1 : 0.4,
+        scale,
+        x: offsetX,
+        y: i * 40,
+        z: offsetZ,
+        rotationY: i % 2 === 0 ? -20 : 20,
+        zIndex: totalCards - i,
       });
 
       gsap.set(text, {
-        opacity: 0,
-        scale: 0.7,
-        x: services[i].enterX,
-        y: 80 + i * 15,
-        z: -1000 - i * 200,
-        rotationY: services[i].enterX > 0 ? -30 : 30,
-        rotationX: 10,
+        opacity: i === 0 ? 1 : 0,
+        scale,
+        x: offsetX,
+        y: i * 40,
+        z: offsetZ + 100,
+        rotationY: 0,
+        zIndex: totalCards - i + 1,
       });
+    });
 
-      // Bring card to front
-      tl.set(card, { zIndex: 50 + i });
+    // Scroll animation logic
+    cardsRef.current.forEach((card, i) => {
+      const text = textsRef.current[i];
+      const startTime = i * 1.5;
 
-      // Card enters from deep 3D space to original position
+      // Move card to front
       tl.to(
-        [card, text],
+        card,
         {
-          opacity: 1,
-          scale: 1,
           x: 0,
-          y: i * 12, // slightly more space
-          z: 0,
+          y: 0,
+          z: 200,
+          scale: 1,
           rotationY: 0,
-          rotationX: 0,
-          duration: 1.5,
+          opacity: 1,
+          zIndex: 100,
+          duration: 1.2,
           ease: "power3.out",
         },
-        i * 1.8 // start next later (was 1.2)
+        startTime
       );
 
-      // Hold state with subtle 3D tilt
+      // Fade in text (delayed slightly so it shows *after* previous fades out)
       tl.to(
-        [card, text],
+        text,
         {
-          rotationY: i % 2 === 0 ? 2 : -2,
-          scale: 1.02,
-          duration: 0.5,
-          ease: "sine.inOut",
+          opacity: 1,
+          x: 0,
+          y: 0,
+          z: 300,
+          scale: 1,
+          duration: 0.6,
+          ease: "power2.out",
         },
-        i * 1.2 + 1.5
+        startTime + 0.4 // 👈 added slight delay to avoid overlap
       );
 
-      // Exit - only if not last card
-      if (i < cardsRef.current.length - 1) {
+      // Hold briefly
+      tl.to([card, text], { duration: 0.6 }, startTime + 1.2);
+
+      if (i < totalCards - 1) {
+        const exitX = i % 2 === 0 ? 200 : -200;
+        const exitZ = -(totalCards - i) * 300;
+        const exitScale = 1 - (totalCards - i) * 0.15;
+
+        // Fade out text *before* next card text comes in
         tl.to(
-          [card, text],
+          text,
           {
             opacity: 0,
-            scale: 1.1,
-            x: services[i].exitX,
-            y: services[i].exitX > 0 ? -50 - i * 12 : 50 + i * 12,
-            z: 1000,
-            rotationY: services[i].exitX > 0 ? 30 : -30,
-            rotationX: -15,
-            duration: 1.5,
-            ease: "power2.in",
+            duration: 0.5,
+            ease: "power1.inOut",
           },
-          i * 1.8 + 1.7 // make exit later so next enters after previous exits
+          startTime + 1.2 // 👈 fades out before next one appears
         );
-      } else {
-        // Last card stays visible
+
+        // Move card behind again
         tl.to(
-          [card, text],
+          card,
           {
-            scale: 1.05,
-            rotationY: 0,
-            duration: 0.8,
-            ease: "back.out(1.2)",
+            x: exitX,
+            y: (totalCards - i) * 40,
+            z: exitZ,
+            scale: exitScale,
+            rotationY: i % 2 === 0 ? 20 : -20,
+            opacity: 0.4,
+            zIndex: i,
+            duration: 1.2,
+            ease: "power2.inOut",
           },
-          i * 1.2 + 2
+          startTime + 1.6 // 👈 slightly after text fade-out
         );
       }
     });
 
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
+    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
   }, []);
 
   return (
     <div
       ref={sectionRef}
-      className="min-h-screen bg-background py-20 px-4 relative overflow-hidden"
+      className="min-h-screen py-20 px-4 relative overflow-hidden"
     >
-      {/* Background effects */}
-      <div className="absolute top-10 right-10 w-96 h-96 bg-red-900/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-10 left-10 w-96 h-96 bg-red-900/20 rounded-full blur-3xl"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-500/5 rounded-full blur-3xl"></div>
+      {/* Background gradients */}
+      <div className="absolute top-10 right-10 w-96 h-96 bg-blue-500/30 dark:bg-blue-300/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-10 left-10 w-96 h-96 bg-purple-500/30 dark:bg-purple-300/20 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-400/20 dark:bg-cyan-300/10 rounded-full blur-3xl"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center my-12">
@@ -192,7 +209,7 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        {/* 3D Container with perspective */}
+        {/* 3D stacked cards */}
         <div
           ref={containerRef}
           className="relative md:h-[450px] py-20"
@@ -202,10 +219,10 @@ export default function ServicesSection() {
             <React.Fragment key={i}>
               <div
                 ref={(el) => (cardsRef.current[i] = el)}
-                className={`absolute rounded-3xl shadow-2xl overflow-hidden ${card.cardStyle}`}
+                className={`absolute rounded-2xl shadow-2xl overflow-hidden ${card.cardStyle}`}
                 style={{ transformStyle: "preserve-3d" }}
               >
-                <div className="relative h-72">
+                <div className="relative h-64 w-96">
                   <Image
                     src={card.img}
                     alt={card.title}
@@ -220,11 +237,27 @@ export default function ServicesSection() {
                 className={`absolute text-lg font-medium max-w-sm ${card.textStyle} flex items-center justify-center`}
                 style={{ transformStyle: "preserve-3d" }}
               >
-                <div className="bg-card-foregroundbackdrop-blur-sm p-4 rounded-xl shadow-lg border border-card-foreground">
-                  <h3 className="font-bold text-xl text-center text-foreground">
-                    {card.title}
-                  </h3>
-                  <div className="w-12 h-1 bg-red-500 rounded-full mx-auto mt-2"></div>
+                <div className="relative group">
+                  {/* Animated background gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-purple-500/10 to-blue-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+
+                  {/* Main card */}
+                  <div className="relative bg-background backdrop-blur-xl p-8 rounded-2xl shadow-2xl border-2 border-red-500/75 hover:border-red-500 transition-all duration-300">
+                    <div className="space-y-4">
+                      <h3 className="font-black text-2xl text-center text-foreground tracking-tight">
+                        {card.title}
+                      </h3>
+
+                      {/* Decorative elements */}
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="h-px w-8 bg-gradient-to-r from-transparent to-red-500"></div>
+                        <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <div className="h-px w-8 bg-gradient-to-l from-transparent to-red-500"></div>
+                      </div>
+
+                      
+                    </div>
+                  </div>
                 </div>
               </div>
             </React.Fragment>
