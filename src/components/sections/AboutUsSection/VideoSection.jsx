@@ -133,17 +133,17 @@ export default function VideoSection() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`text-center mb-8 transition-all duration-600 ${
+          className={`text-center mb-6 sm:mb-8 px-4 transition-all duration-600 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground ">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
             A GLIMPSE <span className="text-red-600">INTO YESHO</span>
           </h2>
-          <p className="text-muted-foreground text-base mt-3 max-w-3xl mx-auto">
+          <p className="text-muted-foreground text-sm sm:text-base mt-3 max-w-3xl mx-auto">
             Discover how our skilled professionals bring garments back to life
             through
-            <br />
+            <br className="hidden sm:block" />
             careful mending, repairing, and stain removal techniques.
           </p>
         </div>
@@ -168,30 +168,30 @@ export default function VideoSection() {
                 className="absolute inset-0 flex items-center justify-center bg-black/10 cursor-pointer"
                 onClick={togglePlay}
               >
-                <button className="w-20 h-20 bg-muted-foreground/80 rounded-full flex items-center justify-center hover:bg-muted-foreground/80 transition-all duration-300 hover:scale-105 active:scale-95">
-                  <Play className="w-8 h-8 text-muted-foreground fill-background ml-1" />
+                <button className="w-16 h-16 sm:w-20 sm:h-20 bg-muted-foreground/80 rounded-full flex items-center justify-center hover:bg-muted-foreground/80 transition-all duration-300 hover:scale-105 active:scale-95">
+                  <Play className="w-6 h-6 sm:w-8 sm:h-8 text-muted-foreground fill-background ml-1" />
                 </button>
               </div>
             )}
           </div>
 
-          <div className="bg-background border-t border-b border-background py-3 px-4 shadow-md">
-            <div className="flex items-center gap-3">
+          <div className="bg-background border-t border-b border-background py-2 sm:py-3 px-2 sm:px-4 shadow-md">
+            <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3">
               <button
                 onClick={togglePlay}
-                className="text-muted-foreground hover:text-red-600 transition-colors"
+                className="text-muted-foreground hover:text-red-600 transition-colors p-1"
                 aria-label={isPlaying ? "Pause" : "Play"}
               >
                 {isPlaying ? (
-                  <Pause className="w-4 h-4" />
+                  <Pause className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 ) : (
-                  <Play className="w-4 h-4" />
+                  <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 )}
               </button>
 
               <button
                 onClick={handleSkipBack}
-                className="text-muted-foreground hover:text-red-600 transition-colors"
+                className="text-muted-foreground hover:text-red-600 transition-colors p-1 hidden sm:block"
                 aria-label="Skip back 10 seconds"
               >
                 <SkipBack className="w-4 h-4" />
@@ -199,17 +199,17 @@ export default function VideoSection() {
 
               <button
                 onClick={handleSkipForward}
-                className="text-muted-foreground hover:text-red-600 transition-colors"
+                className="text-muted-foreground hover:text-red-600 transition-colors p-1 hidden sm:block"
                 aria-label="Skip forward 10 seconds"
               >
                 <SkipForward className="w-4 h-4" />
               </button>
 
-              <span className="text-xs text-muted-foreground whitespace-nowrap">
+              <span className="text-[10px] sm:text-xs text-muted-foreground whitespace-nowrap">
                 {formatTime(currentTime)} / {formatTime(duration)}
               </span>
 
-              <div className="flex-1 mx-3">
+              <div className="flex-1 mx-1.5 sm:mx-2 md:mx-3">
                 <input
                   type="range"
                   min="0"
@@ -225,18 +225,18 @@ export default function VideoSection() {
 
               <button
                 onClick={toggleMute}
-                className="text-muted-foreground hover:text-red-600 transition-colors"
+                className="text-muted-foreground hover:text-red-600 transition-colors p-1"
                 aria-label={volume === 0 ? "Unmute" : "Mute"}
               >
                 {volume === 0 ? (
-                  <VolumeX className="w-4 h-4" />
+                  <VolumeX className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 ) : (
-                  <Volume2 className="w-4 h-4" />
+                  <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 )}
               </button>
 
               <button
-                className="text-muted-foreground hover:text-red-600 transition-colors"
+                className="text-muted-foreground hover:text-red-600 transition-colors p-1 hidden md:block"
                 aria-label="Settings"
               >
                 <Settings className="w-4 h-4" />

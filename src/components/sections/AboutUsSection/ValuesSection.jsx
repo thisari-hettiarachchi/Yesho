@@ -31,20 +31,20 @@ const ValueCard = ({ value, index }) => {
       ></div>
 
       {/* Inner card */}
-      <div className="relative bg-background dark:bg-gray-800 rounded-lg m-[3px] p-6 h-full hover:shadow-2xl transition-all duration-300">
+      <div className="relative bg-background dark:bg-gray-800 rounded-lg m-[3px] p-4 sm:p-5 md:p-6 h-full hover:shadow-2xl transition-all duration-300">
         {/* Number badge */}
-        <div className="absolute -top-3 -left-3 w-14 h-14 bg-red-600 text-white flex items-center justify-center rounded-lg font-bold text-xl shadow-md z-10">
+        <div className="absolute -top-3 -left-3 w-12 h-12 sm:w-14 sm:h-14 bg-red-600 text-white flex items-center justify-center rounded-lg font-bold text-lg sm:text-xl shadow-md z-10">
           {value.number}
         </div>
 
         {/* Content */}
-        <div className="pt-6">
-          <h3 className="text-xl font-bold text-foreground dark:text-white mb-2">{value.title}</h3>
-          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{value.description}</p>
+        <div className="pt-6 sm:pt-8 pr-16 sm:pr-20">
+          <h3 className="text-lg sm:text-xl font-bold text-foreground dark:text-white mb-2">{value.title}</h3>
+          <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">{value.description}</p>
         </div>
 
         {/* Icon */}
-        <div className="absolute top-2 right-6 w-20 h-20">
+        <div className="absolute top-2 right-4 sm:right-6 w-16 h-16 sm:w-20 sm:h-20">
           <Image src={value.icon} alt={value.title} fill className="object-contain" />
         </div>
       </div>
@@ -68,35 +68,25 @@ const ValuesSection = () => {
       <div className="absolute top-1/2 right-1/3 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000 dark:bg-pink-800"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Title row */}
-        <div className="grid grid-cols-3 gap-6 items-start">
-          <div className="col-span-1">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: false }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground dark:text-white">OUR</h2>
-              <h2 className="text-3xl md:text-4xl font-bold text-red-600">VALUES</h2>
-              <p className="text-muted text-sm mt-4 leading-relaxed dark:text-gray-300">
-                The principles that shape our existence, guiding us through challenges in every garment we restore.
-              </p>
-            </motion.div>
-          </div>
+        {/* Title section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: false }}
+          className="mb-8 sm:mb-10 md:mb-12"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground dark:text-white">OUR</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-red-600">VALUES</h2>
+          <p className="text-muted text-sm sm:text-base mt-4 leading-relaxed dark:text-gray-300 max-w-md">
+            The principles that shape our existence, guiding us through challenges in every garment we restore.
+          </p>
+        </motion.div>
 
-          {/* First 2 animated cards */}
-          {values.slice(0, 2).map((value, index) => (
+        {/* Responsive grid for all cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {values.map((value, index) => (
             <ValueCard key={value.id} value={value} index={index} />
-          ))}
-        </div>
-
-        {/* Second row */}
-        <div className="flex flex-wrap gap-6 mt-16 justify-center">
-          {values.slice(2).map((value, index) => (
-            <div key={value.id} className="flex-1 min-w-[250px] max-w-[390px]">
-              <ValueCard value={value} index={index + 2} />
-            </div>
           ))}
         </div>
       </div>

@@ -32,14 +32,14 @@ const VisionMissionSection = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: false }}
-          className="flex flex-col md:flex-row gap-8 md:gap-12 items-start mt-22"
+          className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-12 items-start mt-22"
         >
           {/* Left Column - Text Content */}
-          <div className="flex-1 space-y-6">
-            <h3 className="text-3xl md:text-4xl font-bold text-foreground text-left">
+          <div className="flex-1 space-y-4 sm:space-y-6">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground text-left">
               Our Vision
             </h3>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-left">
+            <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed text-left">
               To provide exceptional garment and textile mending services that
               meet the highest quality standards, fostering long-term
               partnerships with our clients and contributing to their success.
@@ -47,13 +47,13 @@ const VisionMissionSection = () => {
           </div>
 
           {/* Right Column - Images Side by Side */}
-          <div className="flex-1 flex flex-row gap-4 relative items-start">
+          <div className="flex-1 flex flex-row gap-3 sm:gap-4 relative items-start justify-center md:justify-start">
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: false }}
-              className="relative w-[200px] md:w-[240px] h-[250px] md:h-[300px] overflow-hidden"
+              className="relative w-[140px] sm:w-[180px] md:w-[200px] lg:w-[240px] h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] overflow-hidden flex-shrink-0"
             >
               <Image
                 src={img4}
@@ -67,7 +67,7 @@ const VisionMissionSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               viewport={{ once: false }}
-              className="relative w-[200px] md:w-[240px] h-[250px] md:h-[300px] overflow-hidden mt-8 md:mt-12"
+              className="relative w-[140px] sm:w-[180px] md:w-[200px] lg:w-[240px] h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] overflow-hidden mt-6 sm:mt-8 md:mt-12 flex-shrink-0"
             >
               <Image
                 src={img1}
@@ -84,19 +84,19 @@ const VisionMissionSection = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: false }}
-          className="flex flex-col md:flex-row gap-8 md:gap-12 items-start mt-20"
+          className="flex flex-col md:flex-row-reverse gap-6 sm:gap-8 md:gap-12 items-start mt-16 sm:mt-20"
         >
-          <div className="flex-1 flex flex-row gap-4 relative items-start">
+          <div className="flex-1 flex flex-row gap-3 sm:gap-4 relative items-start justify-center md:justify-start">
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: false }}
-              className="relative w-[200px] md:w-[240px] h-[250px] md:h-[300px] overflow-hidden"
+              className="relative w-[140px] sm:w-[180px] md:w-[200px] lg:w-[240px] h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] overflow-hidden flex-shrink-0"
             >
               <Image
                 src={img4}
-                alt="Vision 1"
+                alt="Mission 1"
                 fill
                 className="object-cover rounded-2xl"
               />
@@ -106,21 +106,21 @@ const VisionMissionSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               viewport={{ once: false }}
-              className="relative w-[200px] md:w-[240px] h-[250px] md:h-[300px] overflow-hidden mt-8 md:mt-12"
+              className="relative w-[140px] sm:w-[180px] md:w-[200px] lg:w-[240px] h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] overflow-hidden mt-6 sm:mt-8 md:mt-12 flex-shrink-0"
             >
               <Image
                 src={img1}
-                alt="Vision 2"
+                alt="Mission 2"
                 fill
                 className="object-cover rounded-2xl"
               />
             </motion.div>
           </div>
-          <div className="flex-1 space-y-6">
-            <h3 className="text-3xl md:text-4xl font-bold text-foreground text-left">
+          <div className="flex-1 space-y-4 sm:space-y-6">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground text-left">
               Our Mission
             </h3>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-left">
+            <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed text-left">
               To be the leading provider of innovative and high-quality garment
               and textile mending solutions in Sri Lanka and beyond, setting the
               standard for excellence through expertise, technology, and trust.
