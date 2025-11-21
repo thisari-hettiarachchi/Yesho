@@ -40,7 +40,7 @@ const navLinks = [
   {
     id: "contactus",
     title: "Contact Us",
-    path: "/ContactUs",
+    path: "/contactus",
   },
 ];
 
