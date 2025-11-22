@@ -120,15 +120,15 @@ const Footer = () => {
         </div>
 
         {/* Contact Info */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs pt-4">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 sm:gap-4 text-xs pt-4">
           <a
             href="mailto:info@yeshointelligence.com"
             className="flex items-center text-muted hover:text-primary transition-all duration-300 group"
           >
-            <div className="w-7 h-7 rounded-lg bg-surface flex items-center justify-center mr-2 group-hover:bg-primary group-hover:text-blue transition-all duration-300 shadow-sm group-hover:shadow-md">
-              <Mail size={14} />
+            <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-surface flex items-center justify-center mr-2 group-hover:bg-primary group-hover:text-blue transition-all duration-300 shadow-sm group-hover:shadow-md">
+              <Mail size={12} className="sm:w-3.5 sm:h-3.5" />
             </div>
-            <span className="">
+            <span className="break-all">
               info@yeshoint.com
             </span>
           </a>
@@ -137,19 +137,19 @@ const Footer = () => {
             href="tel:+1234567890"
             className="flex items-center text-muted hover:text-primary transition-all duration-300 group"
           >
-            <div className="w-7 h-7 rounded-lg bg-surface flex items-center justify-center mr-2 group-hover:bg-primary group-hover:text-blue transition-all duration-300 shadow-sm group-hover:shadow-md">
-              <Phone size={14} />
+            <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-surface flex items-center justify-center mr-2 group-hover:bg-primary group-hover:text-blue transition-all duration-300 shadow-sm group-hover:shadow-md">
+              <Phone size={12} className="sm:w-3.5 sm:h-3.5" />
             </div>
-            <span className="">
+            <span className="whitespace-nowrap">
               (+94) 777 - 722 - 485
             </span>
           </a>
 
-          <div className="flex items-center text-muted group hover:text-primary transition-colors duration-300 cursor-default">
-            <div className="w-7 h-7 rounded-lg bg-surface flex items-center justify-center mr-2 group-hover:bg-primary group-hover:text-blue transition-all duration-300 shadow-sm">
-              <MapPin size={14} />
+          <div className="flex items-start sm:items-center text-muted group hover:text-primary transition-colors duration-300 cursor-default">
+            <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-surface flex items-center justify-center mr-2 mt-0.5 sm:mt-0 group-hover:bg-primary group-hover:text-blue transition-all duration-300 shadow-sm flex-shrink-0">
+              <MapPin size={12} className="sm:w-3.5 sm:h-3.5" />
             </div>
-            <span>207/7 Dahampasal MW, Pahala Bomiriya, Kaduwela, Sri Lanka</span>
+            <span className="text-[10px] sm:text-xs">207/7 Dahampasal MW, Pahala Bomiriya, Kaduwela, Sri Lanka</span>
           </div>
         </div>
 

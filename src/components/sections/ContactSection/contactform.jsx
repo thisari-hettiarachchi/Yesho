@@ -64,15 +64,15 @@ const ContactForm = () => {
 
   return (
     <motion.div
-      className="space-y-8 mr-20"
+      className="space-y-6 sm:space-y-8 mr-0 sm:mr-4 md:mr-10 lg:mr-20"
       initial={{ opacity: 0, y: 80 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: false, amount: 0.3 }}
     >
       <div>
-        <h2 className="text-3xl font-bold mb-2">Send Us a Message</h2>
-        <p className="text-muted-foreground">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-2">Send Us a Message</h2>
+        <p className="text-muted-foreground text-sm sm:text-base">
           Fill out the form below and we'll get back to you within 24 hours.
         </p>
       </div>
@@ -131,16 +131,16 @@ const ContactForm = () => {
         />
 
         <motion.div
-          className="text-center pt-8"
+          className="text-center pt-6 sm:pt-8"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
           viewport={{ once: false }}
         >
-          <button className="group relative inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-red-600 rounded-full font-medium transition-all duration-300 overflow-hidden cursor-pointer">
+          <button className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-red-600 rounded-full text-sm sm:text-base font-medium transition-all duration-300 overflow-hidden cursor-pointer">
             <span className="relative z-10 text-red-600 transition-colors duration-300 group-hover:text-white">
               Send Message
             </span>
-            <Send className="w-5 h-5 relative z-10 text-red-600 transition-all duration-300 group-hover:text-white group-hover:translate-x-1" />
+            <Send className="w-4 h-4 sm:w-5 sm:h-5 relative z-10 text-red-600 transition-all duration-300 group-hover:text-white group-hover:translate-x-1" />
             <div className="absolute inset-0 bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
           </button>
         </motion.div>
