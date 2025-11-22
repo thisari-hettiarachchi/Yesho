@@ -62,8 +62,9 @@ const ValueCard = ({ value, index }) => {
 
 const ValuesSection = () => {
   return (
-    <section className="relative py-16 bg-gradient-to-br from-red-50 via-red-100 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
+    <section className="relative py-16 bg-background overflow-hidden">
       {/* Floating shapes */}
+      <div className="absolute top-0 left-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-red-900/20 rounded-full blur-3xl"></div>
       <div className="absolute top-0 left-1/4 w-72 h-72 bg-red-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob dark:bg-red-700"></div>
       <div className="absolute top-1/2 right-1/3 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000 dark:bg-pink-800"></div>
 

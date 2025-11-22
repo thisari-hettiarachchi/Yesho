@@ -7,8 +7,12 @@ import { services } from "@/utils";
 const KeyServicesSection = () => {
 
   return (
-    <section className="py-12 sm:py-16 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="relative py-12 sm:py-16 bg-background overflow-hidden">
+      <div className="absolute top-0 left-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-red-900/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-purple-900/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/2 left-0 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 bg-blue-900/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 right-0 w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 bg-cyan-900/10 rounded-full blur-3xl"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
