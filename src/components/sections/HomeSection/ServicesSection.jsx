@@ -188,7 +188,7 @@ export default function ServicesSection() {
   return (
     <div
       ref={sectionRef}
-      className="min-h-screen py-20 px-4 relative overflow-hidden"
+      className="min-h-screen py-12 sm:py-16 md:py-20 px-4 sm:px-6 relative overflow-hidden"
     >
       {/* Background gradients */}
       <div className="absolute top-10 right-10 w-96 h-96 bg-blue-500/30 dark:bg-blue-300/20 rounded-full blur-3xl"></div>
@@ -196,14 +196,14 @@ export default function ServicesSection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-400/20 dark:bg-cyan-300/10 rounded-full blur-3xl"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center my-12">
+        <div className="text-center my-8 sm:my-10 md:my-12 px-4">
           <h2
             ref={headingRef}
-            className="text-4xl md:text-5xl font-bold text-foreground mb-3"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2 sm:mb-3"
           >
             KEY SERVICES <span className="text-red-500">WE OFFER</span>
           </h2>
-          <p ref={paragraphRef} className="text-muted text-lg md:text-xl">
+          <p ref={paragraphRef} className="text-muted text-sm sm:text-base md:text-lg lg:text-xl">
             Discover our comprehensive range of solutions designed to elevate
             your experience
           </p>
@@ -212,7 +212,7 @@ export default function ServicesSection() {
         {/* 3D stacked cards */}
         <div
           ref={containerRef}
-          className="relative md:h-[450px] py-20"
+          className="relative h-[300px] sm:h-[350px] md:h-[450px] py-10 sm:py-16 md:py-20"
           style={{ perspective: "2000px", perspectiveOrigin: "center center" }}
         >
           {services.map((card, i) => (
@@ -222,7 +222,7 @@ export default function ServicesSection() {
                 className={`absolute rounded-2xl shadow-2xl overflow-hidden ${card.cardStyle}`}
                 style={{ transformStyle: "preserve-3d" }}
               >
-                <div className="relative h-64 w-96">
+                <div className="relative h-48 w-72 sm:h-56 sm:w-80 md:h-64 md:w-96">
                   <Image
                     src={card.img}
                     alt={card.title}
@@ -234,7 +234,7 @@ export default function ServicesSection() {
 
               <div
                 ref={(el) => (textsRef.current[i] = el)}
-                className={`absolute text-lg font-medium max-w-sm ${card.textStyle} flex items-center justify-center`}
+                className={`absolute text-base sm:text-lg font-medium max-w-xs sm:max-w-sm ${card.textStyle} flex items-center justify-center`}
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <div className="relative group">
@@ -242,9 +242,9 @@ export default function ServicesSection() {
                   <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-purple-500/10 to-blue-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
 
                   {/* Main card */}
-                  <div className="relative bg-background backdrop-blur-xl p-8 rounded-2xl shadow-2xl border-2 border-red-500/75 hover:border-red-500 transition-all duration-300">
-                    <div className="space-y-4">
-                      <h3 className="font-black text-2xl text-center text-foreground tracking-tight">
+                  <div className="relative bg-background backdrop-blur-xl p-4 sm:p-6 md:p-8 rounded-2xl shadow-2xl border-2 border-red-500/75 hover:border-red-500 transition-all duration-300">
+                    <div className="space-y-2 sm:space-y-4">
+                      <h3 className="font-black text-lg sm:text-xl md:text-2xl text-center text-foreground tracking-tight">
                         {card.title}
                       </h3>
 
@@ -264,15 +264,15 @@ export default function ServicesSection() {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-10 sm:mt-12 md:mt-16 text-center px-4">
           <Link
             href="/ourservices"
-            className="inline-flex items-center gap-2 px-8 py-4 border-2 border-red-500 text-red-500 rounded-full font-semibold hover:bg-red-500 hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-red-500/30 group"
+            className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 border-2 border-red-500 text-red-500 rounded-full text-sm sm:text-base font-semibold hover:bg-red-500 hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-red-500/30 group"
           >
             View More
             <ArrowRight
-              size={20}
-              className="transition-transform group-hover:translate-x-1"
+              size={18}
+              className="sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1"
             />
           </Link>
         </div>

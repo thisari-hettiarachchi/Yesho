@@ -134,10 +134,10 @@ const TeamInActionSection = () => {
   const nextTeam = teams[nextIndex];
 
   return (
-    <section className="py-16 bg-background text-center overflow-x-clip">
+    <section className="py-12 sm:py-16 bg-background text-center overflow-x-clip">
       {/* Section Title */}
       <motion.h2
-        className="text-3xl md:text-4xl font-bold mb-3 text-foreground"
+        className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-foreground px-4"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
@@ -147,7 +147,7 @@ const TeamInActionSection = () => {
       </motion.h2>
 
       <motion.p
-        className="text-muted mb-10 text-lg"
+        className="text-muted mb-6 sm:mb-8 md:mb-10 text-sm sm:text-base md:text-lg px-4"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
@@ -161,26 +161,26 @@ const TeamInActionSection = () => {
         {/* Navigation Buttons */}
         <button
           onClick={goToPrevious}
-          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-card/70 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-surface transition-all duration-300 hover:scale-110"
+          className="absolute left-1 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-card/70 backdrop-blur-sm rounded-full p-2 sm:p-3 shadow-lg hover:bg-surface transition-all duration-300 hover:scale-110"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="w-6 h-6 text-foreground" />
+          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
         </button>
 
         <button
           onClick={goToNext}
-          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-card/70 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-surface transition-all duration-300 hover:scale-110"
+          className="absolute right-1 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-card/70 backdrop-blur-sm rounded-full p-2 sm:p-3 shadow-lg hover:bg-surface transition-all duration-300 hover:scale-110"
           aria-label="Next slide"
         >
-          <ChevronRight className="w-6 h-6 text-foreground" />
+          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
         </button>
 
         {/* Cards */}
         <div className="relative px-4 md:px-16">
           {/* Mobile View */}
           <div className="md:hidden">
-            <div className="relative flex items-center justify-center h-[380px]">
-              <div className="absolute left-0 w-20 h-72 -translate-x-8 opacity-40 z-0 filter blur-[2px]">
+            <div className="relative flex items-center justify-center h-[300px] sm:h-[350px]">
+              <div className="absolute left-0 w-16 h-56 sm:h-64 -translate-x-6 sm:-translate-x-8 opacity-40 z-0 filter blur-[2px]">
                 <Image
                   src={prevTeam.src}
                   alt={prevTeam.alt}
@@ -197,7 +197,7 @@ const TeamInActionSection = () => {
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  className="absolute z-10 w-[280px] mx-auto"
+                  className="absolute z-10 w-[240px] sm:w-[280px] mx-auto"
                 >
                   <TeamCard
                     src={currentTeam.src}
@@ -211,7 +211,7 @@ const TeamInActionSection = () => {
                 </motion.div>
               </AnimatePresence>
 
-              <div className="absolute right-0 w-20 h-72 translate-x-8 opacity-40 z-0 filter blur-[2px]">
+              <div className="absolute right-0 w-16 h-56 sm:h-64 translate-x-6 sm:translate-x-8 opacity-40 z-0 filter blur-[2px]">
                 <Image
                   src={nextTeam.src}
                   alt={nextTeam.alt}
@@ -270,15 +270,15 @@ const TeamInActionSection = () => {
         </div>
 
         {/* Dots */}
-        <div className="flex justify-center gap-2 mt-8">
+        <div className="flex justify-center gap-2 mt-6 sm:mt-8">
           {teams.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
               className={`transition-all duration-300 rounded-full ${
                 index === currentIndex
-                  ? "bg-primary w-8 h-3"
-                  : "bg-muted w-3 h-3 hover:bg-primary/50"
+                  ? "bg-primary w-6 sm:w-8 h-2 sm:h-3"
+                  : "bg-muted w-2 sm:w-3 h-2 sm:h-3 hover:bg-primary/50"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />

@@ -175,8 +175,8 @@ export default function VideoSection() {
             )}
           </div>
 
-          <div className="bg-background border-t border-b border-background py-2 sm:py-3 px-2 sm:px-4 shadow-md">
-            <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3">
+          <div className="bg-background border-t border-b border-background py-2 sm:py-3 px-2 sm:px-3 md:px-4 shadow-md">
+            <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 lg:gap-3">
               <button
                 onClick={togglePlay}
                 className="text-muted-foreground hover:text-red-600 transition-colors p-1"
@@ -205,11 +205,11 @@ export default function VideoSection() {
                 <SkipForward className="w-4 h-4" />
               </button>
 
-              <span className="text-[10px] sm:text-xs text-muted-foreground whitespace-nowrap">
+              <span className="text-[9px] xs:text-[10px] sm:text-xs text-muted-foreground whitespace-nowrap">
                 {formatTime(currentTime)} / {formatTime(duration)}
               </span>
 
-              <div className="flex-1 mx-1.5 sm:mx-2 md:mx-3">
+              <div className="flex-1 mx-1 sm:mx-1.5 md:mx-2 lg:mx-3">
                 <input
                   type="range"
                   min="0"

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const MapSection = () => {
   return (
     <motion.div
-      className="w-full h-[400px] bg-muted rounded-lg overflow-hidden"
+      className="w-full h-[300px] sm:h-[350px] md:h-[400px] bg-muted rounded-lg overflow-hidden"
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8 }}

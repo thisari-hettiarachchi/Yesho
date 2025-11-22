@@ -158,7 +158,7 @@ const WhyChoose = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden pb-20 py-20 bg-background"
+      className="relative overflow-hidden pb-12 sm:pb-16 md:pb-20 py-12 sm:py-16 md:py-20 bg-background"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -171,14 +171,14 @@ const WhyChoose = () => {
         <div className="text-center mt-16">
           <h2
             ref={headingRef}
-            className="text-4xl md:text-5xl font-bold text-foreground mb-3"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2 sm:mb-3 px-4"
           >
             Why Choose <span className="text-red-500">YESHO</span>
           </h2>
 
           <p
             ref={paragraphRef}
-            className="text-muted text-base max-w-xl mx-auto mt-6"
+            className="text-muted text-sm sm:text-base max-w-xl mx-auto mt-4 sm:mt-6 px-4"
           >
             Excellence in{" "}
             <span className="text-foreground font-semibold">quality</span>,{" "}
@@ -188,20 +188,21 @@ const WhyChoose = () => {
         </div>
 
         {/* Feature Cards with Connecting Lines */}
-        <div className="relative max-w-7xl mx-auto mt-20">
+        <div className="relative max-w-7xl mx-auto mt-12 sm:mt-16 md:mt-20 px-4 sm:px-6">
           {/* Cards Container */}
-          <div className="flex gap-x-0 gap-y-10 justify-center items-start">
+          <div className="flex flex-col md:flex-row gap-x-0 gap-y-8 md:gap-y-10 justify-center items-start">
             {features.map((feature, index) => (
               <React.Fragment key={index}>
                 {/* Card */}
                 <div
                   ref={(el) => (cardsRef.current[index] = el)}
-                  className="group relative flex flex-col items-center text-center backdrop-blur-xl rounded-2xl px-6 py-8 shadow-2xl border-2 border-blue-500/80 hover:border-blue-400/80 hover:shadow-blue-500/40 transform hover:scale-105 transition-all duration-300 w-72 bg-surface"
+                  className={`group relative flex flex-col items-center text-center backdrop-blur-xl rounded-2xl px-4 py-6 sm:px-6 sm:py-8 shadow-2xl border-2 border-blue-500/80 hover:border-blue-400/80 hover:shadow-blue-500/40 transform hover:scale-105 transition-all duration-300 w-full sm:w-64 md:w-72 bg-surface ${
+                    index % 2 !== 0 ? "md:mt-20" : ""
+                  }`}
                   style={{
                     boxShadow:
                       "0 10px 40px 0 rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
                     zIndex: 10,
-                    marginTop: index % 2 === 0 ? "0" : "80px",
                   }}
                 >
                   {/* Top glow effect */}
@@ -211,14 +212,14 @@ const WhyChoose = () => {
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/0 via-purple-500/0 to-blue-500/0 group-hover:from-blue-500/10 group-hover:via-purple-500/10 group-hover:to-blue-500/10 transition-all duration-500"></div>
 
                   {/* Icon container */}
-                  <div className="relative flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-blue-500/30 to-purple-500/30 mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 border border-blue-400/40 shadow-lg shadow-blue-500/20">
+                  <div className="relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-blue-500/30 to-purple-500/30 mb-4 sm:mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 border border-blue-400/40 shadow-lg shadow-blue-500/20">
                     <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400/20 to-transparent blur-md"></div>
                     <Image
                       src={feature.icon}
                       alt={feature.alt}
                       width={100}
                       height={100}
-                      className="drop-shadow-md relative z-10"
+                      className="drop-shadow-md relative z-10 w-12 h-12 sm:w-16 sm:h-16"
                     />
                   </div>
 
@@ -237,11 +238,11 @@ const WhyChoose = () => {
                   <div className="absolute -bottom-px left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-purple-400/50 to-transparent"></div>
                 </div>
 
-                {/* Connecting Line (between cards) */}
+                {/* Connecting Line (between cards) - hidden on mobile */}
                 {index < features.length - 1 && (
                   <div
                     ref={(el) => (linesRef.current[index] = el)}
-                    className="relative"
+                    className="hidden md:block relative"
                     style={{
                       width: "100px",
                       height: "200px",
@@ -318,9 +319,9 @@ const WhyChoose = () => {
         {/* Extended Paragraph */}
         <div
           ref={extendedParaRef}
-          className="mt-12 max-w-4xl mx-auto text-center space-y-4"
+          className="mt-8 sm:mt-10 md:mt-12 max-w-4xl mx-auto text-center space-y-3 sm:space-y-4 px-4 sm:px-6"
         >
-          <p className="text-muted text-lg leading-relaxed">
+          <p className="text-muted text-sm sm:text-base md:text-lg leading-relaxed">
             At{" "}
             <span className="text-foreground font-semibold">
               YESHO Intelligence
@@ -329,7 +330,7 @@ const WhyChoose = () => {
             achieve long-term success through quality, compliance, and
             innovation.
           </p>
-          <p className="text-muted text-lg leading-relaxed">
+          <p className="text-muted text-sm sm:text-base md:text-lg leading-relaxed">
             We ensure every garment exceeds industry standards, building your
             reputation for{" "}
             <span className="text-red-500 font-semibold">trust</span>,{" "}

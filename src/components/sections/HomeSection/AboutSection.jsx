@@ -56,13 +56,13 @@ const AboutSection = () => {
           <div>
             <h2
               ref={headingRef}
-              className="text-4xl md:text-5xl font-bold text-foreground"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground"
             >
               WHO <span className="text-red-500">WE ARE</span>
             </h2>
 
             <motion.p
-              className="text-muted text-sm leading-relaxed mt-8"
+              className="text-muted text-xs sm:text-sm leading-relaxed mt-6 sm:mt-8"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -198,7 +198,7 @@ const AboutSection = () => {
 
             {/* Stats */}
             <motion.div
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16"
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mt-12 sm:mt-16"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -206,27 +206,27 @@ const AboutSection = () => {
             >
               {stats.map((stat, idx) => (
                 <div key={idx}>
-                  <h3 className="text-3xl md:text-3xl font-bold text-foreground mb-2">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-1 sm:mb-2">
                     {stat.number}
                   </h3>
-                  <p className="text-muted text-sm">{stat.label}</p>
+                  <p className="text-muted text-xs sm:text-sm">{stat.label}</p>
                 </div>
               ))}
             </motion.div>
 
             {/* Team & Watch Intro */}
             <motion.div
-              className="flex items-center gap-6 mt-8"
+              className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mt-6 sm:mt-8"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: false }}
             >
-              <div className="flex -space-x-4">
+              <div className="flex -space-x-3 sm:-space-x-4">
                 {teamMembers.map((member, idx) => (
                   <div
                     key={idx}
-                    className="w-12 h-12 rounded-full border-2 border-black overflow-hidden"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-black overflow-hidden"
                   >
                     <img
                       src={member.img}
@@ -239,12 +239,12 @@ const AboutSection = () => {
 
               <Link
                 href="/aboutus#video-section"
-                className="group flex items-center gap-3 text-foreground transition-colors cursor-pointer"
+                className="group flex items-center gap-2 sm:gap-3 text-foreground transition-colors cursor-pointer"
               >
-                <div className="w-8 h-8 rounded-full border-2 border-foreground flex items-center justify-center transition-colors group-hover:border-red-500">
-                  <Play className="w-4 h-4 text-foregroud transition-colors group-hover:text-red-500" />
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-foreground flex items-center justify-center transition-colors group-hover:border-red-500">
+                  <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-foreground transition-colors group-hover:text-red-500" />
                 </div>
-                <span className="text-sm text-foregroud transition-colors group-hover:text-red-500">
+                <span className="text-xs sm:text-sm text-foreground transition-colors group-hover:text-red-500">
                   WATCH INTRO
                 </span>
               </Link>
@@ -258,7 +258,7 @@ const AboutSection = () => {
                 {/* Main large image */}
                 <motion.div
                   key={`main-${selectedService}`}
-                  className="relative rounded-2xl overflow-hidden mb-6 w-full h-96"
+                  className="relative rounded-2xl overflow-hidden mb-6 w-full h-64 sm:h-80 md:h-96"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
@@ -272,12 +272,12 @@ const AboutSection = () => {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Top right cards */}
-              <motion.div className="absolute -top-6 -right-6 grid grid-cols-2 gap-4">
+              {/* Top right cards - hidden on mobile */}
+              <motion.div className="hidden md:grid absolute -top-6 -right-6 grid-cols-2 gap-4">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={`top1-${selectedService}`}
-                    className="relative rounded-xl w-36 h-36 overflow-hidden"
+                    className="relative rounded-xl w-28 h-28 lg:w-36 lg:h-36 overflow-hidden"
                     initial={{ opacity: 0, x: 20, rotate: -5 }}
                     animate={{ opacity: 1, x: 0, rotate: 0 }}
                     exit={{ opacity: 0, x: -20, rotate: 5 }}
@@ -288,11 +288,11 @@ const AboutSection = () => {
                       alt="Detail 1"
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute top-3 left-3 flex gap-2 flex-wrap">
+                    <div className="absolute top-2 left-2 lg:top-3 lg:left-3 flex gap-1 lg:gap-2 flex-wrap">
                       {currentImages.tags1.map((tag, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1 bg-black/70 backdrop-blur-sm rounded-full text-white text-xs"
+                          className="px-2 py-0.5 lg:px-3 lg:py-1 bg-black/70 backdrop-blur-sm rounded-full text-white text-[10px] lg:text-xs"
                         >
                           {tag}
                         </span>
@@ -304,7 +304,7 @@ const AboutSection = () => {
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={`top2-${selectedService}`}
-                    className="relative rounded-xl overflow-hidden w-36 h-36"
+                    className="relative rounded-xl overflow-hidden w-28 h-28 lg:w-36 lg:h-36"
                     initial={{ opacity: 0, x: 20, rotate: 5 }}
                     animate={{ opacity: 1, x: 0, rotate: 0 }}
                     exit={{ opacity: 0, x: -20, rotate: -5 }}
@@ -315,11 +315,11 @@ const AboutSection = () => {
                       alt="Detail 2"
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute top-3 left-3 flex gap-2 flex-wrap">
+                    <div className="absolute top-2 left-2 lg:top-3 lg:left-3 flex gap-1 lg:gap-2 flex-wrap">
                       {currentImages.tags2.map((tag, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1 bg-black/70 backdrop-blur-sm rounded-full text-white text-xs"
+                          className="px-2 py-0.5 lg:px-3 lg:py-1 bg-black/70 backdrop-blur-sm rounded-full text-white text-[10px] lg:text-xs"
                         >
                           {tag}
                         </span>
@@ -329,9 +329,9 @@ const AboutSection = () => {
                 </AnimatePresence>
               </motion.div>
 
-              {/* Decorative element */}
+              {/* Decorative element - hidden on mobile */}
               <motion.div
-                className="absolute top-1/4 -left-8 w-24 h-24"
+                className="hidden md:block absolute top-1/4 -left-8 w-16 h-16 lg:w-24 lg:h-24"
                 animate={{
                   rotate: [0, 360],
                   scale: [1, 1.1, 1],
