@@ -86,6 +86,16 @@ const VisionMissionSection = () => {
           viewport={{ once: false }}
           className="flex flex-col md:flex-row-reverse gap-6 sm:gap-8 md:gap-12 items-start mt-16 sm:mt-20"
         >
+          <div className="flex-1 space-y-4 sm:space-y-6">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground text-left">
+              Our Mission
+            </h3>
+            <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed text-left">
+              To be the leading provider of innovative and high-quality garment
+              and textile mending solutions in Sri Lanka and beyond, setting the
+              standard for excellence through expertise, technology, and trust.
+            </p>
+          </div>
           <div className="flex-1 flex flex-row gap-3 sm:gap-4 relative items-start justify-center md:justify-start">
             <motion.div
               initial={{ opacity: 0, x: 50 }}
@@ -110,21 +120,11 @@ const VisionMissionSection = () => {
             >
               <Image
                 src={img1}
-                alt="Mission 2"
+                alt="Vision 2"
                 fill
                 className="object-cover rounded-2xl"
               />
             </motion.div>
-          </div>
-          <div className="flex-1 space-y-4 sm:space-y-6">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground text-left">
-              Our Mission
-            </h3>
-            <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed text-left">
-              To be the leading provider of innovative and high-quality garment
-              and textile mending solutions in Sri Lanka and beyond, setting the
-              standard for excellence through expertise, technology, and trust.
-            </p>
           </div>
         </motion.div>
       </div>
