@@ -129,9 +129,12 @@ export default function VideoSection() {
     <section
       id="video-section"
       ref={sectionRef}
-      className="py-16 bg-background"
+      className="relative py-16 bg-background overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="absolute top-0 left-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-red-900/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-purple-900/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/2 right-0 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 bg-pink-900/10 rounded-full blur-3xl"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div
           className={`text-center mb-6 sm:mb-8 px-4 transition-all duration-600 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
